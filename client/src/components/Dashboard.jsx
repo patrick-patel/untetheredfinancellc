@@ -12,7 +12,7 @@ const Dashboard = ({ price, totalBTC, distributions }) => (
         <Col>
           <Card style={{background: "rgba(255,153,0,0.2)"}}>
             <p className="lead">Total Distributions (BTC)</p>
-            <p className="lead">{BTC}</p>
+            <p className="lead">{totalBTC}</p>
           </Card>
         </Col>
         <Col>
@@ -24,7 +24,7 @@ const Dashboard = ({ price, totalBTC, distributions }) => (
         <Col>
           <Card style={{background: "rgba(255,153,0,0.2)"}}>
             <p className="lead">Total Distributions (USD)</p>
-            <p className="lead">{BTC*Number(price)}</p>
+            <p className="lead">{totalBTC*Number(price)}</p>
           </Card>
         </Col>
       </Row>

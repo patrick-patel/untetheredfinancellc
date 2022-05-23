@@ -3,10 +3,10 @@ const mongoose = require("mongoose");
 const User = require('../../database/index.js').User;
 
 /* --------REMOVE-------*/
-const config = require('../../config.js');
+// const config = require('../../config.js');
+// const secretOrKey = config.secretOrKey;
 
-// const secretOrKey = process.env.secretOrKey || config.secretOrKey;
-const secretOrKey = config.secretOrKey;
+const secretOrKey = process.env.secretOrKey || config.secretOrKey;
 
 module.exports = verifyJWT = (req, res, next) => {
   console.log('inside verifyJWT');

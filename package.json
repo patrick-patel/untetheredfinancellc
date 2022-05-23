@@ -1,6 +1,9 @@
 {
   "name": "untethered",
   "version": "0.0.0",
+  "engines": {
+    "node": "16.x"
+  },
   "description": "nom-nom",
   "main": "index.js",
   "scripts": {

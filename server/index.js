@@ -2,7 +2,7 @@ const express = require('express');
 let app = express();
 var bodyParser = require('body-parser');
 /* --------REMOVE-------*/
-const config = require('../config.js');
+// const config = require('../config.js');
 
 // auth
 const bcrypt = require("bcryptjs");
@@ -14,11 +14,9 @@ const validateEmailInput = require("./auth/email");
 const validateKeyInput = require("./auth/key");
 const verifyJWT = require("./auth/verifyJWT");
 const encrypt = require("./auth/dataEncryption.js").encrypt;
-// const secretOrKey = process.env.secretOrKey || config.secretOrKey;
-const secretOrKey = config.secretOrKey;
-console.log('secretOrKeys: ', secretOrKey)
-
-const WebHookPasskey = process.env.WebHookPasskey;
+const secretOrKey = process.env.secretOrKey || config.secretOrKey;
+// const secretOrKey = config.secretOrKey;
+// console.log('secretOrKeys: ', secretOrKey)
 
 const sendEmail = require('../lib/sendEmail.js').sendEmail;
 

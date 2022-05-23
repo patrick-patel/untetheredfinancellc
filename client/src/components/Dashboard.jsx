@@ -18,7 +18,7 @@ const Dashboard = ({ price, totalBTC, distributions }) => (
         <Col>
           <Card style={{background: "rgba(255,153,0,0.2)"}}>
             <p className="lead">BTCUSD Market Price (USD)</p>
-            {price === 0 ? <p className="lead">loading...</p> : <p className="lead">{price}</p>}
+            <p className="lead">{price}</p>
           </Card>
         </Col>
         <Col>

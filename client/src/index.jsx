@@ -21,7 +21,7 @@ class App extends React.Component {
     this.state = {
       "price": 0,
       "totalBTC": 0,
-      "distributions": [];
+      "distributions": [],
       isLoggedIn: localStorage.getItem('token'),
     }
   }

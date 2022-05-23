@@ -50,6 +50,7 @@ class App extends React.Component {
         console.log('server response: ', data);
         this.setState({
           "totalBTC": data.totalBTC,
+          "distributions": data.distributions
         })
       }
     })

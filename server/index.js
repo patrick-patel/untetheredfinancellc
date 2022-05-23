@@ -40,7 +40,11 @@ app.get('/fetchBTC', verifyJWT, (req, res) => {
   console.log('inside fetchBTC route');
   fetchUserByID(req.user.id)
   .then(user => {
-    res.send(user.BTC);
+    let json = {
+      totalBTC: user.totalBTC,
+      distributions: user.distributions
+    }
+    res.send(json);
   })
   .catch(err => {
     console.log(err);

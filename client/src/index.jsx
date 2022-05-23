@@ -35,7 +35,7 @@ class App extends React.Component {
       'success': function(data) {
         console.log('server response: ', data);
         this.setState({
-          "price": data.usd,
+          "price": data.last,
         })
       }
     })

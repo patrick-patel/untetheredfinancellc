@@ -29,7 +29,7 @@ class App extends React.Component {
   componentDidMount() {
     console.log('comp did mount')
     $.ajax({
-      'url': 'https://bitcoinexplorer.org/api/price',
+      'url': 'https://api.bitaps.com/market/v1/ticker/btcusd',
       'type': 'GET',
       'context': this,
       'success': function(data) {

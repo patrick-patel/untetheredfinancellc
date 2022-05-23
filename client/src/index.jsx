@@ -33,9 +33,9 @@ class App extends React.Component {
       'type': 'GET',
       'context': this,
       'success': function(data) {
-        console.log('server response: ', data);
+        console.log('server response: ', data.data);
         this.setState({
-          "price": data.last,
+          "price": data.data.last,
         })
       }
     })

@@ -20,7 +20,7 @@ let userSchema = mongoose.Schema({
   },
   totalBTC: {
     type: Number,
-    default: 0,
+    default: 0.0,
   },
   distributions: {
     type: [Number]

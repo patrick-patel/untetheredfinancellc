@@ -85,8 +85,8 @@ const Dashboard = ({ price, totalBTC, distributions }) => (
                 [8, distributions[7]*price],
                 [9, distributions[8]*price],
                 [10, distributions[9]*price],
-                [11, ddistributions[10]*price],
-                [12, ddistributions[11]*price],
+                [11, distributions[10]*price],
+                [12, distributions[11]*price],
               ]}
               options={{
                 hAxis: {

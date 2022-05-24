@@ -12,19 +12,19 @@ const Dashboard = ({ price, totalBTC, distributions }) => (
         <Col>
           <Card style={{background: "rgba(255,153,0,0.2)"}}>
             <p className="lead">Total Distributions (BTC)</p>
-            <p className="lead">{totalBTC}</p>
+            <p className="lead"><b>{totalBTC}</b></p>
           </Card>
         </Col>
         <Col>
           <Card style={{background: "rgba(255,153,0,0.2)"}}>
             <p className="lead">BTCUSD Market Price (USD)</p>
-            <p className="lead">{price}</p>
+            <p className="lead"><b>{price}</b></p>
           </Card>
         </Col>
         <Col>
           <Card style={{background: "rgba(255,153,0,0.2)"}}>
             <p className="lead">Total Distributions (USD)</p>
-            <p className="lead">{totalBTC*Number(price)}</p>
+            <p className="lead"><b>{totalBTC*Number(price)}</b></p>
           </Card>
         </Col>
       </Row>
@@ -33,23 +33,24 @@ const Dashboard = ({ price, totalBTC, distributions }) => (
         <Col className="col-6">
           <Card style={{background: "rgba(255,153,0,0.2)"}}>
             <Chart
+              style={{background: "rgba(255,153,0,0.2)"}}
               height={'500px'}
               chartType="LineChart"
               loader={<div>Loading Chart</div>}
               data={[
                 ['Month', 'Total Distributions (BTC)', 'Total Distributions (USD)'],
                 [1, distributions[0], distributions[0]*price],
-                [2, 0],
-                [3, 0],
-                [4, 0],
-                [5, 0],
-                [6, 0],
-                [7, 0],
-                [8, 0],
-                [9, 0],
-                [10, 0],
-                [11, 0],
-                [12, 0],
+                [2, distributions[1], distributions[1]*price],
+                [3, distributions[2], distributions[2]*price],
+                [4, distributions[3], distributions[3]*price],
+                [5, distributions[4], distributions[4]*price],
+                [6, distributions[5], distributions[5]*price],
+                [7, distributions[6], distributions[6]*price],
+                [8, distributions[7], distributions[7]*price],
+                [9, distributions[8], distributions[8]*price],
+                [10, distributions[9], distributions[9]*price],
+                [11, distributions[10], distributions[10]*price],
+                [12, distributions[11], distributions[11]*price],
               ]}
               options={{
                 hAxis: {

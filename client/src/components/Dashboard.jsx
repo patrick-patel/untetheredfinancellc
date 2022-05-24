@@ -33,7 +33,6 @@ const Dashboard = ({ price, totalBTC, distributions }) => (
         <Col className="col-6">
           <Card>
             <Chart
-              backgroundColor="rgba(255,153,0,0.2)"
               height={'500px'}
               chartType="LineChart"
               loader={<div>Loading Chart</div>}
@@ -53,6 +52,10 @@ const Dashboard = ({ price, totalBTC, distributions }) => (
                 [12, distributions[11],],
               ]}
               options={{
+                chart: {
+                  title: "Total Distributions (BTC)",
+                  backgroundColor: "rgba(255,153,0,0.2)",
+                },
                 hAxis: {
                   title: 'Month',
                 },
@@ -69,7 +72,6 @@ const Dashboard = ({ price, totalBTC, distributions }) => (
         <Col className="col-6">
           <Card>
             <Chart
-              backgroundColor="rgba(255,153,0,0.2)"
               height={'500px'}
               chartType="LineChart"
               loader={<div>Loading Chart</div>}
@@ -89,6 +91,10 @@ const Dashboard = ({ price, totalBTC, distributions }) => (
                 [12, distributions[11]*price],
               ]}
               options={{
+                chart: {
+                  title: "Total Distributions (BTC)",
+                  backgroundColor: "rgba(255,153,0,0.2)",
+                },
                 hAxis: {
                   title: 'Month',
                 },

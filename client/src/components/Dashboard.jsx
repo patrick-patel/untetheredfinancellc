@@ -31,9 +31,9 @@ const Dashboard = ({ price, totalBTC, distributions }) => (
       <br></br>
       <Row style={{textAlign: "center"}}>
         <Col className="col-6">
-          <Card style={{background: "rgba(255,153,0,0.2)"}}>
+          <Card>
             <Chart
-              style={{background: "rgba(255,153,0,0.2)"}}
+              backgroundColor="rgba(255,153,0,0.2)"
               height={'500px'}
               chartType="LineChart"
               loader={<div>Loading Chart</div>}
@@ -61,15 +61,15 @@ const Dashboard = ({ price, totalBTC, distributions }) => (
                 },
                 fontName: 'Verdana',
                 fontSize: 16,
-                backgroundColor: "rgba(255,153,0,0.2)",
               }}
               rootProps={{ 'data-testid': '1' }}
             />
           </Card>
         </Col>
         <Col className="col-6">
-          <Card style={{background: "rgba(255,153,0,0.2)"}}>
+          <Card>
             <Chart
+              backgroundColor="rgba(255,153,0,0.2)"
               height={'500px'}
               chartType="LineChart"
               loader={<div>Loading Chart</div>}
@@ -97,7 +97,6 @@ const Dashboard = ({ price, totalBTC, distributions }) => (
                 },
                 fontName: 'Verdana',
                 fontSize: 16,
-                backgroundColor: "rgba(255,153,0,0.2)",
               }}
               rootProps={{ 'data-testid': '1' }}
             />

@@ -21,7 +21,7 @@ class Login extends React.Component {
   }
 
   login(e) {
-    e.preventDefault();
+    // e.preventDefault();
     var json = {"email": this.state.email, "password": this.state.password};
     $.ajax({
       'url': '/login',

@@ -129,8 +129,8 @@ app.post('/login', (req, res) => {
           }
         );
       } else {
-        console.log('isNotMatch');
-        res.status(400).json({ passwordincorrect: "Password incorrect" }).redirect('/');
+        // console.log('isNotMatch');
+        // res.status(400).json({ passwordincorrect: "Password incorrect" }).redirect('/');
       }
     });
   })

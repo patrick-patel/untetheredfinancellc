@@ -48,7 +48,8 @@ class Login extends React.Component {
             },
             'success': function(data) {
               console.log(data);
-              setTimeout(() => this.setState({ redirectDash: true }), 750);
+              this.setState({ redirectDash: true });
+              // setTimeout(() => this.setState({ redirectDash: true }), 750);
             },
             'error': function(error) {
               console.log(error);

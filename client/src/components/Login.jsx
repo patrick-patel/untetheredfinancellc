@@ -12,7 +12,8 @@ class Login extends React.Component {
       "password": "",
       message: "",
       messageType: "",
-      redirectHome: false,
+      redirectLogin: false,
+      redirectDash: false,
       redirectForgotPassword: false,
     };
   }
@@ -33,7 +34,7 @@ class Login extends React.Component {
         if (data.error) {e.preventDefault()}
         this.setState({ message: data.message, messageType: data.messageType });
         if (data.success) {
-          setTimeout(() => this.setState({ redirectHome: true }), 750);
+          setTimeout(() => this.setState({ redirectDash: true }), 750);
           localStorage.setItem("token", data.token);
           $.ajax({
             'url': '/userData',
@@ -49,7 +50,7 @@ class Login extends React.Component {
               console.log(error);
             }
           })
-        }
+        } else {setTimeout(() => this.setState({ redirectLogin: true }), 750);}
       },
       'error': function(error) {
         console.log(error);
@@ -63,10 +64,14 @@ class Login extends React.Component {
   }
 
   render() {
-    const redirectHome = this.state.redirectHome;
+    const redirectLogin = this.state.redirectLogin;
+    const redirectDash = this.state.redirectDash;
     const redirectForgotPassword = this.state.redirectForgotPassword;
-    if (redirectHome) {
-      return <Redirect to="/" />
+    if (redirectLogin) {
+      return <Redirect to="/login" />
+    }
+    if (redirectDash) {
+      return <Redirect to="/dashboard" />
     }
     if (redirectForgotPassword) {
       return <Redirect to="/forgot-password" />

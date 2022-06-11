@@ -19,6 +19,13 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      "email": "",
+      "password": "",
+      message: "",
+      messageType: "",
+      redirectLogin: false,
+      redirectDash: false,
+      redirectForgotPassword: false,
       "price": 0,
       "totalBTC": 0,
       "distributions": [],
@@ -53,6 +60,44 @@ class App extends React.Component {
           "totalBTC": data.totalBTC,
           "distributions": data.distributions
         })
+      }
+    })
+  }
+
+  login(e) {
+    e.preventDefault();
+    var json = {"email": this.state.email, "password": this.state.password};
+    $.ajax({
+      'url': '/login',
+      'type': 'POST',
+      'context': this,
+      'data': json,
+      'success': function(data) {
+        console.log(data);
+        this.setState({ message: data.message, messageType: data.messageType });
+        if (data.success) {
+          localStorage.setItem("token", data.token);
+          $.ajax({
+            'url': '/userData',
+            'type': 'GET',
+            'context': this,
+            'headers': {
+              'x-access-token': localStorage.getItem('token')
+            },
+            'success': function(data) {
+              console.log(data);
+              this.setState({ isLoggedIn: localStorage.getItem('token') };
+              setTimeout(() => this.setState({ redirectDash: true }), 750);
+            },
+            'error': function(error) {
+              console.log(error);
+            }
+          })
+        } else {setTimeout(() => this.setState({ redirectLogin: true }), 750);}
+      },
+      'error': function(error) {
+        console.log(error);
+        this.setState({ message: "Error", messageType: "danger" });
       }
     })
   }
@@ -101,7 +146,7 @@ class App extends React.Component {
             <Resources />
           </Route>
           <Route path="/login">
-            {this.state.isLoggedIn ? <Redirect to="/dashboard" /> : <Login />}
+            {this.state.isLoggedIn ? <Redirect to="/dashboard" /> : <Login email={this.state.email} password={this.state.password} message={this.state.message} messageType={this.state.messageType} redirectLogin={this.state.redirectLogin} redirectDash={this.state.redirectDash} redirectForgotPassword={this.state.redirectForgotPassword}/>}
           </Route>
           <Route path="/register">
             {this.state.isLoggedIn ? <Redirect to="/dashboard" /> : <Register />}

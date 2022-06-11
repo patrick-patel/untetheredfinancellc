@@ -8,59 +8,18 @@ class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      "email": "",
-      "password": "",
-      message: "",
-      messageType: "",
-      redirectLogin: false,
-      redirectDash: false,
-      redirectForgotPassword: false,
+      "email": this.props.email,
+      "password": this.props.password,
+      message: this.props.message,
+      messageType: this.props.messageType,
+      redirectLogin: this.props.redirectLogin,
+      redirectDash: this.props.redirectDash,
+      redirectForgotPassword: this.props.redirectForgotPassword,
     };
-  }
-
-  componentDidMount() {
-    this.setState({ redirectLogin: false })
   }
 
   onChange({ target }) {
     this.setState({ [target.name]: target.value });
-  }
-
-  login(e) {
-    e.preventDefault();
-    var json = {"email": this.state.email, "password": this.state.password};
-    $.ajax({
-      'url': '/login',
-      'type': 'POST',
-      'context': this,
-      'data': json,
-      'success': function(data) {
-        console.log(data);
-        this.setState({ message: data.message, messageType: data.messageType });
-        if (data.success) {
-          localStorage.setItem("token", data.token);
-          $.ajax({
-            'url': '/userData',
-            'type': 'GET',
-            'context': this,
-            'headers': {
-              'x-access-token': localStorage.getItem('token')
-            },
-            'success': function(data) {
-              console.log(data);
-              setTimeout(() => this.setState({ redirectDash: true }), 750);
-            },
-            'error': function(error) {
-              console.log(error);
-            }
-          })
-        } else {setTimeout(() => this.setState({ redirectLogin: true }), 750);}
-      },
-      'error': function(error) {
-        console.log(error);
-        this.setState({ message: "Error", messageType: "danger" });
-      }
-    })
   }
 
   forgotPassword() {
@@ -100,7 +59,7 @@ class Login extends React.Component {
                   </Form.Group>
                   <Row>
                     <Col>
-                      <Button className="mb-2" variant="dark" type="submit" style={{cursor: "pointer", background: "#050038", marginLeft: 50, width: "75%"}} onClick={this.login.bind(this)}>
+                      <Button className="mb-2" variant="dark" type="submit" style={{cursor: "pointer", background: "#050038", marginLeft: 50, width: "75%"}} onClick={this.props.login()}>
                         Login
                       </Button>
                     </Col>

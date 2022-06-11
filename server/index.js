@@ -125,12 +125,12 @@ app.post('/login', (req, res) => {
           },
           (err, token) => {
             console.log('token: ', token);
-            res.json({ success: true, token: "Bearer " + token}).redirect('/');
+            res.json({ success: true, token: "Bearer " + token, message: 'Successfully Logged In', messageType: 'success'}).redirect('/');
           }
         );
       } else {
         console.log('isNotMatch');
-        res.send({ error: true }).redirect('back');
+        res.json({ error: true, message: 'Incorrect Email or Password', messageType: 'danger' });
       }
     });
   })

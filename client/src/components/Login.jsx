@@ -29,7 +29,8 @@ class Login extends React.Component {
       'context': this,
       'data': json,
       'success': function(data) {
-        this.setState({ message: "Successfully Logged In", messageType: "success" });
+        this.setState({ message: data.message, messageType: data.messageType });
+        if (data.success) {setTimeout(() => this.setState({ redirectHome: true }), 750)}
         console.log(data);
         localStorage.setItem("token", data.token);
         $.ajax({
@@ -41,7 +42,6 @@ class Login extends React.Component {
           },
           'success': function(data) {
             console.log(data);
-            setTimeout(() => this.setState({ redirectHome: true }), 750);
           },
           'error': function(error) {
             console.log(error);
@@ -50,7 +50,7 @@ class Login extends React.Component {
       },
       'error': function(error) {
         console.log(error);
-        this.setState({ message: "Incorrect Email or Password", messageType: "danger" });
+        this.setState({ message: "Error", messageType: "danger" });
       }
     })
   }

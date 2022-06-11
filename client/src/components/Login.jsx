@@ -10,7 +10,7 @@ class Login extends React.Component {
     this.state = {
       "email": "",
       "password": "",
-      message: ""
+      message: "",
       redirectHome: false,
       redirectForgotPassword: false,
     };

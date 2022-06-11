@@ -135,6 +135,7 @@ app.post('/login', (req, res) => {
     });
   })
   .catch(err => {
+    res.json({ error: true, message: 'Incorrect Email or Password', messageType: 'danger' });
     console.log(err);
   })
 });

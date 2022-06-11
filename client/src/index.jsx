@@ -95,7 +95,7 @@ class App extends React.Component {
             <Home />
           </Route>
           <Route path="/dashboard">
-            {this.state.isLoggedIn ? <Dashboard price={this.state.price} totalBTC={this.state.totalBTC} distributions={this.state.distributions}/> : <Redirect to="/login" />}
+            {this.state.isLoggedIn ? <Dashboard price={this.state.price} totalBTC={this.state.totalBTC} distributions={this.state.distributions}/> : <Redirect to="/" />}
           </Route>
           <Route path="/resources">
             <Resources />

@@ -81,7 +81,7 @@ class Login extends React.Component {
               <p className="lead" style={{color: "#050038", textDecoration: "none", margin: "auto", width: "75%", fontSize: "24px"}}><i>your account information and more</i></p>
             </Col>
             <Col>
-            {message.length > 0 ? <p>{this.state.message}</p> : null}
+            {this.state.message.length > 0 ? <p>{this.state.message}</p> : null}
               <Form>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                   <Form.Label>Email</Form.Label>

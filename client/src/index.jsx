@@ -80,7 +80,6 @@ class App extends React.Component {
                 <Link to="/resources" className="btn btn-link" style={{color: "#050038", textDecoration: "none", fontSize: "28px", marginRight: 20}}>Resources</Link>
                 <NavDropdown title="Members" id="navbarScrollingDropdown" style={{color: "#050038", textDecoration: "none", fontSize: "28px", marginRight: 20}}>
                   <NavDropdown.Item href="#action3">{this.state.isLoggedIn ? null : <Link to="/login" className="btn btn-link" style={{color: "#050038", textDecoration: "none", fontSize: "28px", marginRight: 20}}>Login</Link>}</NavDropdown.Item>
-                  <NavDropdown.Item href="#action4">{this.state.isLoggedIn ? null : <Link to="/register" className="btn btn-link" style={{color: "#050038", textDecoration: "none", fontSize: "28px", marginRight: 20}}>Register</Link>}</NavDropdown.Item>
                   <NavDropdown.Item href="#action3">{this.state.isLoggedIn ? <Link to="/dashboard" className="btn btn-link" style={{color: "#050038", textDecoration: "none", fontSize: "28px", marginRight: 20}}>Dashboard</Link> : null}</NavDropdown.Item>
                   <NavDropdown.Item href="#action4">{this.state.isLoggedIn ? <Link to="/account" className="btn btn-link" style={{color: "#050038", textDecoration: "none", fontSize: "28px", marginRight: 20}}>Account</Link> : null}</NavDropdown.Item>
                   {this.state.isLoggedIn ? <NavDropdown.Divider /> : null}

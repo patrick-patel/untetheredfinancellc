@@ -2,7 +2,7 @@ import React from 'react';
 import { Redirect } from 'react-router';
 import $ from 'jquery';
 
-import { Col, Container, ButtonGroup, Button, Form, Row } from 'react-bootstrap';
+import { Alert, Col, Container, ButtonGroup, Button, Form, Row } from 'react-bootstrap';
 
 class Login extends React.Component {
   constructor(props) {
@@ -81,7 +81,8 @@ class Login extends React.Component {
               <p className="lead" style={{color: "#050038", textDecoration: "none", margin: "auto", width: "75%", fontSize: "24px"}}><i>your account information and more</i></p>
             </Col>
             <Col>
-            {this.state.message.length > 0 ? <p>{this.state.message}</p> : null}
+
+            {this.state.message.length > 0 ? <Alert key={'success'} variant={'success'}>{this.state.message}</Alert> : null}
               <Form>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                   <Form.Label>Email</Form.Label>

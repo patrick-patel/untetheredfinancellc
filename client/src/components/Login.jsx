@@ -11,6 +11,7 @@ class Login extends React.Component {
       "email": "",
       "password": "",
       message: "",
+      messageType: "",
       redirectHome: false,
       redirectForgotPassword: false,
     };
@@ -29,7 +30,7 @@ class Login extends React.Component {
       'context': this,
       'data': json,
       'success': function(data) {
-        this.setState({ message: "Successfully Logged In" });
+        this.setState({ message: "Successfully Logged In", messageType: "success" });
         console.log(data);
         localStorage.setItem("token", data.token);
         $.ajax({
@@ -41,17 +42,17 @@ class Login extends React.Component {
           },
           'success': function(data) {
             console.log(data);
-            setTimeout(() => this.setState({ redirectHome: true }), 1000);
+            setTimeout(() => this.setState({ redirectHome: true }), 750);
           },
           'error': function(error) {
             console.log(error);
-            this.setState({ redirectHome: true, message: "Incorrect Email or Password" });
+            this.setState({ message: "Incorrect Email or Password", messageType: "danger" });
           }
         })
       },
       'error': function(error) {
         console.log(error);
-        this.setState({ redirectHome: true, message: "Incorrect Email or Password" });
+        this.setState({ message: "Incorrect Email or Password", messageType: "danger" });
       }
     })
   }
@@ -81,8 +82,7 @@ class Login extends React.Component {
               <p className="lead" style={{color: "#050038", textDecoration: "none", margin: "auto", width: "75%", fontSize: "24px"}}><i>your account information and more</i></p>
             </Col>
             <Col>
-
-            {this.state.message.length > 0 ? <Alert key={'success'} variant={'success'}>{this.state.message}</Alert> : null}
+              {this.state.message.length > 0 ? <Alert key={this.state.messageType} variant={this.state.messageType}>{this.state.message}</Alert> : null}
               <Form>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                   <Form.Label>Email</Form.Label>

@@ -22,6 +22,7 @@ class App extends React.Component {
       "price": 0,
       "totalBTC": 0,
       "distributions": [],
+      message: "",
       isLoggedIn: localStorage.getItem('token'),
     }
   }

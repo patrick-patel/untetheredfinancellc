@@ -41,7 +41,7 @@ class Login extends React.Component {
           },
           'success': function(data) {
             console.log(data);
-            this.setState({ redirectHome: true });
+            setTimeout(() => this.setState({ redirectHome: true }), 1000);
           },
           'error': function(error) {
             console.log(error);
@@ -64,7 +64,7 @@ class Login extends React.Component {
     const redirectHome = this.state.redirectHome;
     const redirectForgotPassword = this.state.redirectForgotPassword;
     if (redirectHome) {
-      return <Redirect to="/dashboard" />
+      return <Redirect to="/" />
     }
     if (redirectForgotPassword) {
       return <Redirect to="/forgot-password" />

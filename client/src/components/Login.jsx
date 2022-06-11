@@ -29,25 +29,27 @@ class Login extends React.Component {
       'context': this,
       'data': json,
       'success': function(data) {
+        console.log(data);
         if (data.error) {e.preventDefault()}
         this.setState({ message: data.message, messageType: data.messageType });
-        if (data.success) {setTimeout(() => this.setState({ redirectHome: true }), 750)}
-        console.log(data);
-        localStorage.setItem("token", data.token);
-        $.ajax({
-          'url': '/userData',
-          'type': 'GET',
-          'context': this,
-          'headers': {
-            'x-access-token': localStorage.getItem('token')
-          },
-          'success': function(data) {
-            console.log(data);
-          },
-          'error': function(error) {
-            console.log(error);
-          }
-        })
+        if (data.success) {
+          setTimeout(() => this.setState({ redirectHome: true }), 750);
+          localStorage.setItem("token", data.token);
+          $.ajax({
+            'url': '/userData',
+            'type': 'GET',
+            'context': this,
+            'headers': {
+              'x-access-token': localStorage.getItem('token')
+            },
+            'success': function(data) {
+              console.log(data);
+            },
+            'error': function(error) {
+              console.log(error);
+            }
+          })
+        }
       },
       'error': function(error) {
         console.log(error);

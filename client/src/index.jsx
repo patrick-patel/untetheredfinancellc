@@ -86,7 +86,7 @@ class App extends React.Component {
             },
             'success': function(data) {
               console.log(data);
-              this.setState({ isLoggedIn: localStorage.getItem('token') };
+              this.setState({ isLoggedIn: localStorage.getItem('token') });
               setTimeout(() => this.setState({ redirectDash: true }), 750);
             },
             'error': function(error) {

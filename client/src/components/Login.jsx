@@ -18,16 +18,16 @@ class Login extends React.Component {
     };
   }
 
-  // componentDidMount() {
-  //   this.setState({ redirectLogin: false })
-  // }
+  componentDidMount() {
+    this.setState({ redirectLogin: false })
+  }
 
   onChange({ target }) {
     this.setState({ [target.name]: target.value });
   }
 
   login(e) {
-    // e.preventDefault();
+    e.preventDefault();
     var json = {"email": this.state.email, "password": this.state.password};
     $.ajax({
       'url': '/login',

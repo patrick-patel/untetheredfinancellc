@@ -23,6 +23,7 @@ class Login extends React.Component {
   }
 
   login(e) {
+    e.preventDefault();
     var json = {"email": this.state.email, "password": this.state.password};
     $.ajax({
       'url': '/login',
@@ -31,7 +32,6 @@ class Login extends React.Component {
       'data': json,
       'success': function(data) {
         console.log(data);
-        if (data.error) {e.preventDefault()}
         this.setState({ message: data.message, messageType: data.messageType });
         if (data.success) {
           setTimeout(() => this.setState({ redirectDash: true }), 750);

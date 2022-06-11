@@ -29,6 +29,7 @@ class Login extends React.Component {
       'context': this,
       'data': json,
       'success': function(data) {
+        if (data.error) {e.preventDefault()}
         this.setState({ message: data.message, messageType: data.messageType });
         if (data.success) {setTimeout(() => this.setState({ redirectHome: true }), 750)}
         console.log(data);

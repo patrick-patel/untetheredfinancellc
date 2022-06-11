@@ -51,6 +51,7 @@ class Login extends React.Component {
         })
       },
       'error': function(error) {
+        e.preventDefault();
         console.log(error);
         this.setState({ message: "Incorrect Email or Password", messageType: "danger" });
       }

@@ -10,6 +10,7 @@ class Login extends React.Component {
     this.state = {
       "email": "",
       "password": "",
+      message: ""
       redirectHome: false,
       redirectForgotPassword: false,
     };
@@ -19,7 +20,8 @@ class Login extends React.Component {
     this.setState({ [target.name]: target.value });
   }
 
-  login() {
+  login(e) {
+    e.preventDefault();
     var json = {"email": this.state.email, "password": this.state.password};
     $.ajax({
       'url': '/login',
@@ -27,6 +29,7 @@ class Login extends React.Component {
       'context': this,
       'data': json,
       'success': function(data) {
+        this.setState({ message: "Successfully Logged In" });
         console.log(data);
         localStorage.setItem("token", data.token);
         $.ajax({
@@ -42,11 +45,13 @@ class Login extends React.Component {
           },
           'error': function(error) {
             console.log(error);
+            this.setState({ redirectHome: true, message: "Incorrect Email or Password" });
           }
         })
       },
       'error': function(error) {
         console.log(error);
+        this.setState({ redirectHome: true, message: "Incorrect Email or Password" });
       }
     })
   }
@@ -76,6 +81,7 @@ class Login extends React.Component {
               <p className="lead" style={{color: "#050038", textDecoration: "none", margin: "auto", width: "75%", fontSize: "24px"}}><i>your account information and more</i></p>
             </Col>
             <Col>
+            {message.length > 0 ? <p>{this.state.message}</p> : null}
               <Form>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                   <Form.Label>Email</Form.Label>

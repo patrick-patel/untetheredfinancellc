@@ -8,20 +8,18 @@ class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      "email": this.props.email,
-      "password": this.props.password,
-      message: this.props.message,
-      messageType: this.props.messageType,
-      redirectLogin: this.props.redirectLogin,
-      redirectDash: this.props.redirectDash,
-      redirectForgotPassword: this.props.redirectForgotPassword,
+
     };
   }
 
+  onChange({ target }) {
+    this.props.updateState({ [target.name]: target.value });
+  }
+
   render() {
-    const redirectLogin = this.state.redirectLogin;
-    const redirectDash = this.state.redirectDash;
-    const redirectForgotPassword = this.state.redirectForgotPassword;
+    const redirectLogin = this.props.redirectLogin;
+    const redirectDash = this.props.redirectDash;
+    const redirectForgotPassword = this.props.redirectForgotPassword;
     if (redirectLogin) {
       return (
         <div style={{background: "rgba(255,153,0,0.2)"}}>
@@ -35,11 +33,11 @@ class Login extends React.Component {
                 <p className="lead" style={{color: "#050038", textDecoration: "none", margin: "auto", width: "75%", fontSize: "24px"}}><i>your account information and more</i></p>
               </Col>
               <Col>
-                {this.state.message.length > 0 ? <Alert key={this.state.messageType} variant={this.state.messageType}>{this.state.message}</Alert> : null}
+                {this.props.message.length > 0 ? <Alert key={this.props.messageType} variant={this.props.messageType}>{this.props.message}</Alert> : null}
                 <Form>
                   <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email</Form.Label>
-                    <Form.Control type="email" placeholder="Enter Email" name="email" value={this.state.email} onChange={this.props.onChange()} style={{backgroundColor: "rgba(255,153,0,0.2)"}} required />
+                    <Form.Control type="email" placeholder="Enter Email" name="email" value={this.props.email} onChange={this.props.onChange()} style={{backgroundColor: "rgba(255,153,0,0.2)"}} required />
                     <Form.Text className="text-muted">
                       We'll never share your email with anyone else.
                     </Form.Text>
@@ -47,7 +45,7 @@ class Login extends React.Component {
 
                   <Form.Group className="mb-3" controlId="formBasicPassword">
                     <Form.Label>Password</Form.Label>
-                    <Form.Control type="password"  placeholder="Enter Password" name="password" value={this.state.password} onChange={this.props.onChange()} style={{backgroundColor: "rgba(255,153,0,0.2)"}} required />
+                    <Form.Control type="password"  placeholder="Enter Password" name="password" value={this.props.password} onChange={this.props.onChange()} style={{backgroundColor: "rgba(255,153,0,0.2)"}} required />
                   </Form.Group>
                   <Row>
                     <Col>
@@ -86,11 +84,11 @@ class Login extends React.Component {
               <p className="lead" style={{color: "#050038", textDecoration: "none", margin: "auto", width: "75%", fontSize: "24px"}}><i>your account information and more</i></p>
             </Col>
             <Col>
-              {this.state.message.length > 0 ? <Alert key={this.state.messageType} variant={this.state.messageType}>{this.state.message}</Alert> : null}
+              {this.props.message.length > 0 ? <Alert key={this.props.messageType} variant={this.props.messageType}>{this.props.message}</Alert> : null}
               <Form>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                   <Form.Label>Email</Form.Label>
-                  <Form.Control type="email" placeholder="Enter Email" name="email" value={this.state.email} onChange={this.props.onChange()} style={{backgroundColor: "rgba(255,153,0,0.2)"}} required />
+                  <Form.Control type="email" placeholder="Enter Email" name="email" value={this.props.email} onChange={this.props.onChange()} style={{backgroundColor: "rgba(255,153,0,0.2)"}} required />
                   <Form.Text className="text-muted">
                     We'll never share your email with anyone else.
                   </Form.Text>
@@ -98,7 +96,7 @@ class Login extends React.Component {
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                   <Form.Label>Password</Form.Label>
-                  <Form.Control type="password"  placeholder="Enter Password" name="password" value={this.state.password} onChange={this.props.onChange()} style={{backgroundColor: "rgba(255,153,0,0.2)"}} required />
+                  <Form.Control type="password"  placeholder="Enter Password" name="password" value={this.props.password} onChange={this.props.onChange()} style={{backgroundColor: "rgba(255,153,0,0.2)"}} required />
                 </Form.Group>
                 <Row>
                   <Col>

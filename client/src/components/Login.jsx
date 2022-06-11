@@ -22,7 +22,6 @@ class Login extends React.Component {
   }
 
   login(e) {
-    // e.preventDefault();
     var json = {"email": this.state.email, "password": this.state.password};
     $.ajax({
       'url': '/login',
@@ -46,12 +45,10 @@ class Login extends React.Component {
           },
           'error': function(error) {
             console.log(error);
-            this.setState({ message: "Incorrect Email or Password", messageType: "danger" });
           }
         })
       },
       'error': function(error) {
-        e.preventDefault();
         console.log(error);
         this.setState({ message: "Incorrect Email or Password", messageType: "danger" });
       }

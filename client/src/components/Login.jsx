@@ -8,7 +8,9 @@ class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-
+      redirectLogin: this.props.redirectLogin,
+      redirectDash: this.props.redirectDash,
+      redirectForgotPassword: this.props.redirectForgotPassword,
     };
   }
 
@@ -21,10 +23,10 @@ class Login extends React.Component {
   }
 
   render() {
-    const redirectLogin = this.props.redirectLogin;
-    const redirectDash = this.props.redirectDash;
-    const redirectForgotPassword = this.props.redirectForgotPassword;
-    if (redirectLogin) {
+    const redirectLogin = this.state.redirectLogin;
+    const redirectDash = this.state.redirectDash;
+    const redirectForgotPassword = this.state.redirectForgotPassword;
+    if (redirectLogin === true) {
       return (
         <div style={{background: "rgba(255,153,0,0.2)"}}>
           <br></br>
@@ -70,10 +72,10 @@ class Login extends React.Component {
         </div>
       )
     }
-    if (redirectDash) {
+    if (redirectDash === true) {
       return <Redirect to="/dashboard" />
     }
-    if (redirectForgotPassword) {
+    if (redirectForgotPassword === true) {
       return <Redirect to="/forgot-password" />
     }
     return (

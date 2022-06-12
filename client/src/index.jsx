@@ -92,9 +92,13 @@ class App extends React.Component {
                 "distributions": data.distributions
               })
               setTimeout(() => this.setState({ redirectDash: true }), 750);
+              setTimeout(() => this.setState({ redirectDash: false }), 250);
             }
           })
-        } else {setTimeout(() => this.setState({ redirectLogin: true }), 750);}
+        } else {
+          setTimeout(() => this.setState({ redirectLogin: true }), 750);
+          setTimeout(() => this.setState({ redirectLogin: false }), 250);
+        }
       },
       'error': function(error) {
         console.log(error);
@@ -109,6 +113,8 @@ class App extends React.Component {
 
   forgotPassword() {
     this.setState({ redirectForgotPassword: true });
+    setTimeout(() => this.setState({ redirectForgotPassword: false }), 250);
+
   }
 
   logout() {

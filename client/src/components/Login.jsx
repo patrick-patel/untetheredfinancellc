@@ -12,6 +12,10 @@ class Login extends React.Component {
     };
   }
 
+  login(e) {
+    this.props.login(e);
+  }
+
   onChange({ target }) {
     this.props.setState({ [target.name]: target.value });
   }
@@ -49,7 +53,7 @@ class Login extends React.Component {
                   </Form.Group>
                   <Row>
                     <Col>
-                      <Button className="mb-2" variant="dark" type="submit" style={{cursor: "pointer", background: "#050038", marginLeft: 50, width: "75%"}} onClick={this.props.login()}>
+                      <Button className="mb-2" variant="dark" type="submit" style={{cursor: "pointer", background: "#050038", marginLeft: 50, width: "75%"}} onClick={this.login.bind(this)}>
                         Login
                       </Button>
                     </Col>
@@ -100,7 +104,7 @@ class Login extends React.Component {
                 </Form.Group>
                 <Row>
                   <Col>
-                    <Button className="mb-2" variant="dark" type="submit" style={{cursor: "pointer", background: "#050038", marginLeft: 50, width: "75%"}} onClick={this.props.login()}>
+                    <Button className="mb-2" variant="dark" type="submit" style={{cursor: "pointer", background: "#050038", marginLeft: 50, width: "75%"}} onClick={this.login.bind(this)}>
                       Login
                     </Button>
                   </Col>

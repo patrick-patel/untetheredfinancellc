@@ -220,8 +220,10 @@ app.post('/password-reset', (req, res) => {
                 updateUserByID(user)
                 .then(() => {
                   console.log('successfully updated password');
-                  deleteToken(userID);
-                  return res.send({message: "Successfully Updated Password", messageType: "success"});
+                  deleteToken(userID)
+                  .then(() => {
+                    return res.send({message: "Successfully Updated Password", messageType: "success"});
+                  })
                 })
                 .catch(err => {
                   console.log(err);

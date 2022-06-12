@@ -288,7 +288,7 @@ app.post('/updateEmail', verifyJWT, (req, res) => {
     fetchUserByID(req.user.id)
     .then(user => {
       console.log('user: ', user);
-      if (user.email === email) {return res.json({message: "Invalid Email", messageType: "danger"})}
+      if (user.email === email) {return res.json({message: "Account Already Exists With This Email", messageType: "danger"})}
       else {
         user.email = email;
         updateUserByID(user)

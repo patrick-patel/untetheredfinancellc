@@ -65,7 +65,7 @@ class ForgotPassword extends React.Component {
                   <Form>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                       <Form.Label>Email address</Form.Label>
-                      <Form.Control type="email" placeholder="Enter Email" name="email" value={this.state.email} onChange={this.onChange.bind(this)}  style={{backgroundColor: "rgba(255,153,0,0.2)"} required />
+                      <Form.Control type="email" placeholder="Enter Email" name="email" value={this.state.email} onChange={this.onChange.bind(this)}  style={{backgroundColor: "rgba(255,153,0,0.2)"}} required />
                     </Form.Group>
                     <Button className="mb-2" variant="dark" type="submit" style={{cursor: "pointer", background: "#050038", width: "50%"}} onClick={(e) => this.submitEmail(e)}>Submit</Button>
                   </Form>

@@ -51,6 +51,21 @@ app.get('/fetchBTC', verifyJWT, (req, res) => {
   })
 })
 
+app.get('/fetchUser', verifyJWT, (req, res) => {
+  console.log('inside fetchUser route');
+  fetchUserByID(req.user.id)
+  .then(user => {
+    let json = {
+      email: user.email,
+      key: user.key
+    }
+    res.send(json);
+  })
+  .catch(err => {
+    console.log(err);
+  })
+})
+
 app.get('*', (req, res) => {
   res.redirect('/');
 });
@@ -147,7 +162,7 @@ app.post('/forgotPassword', (req, res) => {
   .then(user => {
     if (!user) {
       console.log("user with given email does not exist");
-      return res.status(400).send("user with given email does not exist");
+      return res.send({message: "User Does Not Exist", messageType: "danger"});
     }
     fetchToken(user)
     .then(userToken => {
@@ -161,17 +176,23 @@ app.post('/forgotPassword', (req, res) => {
         sendEmail(email, "Password Reset", msg)
         .then(() => {
           console.log('password reset sent to email');
-          return res.send({});
+          return res.send({message: "Email Sent", messageType: "success"});
         })
         .catch(err => console.log(err))
       } else {
         console.log('token already exists for this user');
-        return res.send({});
+        return res.send({message: "Token Already Sent To User", messageType: "danger"});
       }
     })
-    .catch(err => console.log(err))
+    .catch(err => {
+      console.log(err);
+      return res.send({message: "Error", messageType: "danger"});
+    })
   })
-  .catch(err => console.log(err))
+  .catch(err => {
+    console.log(err);
+    return res.send({message: "Error", messageType: "danger"});
+  })
 })
 
 app.post('/password-reset', (req, res) => {

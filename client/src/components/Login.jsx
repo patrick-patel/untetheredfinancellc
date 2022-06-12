@@ -23,6 +23,10 @@ class Login extends React.Component {
     this.props.onChange(target);
   }
 
+  forgotPassword() {
+    this.props.forgotPassword();
+  }
+
   render() {
     const redirectLogin = this.state.redirectLogin;
     const redirectDash = this.state.redirectDash;
@@ -61,7 +65,7 @@ class Login extends React.Component {
                       </Button>
                     </Col>
                     <Col>
-                      <Button variant="dark" type="submit" style={{cursor: "pointer", background: "#050038", marginLeft: 50, width: "75%"}} onClick={() => this.props.forgotPassword()}>
+                      <Button variant="dark" type="submit" style={{cursor: "pointer", background: "#050038", marginLeft: 50, width: "75%"}} onClick={this.forgotPassword.bind(this)}>
                         Forgot Password
                       </Button>
                     </Col>
@@ -112,7 +116,7 @@ class Login extends React.Component {
                     </Button>
                   </Col>
                   <Col>
-                    <Button variant="dark" type="submit" style={{cursor: "pointer", background: "#050038", marginLeft: 50, width: "75%"}} onClick={() => this.props.forgotPassword()}>
+                    <Button variant="dark" type="submit" style={{cursor: "pointer", background: "#050038", marginLeft: 50, width: "75%"}} onClick={this.forgotPassword.bind(this)}>
                       Forgot Password
                     </Button>
                   </Col>

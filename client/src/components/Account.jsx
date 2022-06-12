@@ -9,6 +9,8 @@ class Account extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      currentEmail: "",
+      currentPubKey: "",
       redirectForgotPassword: false,
       "email": "",
       "key": "",
@@ -17,14 +19,14 @@ class Account extends React.Component {
 
   componentDidMount() {
     $.ajax({
-      'url': '/userAPI',
+      'url': '/fetchUser',
       'type': 'GET',
       'context': this,
       'headers': {
         'x-access-token': localStorage.getItem('token')
       },
-      'success': function(subAccounts) {
-        this.setState({ "subAccounts": subAccounts });
+      'success': function(user) {
+        this.setState({ currentEmail: user.email, currentPubKey: user.key });
       },
       'error': function(error) {
         console.log(error);
@@ -59,6 +61,20 @@ class Account extends React.Component {
       'data': json,
       'success': function(data) {
         console.log('success');
+        $.ajax({
+          'url': '/fetchUser',
+          'type': 'GET',
+          'context': this,
+          'headers': {
+            'x-access-token': localStorage.getItem('token')
+          },
+          'success': function(user) {
+            this.setState({ currentEmail: user.email, currentPubKey: user.key });
+          },
+          'error': function(error) {
+            console.log(error);
+          }
+        })
       },
       'error': function(error) {
         console.log(error);
@@ -81,6 +97,20 @@ class Account extends React.Component {
       'data': json,
       'success': function(data) {
         console.log('success');
+        $.ajax({
+          'url': '/fetchUser',
+          'type': 'GET',
+          'context': this,
+          'headers': {
+            'x-access-token': localStorage.getItem('token')
+          },
+          'success': function(user) {
+            this.setState({ currentEmail: user.email, currentPubKey: user.key });
+          },
+          'error': function(error) {
+            console.log(error);
+          }
+        })
       },
       'error': function(error) {
         console.log(error);
@@ -127,6 +157,11 @@ class Account extends React.Component {
                           </Button>
                         </Col>
                       </Row>
+                      <Row>
+                        <Form.Text className="text-muted" style={{textAlign: "center"}}>
+                          Current Email: {this.state.currentEmail}
+                        </Form.Text>
+                      </Row>
                     </Form>
                   </Container>
                 </Card>
@@ -149,6 +184,11 @@ class Account extends React.Component {
                             Update Key
                           </Button>
                         </Col>
+                      </Row>
+                      <Row>
+                        <Form.Text className="text-muted" style={{textAlign: "center"}}>
+                          Current Public Key: {this.state.currentPubKey}
+                        </Form.Text>
                       </Row>
                     </Form>
                   </Container>

@@ -2,13 +2,15 @@ import React from 'react';
 import { Redirect } from 'react-router';
 import $ from 'jquery';
 
-import { Container, ButtonGroup, Button, Form } from 'react-bootstrap';
+import { Alert, Container, ButtonGroup, Button, Form } from 'react-bootstrap';
 
 class ForgotPassword extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       "email": "",
+      message: "",
+      messageType: "",
       redirectResetPassword: false,
     };
     this.submitEmail = this.submitEmail.bind(this);
@@ -28,7 +30,8 @@ class ForgotPassword extends React.Component {
       'data': json,
       'success': function(data) {
         console.log('response success');
-        this.setState({redirectResetPassword: true});
+        this.setState({ message: data.message, messageType: data.messageType });
+        setTimeout(() => this.setState({ redirectResetPassword: true, message: data.message, messageType: data.messageType }), 1000);
         console.log(data);
       },
       'error': function(error) {
@@ -41,12 +44,14 @@ class ForgotPassword extends React.Component {
   render() {
     const redirectResetPassword = this.state.redirectResetPassword;
     if (redirectResetPassword) {
+      setTimeout(() => redirectResetPassword = false, 250);
       return <Redirect to="/passwordReset" />
     }
     return (
       <div style={{background: "rgba(255,153,0,0.2)"}}>
         <br></br>
         <Container fluid style={{padding: 90}}>
+          {this.state.message.length > 0 ? <Alert key={this.state.messageType} variant={this.state.messageType}>{this.state.message}</Alert> : null}
           <Form>
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>Email address</Form.Label>

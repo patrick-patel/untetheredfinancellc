@@ -47,8 +47,7 @@ class PasswordReset extends React.Component {
   }
 
   render() {
-    const redirectLogin = this.state.redirectLogin;
-    if (redirectLogin) {
+    if (this.state.redirectLogin === true) {
       SetTimeout(() => this.setState({ redirectLogin: false }), 1000)
       return <Redirect to="/login" />
     }

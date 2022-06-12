@@ -2,7 +2,7 @@ import React from 'react';
 import { Redirect } from 'react-router';
 import $ from 'jquery';
 
-import { ButtonGroup, Button, Card, Col, Container, Form, Row } from 'react-bootstrap';
+import { Alert, ButtonGroup, Button, Card, Col, Container, Form, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 class Account extends React.Component {

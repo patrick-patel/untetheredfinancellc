@@ -73,6 +73,7 @@ class Account extends React.Component {
             'x-access-token': localStorage.getItem('token')
           },
           'success': function(user) {
+            console.log(user);
             this.setState({ currentEmail: user.email, currentPubKey: user.key });
           },
           'error': function(error) {

@@ -11,9 +11,11 @@ class Account extends React.Component {
     this.state = {
       currentEmail: "",
       currentPubKey: "",
+      message: "",
+      messageType: "",
       redirectForgotPassword: false,
       "email": "",
-      "key": "",
+      "key": "None",
     };
   }
 
@@ -61,6 +63,8 @@ class Account extends React.Component {
       'data': json,
       'success': function(data) {
         console.log('success');
+        this.setState({ message: data.message, messageType: data.messageType });
+        setTimeout(() => this.setState({message: "", messageType: ""}), 1000);
         $.ajax({
           'url': '/fetchUser',
           'type': 'GET',
@@ -97,6 +101,8 @@ class Account extends React.Component {
       'data': json,
       'success': function(data) {
         console.log('success');
+        this.setState({ message: data.message, messageType: data.messageType });
+        setTimeout(() => this.setState({ message: "", messageType: "" }), 1000);
         $.ajax({
           'url': '/fetchUser',
           'type': 'GET',
@@ -106,6 +112,7 @@ class Account extends React.Component {
           },
           'success': function(user) {
             this.setState({ currentEmail: user.email, currentPubKey: user.key });
+            setTimeout(() => this.setState({ message: "", messageType: "" }), 1000);
           },
           'error': function(error) {
             console.log(error);
@@ -137,6 +144,7 @@ class Account extends React.Component {
               <p className="lead" style={{color: "#050038", textDecoration: "none", fontSize: "28px"}}><i>Update your email, password or BTC Distribution receiving address</i></p>
             </Col>
             <Col>
+            {this.state.message.length > 0 ? <Alert key={this.state.messageType} variant={this.state.messageType}>{this.state.message}</Alert> : null}
               <Col>
                 <Card style={{background: "rgba(255,153,0,0.2)"}}>
                   <Container style={{padding: 20}}>

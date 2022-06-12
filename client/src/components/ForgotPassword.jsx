@@ -31,7 +31,9 @@ class ForgotPassword extends React.Component {
       'success': function(data) {
         console.log('response success');
         this.setState({ message: data.message, messageType: data.messageType });
-        setTimeout(() => this.setState({ redirectResetPassword: true, message: data.message, messageType: data.messageType }), 1000);
+        if (data.messageType === "success") {setTimeout(() => this.setState({ redirectResetPassword: true, message: "", messageType: "" }), 1000);}
+        else {setTimeout(() => this.setState({ message: "", messageType: "" }), 1000);}
+
         console.log(data);
       },
       'error': function(error) {
@@ -44,7 +46,7 @@ class ForgotPassword extends React.Component {
   render() {
     const redirectResetPassword = this.state.redirectResetPassword;
     if (redirectResetPassword) {
-      setTimeout(() => redirectResetPassword = false, 250);
+      setTimeout(() => this.setState(redirectResetPassword: false), 250);
       return <Redirect to="/passwordReset" />
     }
     return (

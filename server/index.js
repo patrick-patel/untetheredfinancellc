@@ -205,11 +205,13 @@ app.post('/password-reset', (req, res) => {
     .then(user => {
       if (!user) {
         console.log('(1) invalid link or expired - unable to fetch user');
+        return res.send({message: "Invalid User ID", messageType: "danger"});
       } else {
         fetchToken(userID, token)
         .then(fetchedToken => {
           if (!fetchedToken) {
             console.log('(2) invalid link or expired - unable to fetch token')
+            return res.send({message: "Invalid User ID", messageType: "danger"});
           } else {
             bcrypt.genSalt(10, (err, salt) => {
               bcrypt.hash(password, salt, (err, hashedPassword) => {
@@ -219,6 +221,7 @@ app.post('/password-reset', (req, res) => {
                 .then(() => {
                   console.log('successfully updated password');
                   deleteToken(userID);
+                  return res.send({message: "Successfully Updated Password", messageType: "success"});
                 })
                 .catch(err => console.log(err))
               });
@@ -238,7 +241,7 @@ app.post('/updateKey', verifyJWT, (req, res) => {
   const { errors, isValid } = validateKeyInput(req.body);
   // Check validation
   if (!isValid) {
-    return res.status(400).json(errors);
+    return res.send({message: "Invalid Public Key", messageType: "danger"});
   }
   const key = req.body.key;
 
@@ -254,7 +257,7 @@ app.post('/updateKey', verifyJWT, (req, res) => {
   })
   .then(() => {
     console.log('successfully updated user!');
-    res.end();
+    return res.send({message: "Successfully Updated Public Key", messageType: "success"});
   })
 });
 
@@ -264,7 +267,7 @@ app.post('/updateEmail', verifyJWT, (req, res) => {
   const { errors, isValid } = validateEmailInput(req.body);
   // Check validation
   if (!isValid) {
-    return res.status(400).json(errors);
+    return res.send({message: "Invalid Email", messageType: "danger"});
   }
   const email = req.body.email;
 
@@ -280,7 +283,7 @@ app.post('/updateEmail', verifyJWT, (req, res) => {
   })
   .then(() => {
     console.log('successfully updated user!');
-    res.end();
+    return res.send({message: "Successfully Updated Email", messageType: "success"});
   })
 });
 

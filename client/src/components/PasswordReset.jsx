@@ -12,6 +12,8 @@ class PasswordReset extends React.Component {
       "token": "",
       "password": "",
       "password2": "",
+      message: "",
+      messageType: "",
       redirectLogin: false,
     };
   }
@@ -34,7 +36,9 @@ class PasswordReset extends React.Component {
       'data': params,
       'success': function(data) {
         console.log(data);
-        this.setState({redirectLogin: true})
+        this.setState({message: data.message, messageType: data.messageType})
+        if (data.message === "success") {setTimeout(() => this.setState({message: "", messageType: "", redirectLogin: true}), 1000)}
+        else {setTimeout(() => this.setState({message: "", messageType: ""}), 1000)}
       },
       'error': function(error) {
         console.log(error);
@@ -45,12 +49,14 @@ class PasswordReset extends React.Component {
   render() {
     const redirectLogin = this.state.redirectLogin;
     if (redirectLogin) {
+      SetTimeout(() => this.setState({ redirectLogin: false }), 1000)
       return <Redirect to="/login" />
     }
     return (
       <div style={{background: "rgba(255,153,0,0.2)"}}>
         <br></br>
         <Container fluid style={{padding: 90}}>
+          {this.state.message.length > 0 ? <Alert key={this.state.messageType} variant={this.state.messageType}>{this.state.message}</Alert> : null}
           <Form style={{width: "50%"}}>
             <Form.Group className="mb-3">
               <Form.Label>User ID</Form.Label>

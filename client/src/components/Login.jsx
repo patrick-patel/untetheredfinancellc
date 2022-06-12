@@ -15,6 +15,7 @@ class Login extends React.Component {
   }
 
   login(e) {
+    e.preventDefault();
     this.props.login(e);
   }
 
@@ -60,7 +61,7 @@ class Login extends React.Component {
                       </Button>
                     </Col>
                     <Col>
-                      <Button variant="dark" type="submit" style={{cursor: "pointer", background: "#050038", marginLeft: 50, width: "75%"}} onClick={this.props.forgotPassword()}>
+                      <Button variant="dark" type="submit" style={{cursor: "pointer", background: "#050038", marginLeft: 50, width: "75%"}} onClick={() => this.props.forgotPassword()}>
                         Forgot Password
                       </Button>
                     </Col>
@@ -111,7 +112,7 @@ class Login extends React.Component {
                     </Button>
                   </Col>
                   <Col>
-                    <Button variant="dark" type="submit" style={{cursor: "pointer", background: "#050038", marginLeft: 50, width: "75%"}} onClick={this.props.forgotPassword()}>
+                    <Button variant="dark" type="submit" style={{cursor: "pointer", background: "#050038", marginLeft: 50, width: "75%"}} onClick={() => this.props.forgotPassword()}>
                       Forgot Password
                     </Button>
                   </Col>

@@ -75,6 +75,7 @@ class App extends React.Component {
       'success': function(data) {
         console.log(data);
         this.setState({ message: data.message, messageType: data.messageType });
+        setTimeout(() => this.setState({ message: '', messageType: '' }), 1000);
         if (data.success) {
           localStorage.setItem("token", data.token);
           this.setState({ isLoggedIn: localStorage.getItem('token') });
@@ -91,18 +92,19 @@ class App extends React.Component {
                 "totalBTC": data.totalBTC,
                 "distributions": data.distributions
               })
-              setTimeout(() => this.setState({ redirectDash: true }), 750);
-              setTimeout(() => this.setState({ redirectDash: false }), 250);
+              setTimeout(() => this.setState({ redirectDash: true }), 5000);
+              setTimeout(() => this.setState({ redirectDash: false }), 5250);
             }
           })
         } else {
           setTimeout(() => this.setState({ redirectLogin: true }), 750);
-          setTimeout(() => this.setState({ redirectLogin: false }), 250);
+          setTimeout(() => this.setState({ redirectLogin: false }), 1000);
         }
       },
       'error': function(error) {
         console.log(error);
         this.setState({ message: "Error", messageType: "danger" });
+        setTimeout(() => this.setState({ message: '', messageType: '' }), 1000);
       }
     })
   }

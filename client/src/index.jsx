@@ -78,7 +78,7 @@ class App extends React.Component {
         setTimeout(() => this.setState({ message: '', messageType: '' }), 1000);
         if (data.success) {
           localStorage.setItem("token", data.token);
-          this.setState({ isLoggedIn: localStorage.getItem('token') });
+          setTimeout(() => this.setState({ isLoggedIn: localStorage.getItem('token') }), 1000);
           $.ajax({
             'url': '/fetchBTC',
             'type': 'GET',
@@ -163,7 +163,7 @@ class App extends React.Component {
             <Resources />
           </Route>
           <Route path="/login">
-            {this.state.isLoggedIn ? setTimeout(() => <Redirect to="/dashboard" />, 750) : <Login login={this.login.bind(this)} onChange={this.onChange.bind(this)} forgotPassword={this.forgotPassword.bind(this)} email={this.state.email} password={this.state.password} message={this.state.message} messageType={this.state.messageType} redirectLogin={this.state.redirectLogin} redirectDash={this.state.redirectDash} redirectForgotPassword={this.state.redirectForgotPassword}/>}
+            {this.state.isLoggedIn ? <Redirect to="/dashboard" /> : <Login login={this.login.bind(this)} onChange={this.onChange.bind(this)} forgotPassword={this.forgotPassword.bind(this)} email={this.state.email} password={this.state.password} message={this.state.message} messageType={this.state.messageType} redirectLogin={this.state.redirectLogin} redirectDash={this.state.redirectDash} redirectForgotPassword={this.state.redirectForgotPassword}/>}
           </Route>
           <Route path="/register">
             {this.state.isLoggedIn ? <Redirect to="/dashboard" /> : <Register />}

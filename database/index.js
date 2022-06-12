@@ -100,7 +100,6 @@ let fetchToken = (userID, token) => {
 
 let deleteToken = (userID) => {
   console.log('deleting token for userID: ', userID);
-  console.log('...and hr: ', hr);
   return Token.deleteMany({"userID": userID}).exec();
 }
 

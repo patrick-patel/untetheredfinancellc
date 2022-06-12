@@ -37,7 +37,7 @@ class PasswordReset extends React.Component {
       'success': function(data) {
         console.log(data);
         this.setState({message: data.message, messageType: data.messageType})
-        if (data.message === "success") {setTimeout(() => this.setState({message: "", messageType: "", redirectLogin: true}), 1000)}
+        if (data.messageType === "success") {setTimeout(() => this.setState({message: "", messageType: "", redirectLogin: true}), 1000)}
         else {setTimeout(() => this.setState({message: "", messageType: ""}), 1000)}
       },
       'error': function(error) {

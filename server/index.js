@@ -223,15 +223,24 @@ app.post('/password-reset', (req, res) => {
                   deleteToken(userID);
                   return res.send({message: "Successfully Updated Password", messageType: "success"});
                 })
-                .catch(err => console.log(err))
+                .catch(err => {
+                  console.log(err);
+                  return res.send({message: "Error", messageType: "danger"});
+                })
               });
             });
           }
         })
-        .catch(err => console.log(err))
+        .catch(err => {
+          console.log(err);
+          return res.send({message: "Error", messageType: "danger"});
+        })
       }
     })
-    .catch(err => console.log(err))
+    .catch(err => {
+      console.log(err);
+      return res.send({message: "Error", messageType: "danger"});
+    })
   }
 })
 

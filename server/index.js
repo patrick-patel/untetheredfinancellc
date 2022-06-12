@@ -42,7 +42,8 @@ app.get('/fetchBTC', verifyJWT, (req, res) => {
   .then(user => {
     let json = {
       totalBTC: user.totalBTC,
-      distributions: user.distributions
+      distributions: user.distributions,
+      distributionsUSD: user.distributionsUSD,
     }
     res.json(json);
   })
@@ -287,9 +288,11 @@ app.post('/updateEmail', verifyJWT, (req, res) => {
     fetchUserByID(req.user.id)
     .then(user => {
       console.log('user: ', user);
-
-      user.email = email;
-      updateUserByID(user)
+      if (user.email === email) {return res.json({message: "Invalid Email", messageType: "danger"})}
+      else {
+        user.email = email;
+        updateUserByID(user)
+      }
     })
     .catch(err => {
       console.log(err);

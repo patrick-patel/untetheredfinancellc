@@ -40,8 +40,8 @@ class Login extends React.Component {
             <Row>
               <Col>
                 <h3 className="display-3" style={{color: "#050038", textDecoration: "none", margin: "auto", width: "75%"}}><b>Member Login</b></h3>
-                <p className="lead" style={{color: "#050038", textDecoration: "none", margin: "auto", width: "75%", fontSize: "24px"}}><i>View your investment dashboard, update</i></p>
-                <p className="lead" style={{color: "#050038", textDecoration: "none", margin: "auto", width: "75%", fontSize: "24px"}}><i>your account information and more</i></p>
+                <p className="lead" style={{color: "#050038", textDecoration: "none", margin: "auto", width: "75%", fontSize: "24px"}}><i>View your member dashboard, company metrics</i></p>
+                <p className="lead" style={{color: "#050038", textDecoration: "none", margin: "auto", width: "75%", fontSize: "24px"}}><i>and update your account information</i></p>
               </Col>
               <Col>
                 {this.props.message.length > 0 ? <Alert key={this.props.messageType} variant={this.props.messageType}>{this.props.message}</Alert> : null}

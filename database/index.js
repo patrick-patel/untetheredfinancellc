@@ -24,7 +24,10 @@ let userSchema = mongoose.Schema({
   },
   distributions: {
     type: [Number]
-  }
+  },
+  distributionsUSD: {
+    type: [Number]
+  },
 });
 
 let User = mongoose.model('User', userSchema);

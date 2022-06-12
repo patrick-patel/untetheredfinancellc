@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { Chart } from "react-google-charts";
 
 
-const Dashboard = ({ price, totalBTC, distributions }) => (
+const Dashboard = ({ price, totalBTC, distributions, distributionsUSD }) => (
   <div style={{background: "rgba(255,153,0,0.2)"}}>
     <Container fluid style={{padding: 90}}>
       <h3 className="display-3" style={{color: "#050038", textDecoration: "none"}}><b>Member Dashboard</b></h3>
@@ -52,10 +52,8 @@ const Dashboard = ({ price, totalBTC, distributions }) => (
                 [12, distributions[11],],
               ]}
               options={{
-                chart: {
-                  title: "Total Distributions (BTC)",
-                  backgroundColor: "rgba(255,153,0,0.2)",
-                },
+                title: "Total Distributions (BTC)",
+                backgroundColor: "rgba(255,153,0,0.2)",
                 hAxis: {
                   title: 'Month',
                 },
@@ -64,6 +62,7 @@ const Dashboard = ({ price, totalBTC, distributions }) => (
                 },
                 fontName: 'Verdana',
                 fontSize: 16,
+                legend: { position: 'bottom' },
               }}
               rootProps={{ 'data-testid': '1' }}
             />
@@ -77,22 +76,22 @@ const Dashboard = ({ price, totalBTC, distributions }) => (
               loader={<div>Loading Chart</div>}
               data={[
                 ['Month', 'Total Distributions (USD)'],
-                [1, distributions[0]*price],
-                [2, distributions[1]*price],
-                [3, distributions[2]*price],
-                [4, distributions[3]*price],
-                [5, distributions[4]*price],
-                [6, distributions[5]*price],
-                [7, distributions[6]*price],
-                [8, distributions[7]*price],
-                [9, distributions[8]*price],
-                [10, distributions[9]*price],
-                [11, distributions[10]*price],
-                [12, distributions[11]*price],
+                [1, distributionsUSD[0]],
+                [2, distributionsUSD[1]],
+                [3, distributionsUSD[2]],
+                [4, distributionsUSD[3]],
+                [5, distributionsUSD[4]],
+                [6, distributionsUSD[5]],
+                [7, distributionsUSD[6]],
+                [8, distributionsUSD[7]],
+                [9, distributionsUSD[8]],
+                [10, distributionsUSD[9]],
+                [11, distributionsUSD[10]],
+                [12, distributionsUSD[11]],
               ]}
               options={{
                 chart: {
-                  title: "Total Distributions (BTC)",
+                  title: "Total Distributions (USD)",
                   backgroundColor: "rgba(255,153,0,0.2)",
                 },
                 hAxis: {
@@ -103,6 +102,7 @@ const Dashboard = ({ price, totalBTC, distributions }) => (
                 },
                 fontName: 'Verdana',
                 fontSize: 16,
+                legend: { position: 'bottom' },
               }}
               rootProps={{ 'data-testid': '1' }}
             />

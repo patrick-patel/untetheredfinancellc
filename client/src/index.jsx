@@ -29,6 +29,7 @@ class App extends React.Component {
       "price": 0,
       "totalBTC": 0,
       "distributions": [],
+      "distributionsUSD": [],
       message: "",
       isLoggedIn: localStorage.getItem('token'),
     }
@@ -58,7 +59,8 @@ class App extends React.Component {
         console.log('server response: ', data);
         this.setState({
           "totalBTC": data.totalBTC,
-          "distributions": data.distributions
+          "distributions": data.distributions,
+          "distributionsUSD": data.distributionsUSD,
         })
       }
     })
@@ -157,7 +159,7 @@ class App extends React.Component {
             <Home />
           </Route>
           <Route path="/dashboard">
-            {this.state.isLoggedIn ? <Dashboard price={this.state.price} totalBTC={this.state.totalBTC} distributions={this.state.distributions}/> : <Redirect to="/" />}
+            {this.state.isLoggedIn ? <Dashboard price={this.state.price} totalBTC={this.state.totalBTC} distributions={this.state.distributions} distributionsUSD={this.state.distributionsUSD}/> : <Redirect to="/" />}
           </Route>
           <Route path="/resources">
             <Resources />

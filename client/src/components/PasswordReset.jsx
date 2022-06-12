@@ -2,7 +2,7 @@ import React from 'react';
 import { Redirect } from 'react-router';
 import $ from 'jquery';
 
-import { Alert, Container, ButtonGroup, Button, Form } from 'react-bootstrap';
+import { Alert, Card, Container, ButtonGroup, Button, Form } from 'react-bootstrap';
 
 class PasswordReset extends React.Component {
   constructor(props) {
@@ -59,8 +59,8 @@ class PasswordReset extends React.Component {
           <br></br>
           <Row>
             <Col>
-              <h3 className="display-3" style={{color: "#050038", textDecoration: "none"}}><b>Account Settings</b></h3>
-              <p className="lead" style={{color: "#050038", textDecoration: "none", fontSize: "28px"}}><i>Update your email, password or BTC Distribution receiving address</i></p>
+              <h3 className="display-3" style={{color: "#050038", textDecoration: "none"}}><b>Password Reset</b></h3>
+              <p className="lead" style={{color: "#050038", textDecoration: "none", fontSize: "28px"}}><i>Enter the information provided in the email to reset your password</i></p>
             </Col>
             <Col>
               {this.state.message.length > 0 ? <Alert key={this.state.messageType} variant={this.state.messageType}>{this.state.message}</Alert> : null}
@@ -70,16 +70,12 @@ class PasswordReset extends React.Component {
                     <Form.Group className="mb-3">
                       <Form.Label>User ID</Form.Label>
                       <Form.Control type="text"  placeholder="Enter User ID" name="userID" value={this.state.userID} onChange={this.onChange.bind(this)} required />
-                      <Form.Text className="text-muted">
-                          Found in the email
-                      </Form.Text>
+                      <Form.Text className="text-muted">Found in the email</Form.Text>
                     </Form.Group>
                     <Form.Group className="mb-3">
                       <Form.Label>Password Reset Token</Form.Label>
                       <Form.Control type="text"  placeholder="Enter Token" name="token" value={this.state.token} onChange={this.onChange.bind(this)} required />
-                      <Form.Text className="text-muted">
-                        Found in the email
-                      </Form.Text>
+                      <Form.Text className="text-muted">Found in the email</Form.Text>
                     </Form.Group>
                     <Form.Group className="mb-3">
                       <Form.Label>New Password</Form.Label>
@@ -89,10 +85,7 @@ class PasswordReset extends React.Component {
                       <Form.Label>Confirm New Password</Form.Label>
                       <Form.Control type="password"  placeholder="Confirm New Password" name="password2" value={this.state.password2} onChange={this.onChange.bind(this)} required />
                     </Form.Group>
-
-                    <Button className="mb-2" variant="dark" type="submit" style={{cursor: "pointer", background: "#050038", width: "50%"}} onClick={(e) => this.resetPassword(e)}>
-                      Submit
-                    </Button>
+                    <Button className="mb-2" variant="dark" type="submit" style={{cursor: "pointer", background: "#050038", width: "50%"}} onClick={(e) => this.resetPassword(e)}>Submit</Button>
                   </Form>
                 </Container>
               </Card>

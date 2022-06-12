@@ -152,20 +152,14 @@ class Account extends React.Component {
                       </Form.Group>
                       <Row>
                         <Col>
-                          <Button className="mb-2" variant="dark" type="submit" style={{cursor: "pointer", background: "#050038", margin: "auto", width: "100%"}} onClick={(e) => this.updateEmail(e)}>
-                            Update Email
-                          </Button>
+                          <Button className="mb-2" variant="dark" type="submit" style={{cursor: "pointer", background: "#050038", margin: "auto", width: "100%"}} onClick={(e) => this.updateEmail(e)}>Update Email</Button>
                         </Col>
                         <Col>
-                          <Button variant="dark" style={{cursor: "pointer", background: "#050038", margin: "auto", width: "100%"}} onClick={this.forgotPassword.bind(this)}>
-                            Change Password
-                          </Button>
+                          <Button variant="dark" style={{cursor: "pointer", background: "#050038", margin: "auto", width: "100%"}} onClick={this.forgotPassword.bind(this)}>Change Password</Button>
                         </Col>
                       </Row>
                       <Row>
-                        <Form.Text className="text-muted" style={{textAlign: "center"}}>
-                          Current Email: {this.state.currentEmail}
-                        </Form.Text>
+                        <Form.Text className="text-muted" style={{textAlign: "center"}}>Current Email: {this.state.currentEmail}</Form.Text>
                       </Row>
                     </Form>
                   </Container>
@@ -179,21 +173,15 @@ class Account extends React.Component {
                       <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>BTC Public Key:</Form.Label>
                         <Form.Control type="text" placeholder="Enter Public Key" name="key" value={this.state.key} onChange={this.onChange.bind(this)} style={{backgroundColor: "rgba(255,153,0,0.2)"}} required />
-                        <Form.Text className="text-muted" style={{textAlign: "center"}}>
-                          *DO NOT ENTER YOUR PRIVATE KEY*
-                        </Form.Text>
+                        <Form.Text className="text-muted" style={{textAlign: "center"}}>*DO NOT ENTER YOUR PRIVATE KEY*</Form.Text>
                       </Form.Group>
                       <Row>
                         <Col>
-                          <Button className="mb-2" variant="dark" type="submit" style={{cursor: "pointer", background: "#050038", width: "50%"}} onClick={(e) => this.updateKey(e)}>
-                            Update Key
-                          </Button>
+                          <Button className="mb-2" variant="dark" type="submit" style={{cursor: "pointer", background: "#050038", width: "50%"}} onClick={(e) => this.updateKey(e)}>Update Key</Button>
                         </Col>
                       </Row>
                       <Row>
-                        <Form.Text className="text-muted" style={{textAlign: "center"}}>
-                          Current Public Key: {this.state.currentPubKey}
-                        </Form.Text>
+                        <Form.Text className="text-muted" style={{textAlign: "center"}}>Current Public Key: {this.state.currentPubKey}</Form.Text>
                       </Row>
                     </Form>
                   </Container>

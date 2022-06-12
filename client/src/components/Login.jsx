@@ -2,7 +2,7 @@ import React from 'react';
 import { Redirect } from 'react-router';
 import $ from 'jquery';
 
-import { Alert, Col, Container, ButtonGroup, Button, Form, Row } from 'react-bootstrap';
+import { Alert, Card, Col, Container, ButtonGroup, Button, Form, Row } from 'react-bootstrap';
 
 class Login extends React.Component {
   constructor(props) {
@@ -45,32 +45,29 @@ class Login extends React.Component {
               </Col>
               <Col>
                 {this.props.message.length > 0 ? <Alert key={this.props.messageType} variant={this.props.messageType}>{this.props.message}</Alert> : null}
-                <Form>
-                  <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label>Email</Form.Label>
-                    <Form.Control type="email" placeholder="Enter Email" name="email" value={this.props.email} onChange={this.onChange.bind(this)} style={{backgroundColor: "rgba(255,153,0,0.2)"}} required />
-                    <Form.Text className="text-muted">
-                      We'll never share your email with anyone else.
-                    </Form.Text>
-                  </Form.Group>
-
-                  <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Label>Password</Form.Label>
-                    <Form.Control type="password"  placeholder="Enter Password" name="password" value={this.props.password} onChange={this.onChange.bind(this)} style={{backgroundColor: "rgba(255,153,0,0.2)"}} required />
-                  </Form.Group>
-                  <Row>
-                    <Col>
-                      <Button className="mb-2" variant="dark" type="submit" style={{cursor: "pointer", background: "#050038", marginLeft: 50, width: "75%"}} onClick={this.login.bind(this)}>
-                        Login
-                      </Button>
-                    </Col>
-                    <Col>
-                      <Button variant="dark" type="submit" style={{cursor: "pointer", background: "#050038", marginLeft: 50, width: "75%"}} onClick={this.forgotPassword.bind(this)}>
-                        Forgot Password
-                      </Button>
-                    </Col>
-                  </Row>
-                </Form>
+                <Card style={{background: "rgba(255,153,0,0.2)"}}>
+                  <Container style={{padding: 20}}>
+                    <Form>
+                      <Form.Group className="mb-3" controlId="formBasicEmail">
+                        <Form.Label>Email</Form.Label>
+                        <Form.Control type="email" placeholder="Enter Email" name="email" value={this.props.email} onChange={this.onChange.bind(this)} style={{backgroundColor: "rgba(255,153,0,0.2)"}} required />
+                        <Form.Text className="text-muted">We'll never share your email with anyone else.</Form.Text>
+                      </Form.Group>
+                      <Form.Group className="mb-3" controlId="formBasicPassword">
+                        <Form.Label>Password</Form.Label>
+                        <Form.Control type="password"  placeholder="Enter Password" name="password" value={this.props.password} onChange={this.onChange.bind(this)} style={{backgroundColor: "rgba(255,153,0,0.2)"}} required />
+                      </Form.Group>
+                      <Row>
+                        <Col>
+                          <Button className="mb-2" variant="dark" type="submit" style={{cursor: "pointer", background: "#050038", marginLeft: 50, width: "75%"}} onClick={this.login.bind(this)}>Login</Button>
+                        </Col>
+                        <Col>
+                          <Button variant="dark" type="submit" style={{cursor: "pointer", background: "#050038", marginLeft: 50, width: "75%"}} onClick={this.forgotPassword.bind(this)}>Forgot Password</Button>
+                        </Col>
+                      </Row>
+                    </Form>
+                  </Container>
+                </Card>
               </Col>
             </Row>
           </Container>
@@ -100,25 +97,18 @@ class Login extends React.Component {
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                   <Form.Label>Email</Form.Label>
                   <Form.Control type="email" placeholder="Enter Email" name="email" value={this.props.email} onChange={this.onChange.bind(this)} style={{backgroundColor: "rgba(255,153,0,0.2)"}} required />
-                  <Form.Text className="text-muted">
-                    We'll never share your email with anyone else.
-                  </Form.Text>
+                  <Form.Text className="text-muted">We'll never share your email with anyone else.</Form.Text>
                 </Form.Group>
-
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                   <Form.Label>Password</Form.Label>
                   <Form.Control type="password"  placeholder="Enter Password" name="password" value={this.props.password} onChange={this.onChange.bind(this)} style={{backgroundColor: "rgba(255,153,0,0.2)"}} required />
                 </Form.Group>
                 <Row>
                   <Col>
-                    <Button className="mb-2" variant="dark" type="submit" style={{cursor: "pointer", background: "#050038", marginLeft: 50, width: "75%"}} onClick={this.login.bind(this)}>
-                      Login
-                    </Button>
+                    <Button className="mb-2" variant="dark" type="submit" style={{cursor: "pointer", background: "#050038", marginLeft: 50, width: "75%"}} onClick={this.login.bind(this)}>Login</Button>
                   </Col>
                   <Col>
-                    <Button variant="dark" type="submit" style={{cursor: "pointer", background: "#050038", marginLeft: 50, width: "75%"}} onClick={this.forgotPassword.bind(this)}>
-                      Forgot Password
-                    </Button>
+                    <Button variant="dark" type="submit" style={{cursor: "pointer", background: "#050038", marginLeft: 50, width: "75%"}} onClick={this.forgotPassword.bind(this)}>Forgot Password</Button>
                   </Col>
                 </Row>
               </Form>

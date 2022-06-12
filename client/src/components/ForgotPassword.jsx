@@ -2,7 +2,7 @@ import React from 'react';
 import { Redirect } from 'react-router';
 import $ from 'jquery';
 
-import { Alert, Col, Container, ButtonGroup, Button, Form, Row } from 'react-bootstrap';
+import { Alert, Card, Col, Container, ButtonGroup, Button, Form, Row } from 'react-bootstrap';
 
 class ForgotPassword extends React.Component {
   constructor(props) {
@@ -67,9 +67,7 @@ class ForgotPassword extends React.Component {
                       <Form.Label>Email address</Form.Label>
                       <Form.Control type="email" placeholder="Enter Email" name="email" value={this.state.email} onChange={this.onChange.bind(this)} style={{width: "50%"}} required />
                     </Form.Group>
-                    <Button className="mb-2" variant="dark" type="submit" style={{cursor: "pointer", background: "#050038", width: "50%"}} onClick={(e) => this.submitEmail(e)}>
-                      Submit
-                    </Button>
+                    <Button className="mb-2" variant="dark" type="submit" style={{cursor: "pointer", background: "#050038", width: "50%"}} onClick={(e) => this.submitEmail(e)}>Submit</Button>
                   </Form>
                 </Container>
               </Card>

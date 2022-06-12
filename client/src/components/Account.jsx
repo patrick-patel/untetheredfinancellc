@@ -17,6 +17,8 @@ class Account extends React.Component {
       "email": "",
       "key": "",
     };
+    this.updateEmail = this.updateEmail.bind(this);
+    this.updateKey = this.updateKey.bind(this);
   }
 
   componentDidMount() {
@@ -36,19 +38,12 @@ class Account extends React.Component {
     })
   }
 
-  onChangeRadio({ target }) {
-    if (!this.state[target.name]) {
-      this.setState({ [target.name]: true })
-    } else {
-      this.setState({ [target.name]: false })
-    }
-  }
-
   onChange({ target }) {
     this.setState({ [target.name]: target.value });
   }
 
-  updateEmail() {
+  updateEmail(e) {
+    e.preventDefault();
     let json = {
       "email": this.state.email,
     };
@@ -64,7 +59,7 @@ class Account extends React.Component {
       'success': function(data) {
         console.log(data);
         this.setState({ message: data.message, messageType: data.messageType });
-        setTimeout(() => this.setState({message: "", messageType: ""}), 1000);
+        setTimeout(() => this.setState({ message: "", messageType: "" }), 1000);
         $.ajax({
           'url': '/fetchUser',
           'type': 'GET',
@@ -87,7 +82,8 @@ class Account extends React.Component {
     })
   }
 
-  updateKey() {
+  updateKey(e) {
+    e.preventDefault();
     let json = {
       "key": this.state.key,
     };
@@ -156,7 +152,7 @@ class Account extends React.Component {
                       </Form.Group>
                       <Row>
                         <Col>
-                          <Button className="mb-2" variant="dark" type="submit" style={{cursor: "pointer", background: "#050038", margin: "auto", width: "100%"}} onClick={this.updateEmail.bind(this)}>
+                          <Button className="mb-2" variant="dark" type="submit" style={{cursor: "pointer", background: "#050038", margin: "auto", width: "100%"}} onClick={(e) => this.updateEmail(e)}>
                             Update Email
                           </Button>
                         </Col>
@@ -189,7 +185,7 @@ class Account extends React.Component {
                       </Form.Group>
                       <Row>
                         <Col>
-                          <Button className="mb-2" variant="dark" type="submit" style={{cursor: "pointer", background: "#050038", width: "50%"}} onClick={this.updateKey.bind(this)}>
+                          <Button className="mb-2" variant="dark" type="submit" style={{cursor: "pointer", background: "#050038", width: "50%"}} onClick={(e) => this.updateKey(e)}>
                             Update Key
                           </Button>
                         </Col>

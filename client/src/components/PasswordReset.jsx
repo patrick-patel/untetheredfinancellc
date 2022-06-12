@@ -16,13 +16,15 @@ class PasswordReset extends React.Component {
       messageType: "",
       redirectLogin: false,
     };
+    this.resetPassword = this.resetPassword.bind(this);
   }
 
   onChange({ target }) {
     this.setState({ [target.name]: target.value });
   }
 
-  resetPassword() {
+  resetPassword(e) {
+    e.preventDefault();
     var params = {
       userID: this.state.userID,
       token: this.state.token,
@@ -80,7 +82,7 @@ class PasswordReset extends React.Component {
               <Form.Control type="password"  placeholder="Confirm New Password" name="password2" value={this.state.password2} onChange={this.onChange.bind(this)} required />
             </Form.Group>
 
-            <Button variant="primary" type="submit" style={{cursor: "pointer"}} onClick={this.resetPassword.bind(this)}>
+            <Button variant="primary" type="submit" style={{cursor: "pointer"}} onClick={(e) => this.resetPassword(e)}>
               Submit
             </Button>
           </Form>

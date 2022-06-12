@@ -44,7 +44,7 @@ app.get('/fetchBTC', verifyJWT, (req, res) => {
       totalBTC: user.totalBTC,
       distributions: user.distributions
     }
-    res.send(json);
+    res.json(json);
   })
   .catch(err => {
     console.log(err);
@@ -59,7 +59,7 @@ app.get('/fetchUser', verifyJWT, (req, res) => {
       email: user.email,
       key: user.key
     }
-    res.send(json);
+    res.json(json);
   })
   .catch(err => {
     console.log(err);

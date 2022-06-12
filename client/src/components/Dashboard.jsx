@@ -38,6 +38,7 @@ const Dashboard = ({ price, totalBTC, distributions, distributionsUSD }) => (
               loader={<div>Loading Chart</div>}
               data={[
                 ['Month', 'Total Distributions (BTC)'],
+                [0, 0],
                 [1, distributions[0]],
                 [2, distributions[1]],
                 [3, distributions[2]],
@@ -53,12 +54,14 @@ const Dashboard = ({ price, totalBTC, distributions, distributionsUSD }) => (
               ]}
               options={{
                 title: "Total Distributions (BTC)",
-                backgroundColor: "rgba(255,153,0,0.2)",
+                backgroundColor: "#fbdba3",
                 hAxis: {
                   title: 'Month',
+                  ticks: [0,1,2,3,4,5,6,7,8,9,10,11,12],
                 },
                 vAxis: {
                   title: 'BTC',
+                  baseline: 0,
                 },
                 fontName: 'Verdana',
                 fontSize: 16,
@@ -76,6 +79,7 @@ const Dashboard = ({ price, totalBTC, distributions, distributionsUSD }) => (
               loader={<div>Loading Chart</div>}
               data={[
                 ['Month', 'Total Distributions (USD)'],
+                [0, 0],
                 [1, distributionsUSD[0]],
                 [2, distributionsUSD[1]],
                 [3, distributionsUSD[2]],
@@ -92,13 +96,15 @@ const Dashboard = ({ price, totalBTC, distributions, distributionsUSD }) => (
               options={{
                 chart: {
                   title: "Total Distributions (USD)",
-                  backgroundColor: "rgba(255,153,0,0.2)",
+                  backgroundColor: "#fbdba3",
                 },
                 hAxis: {
                   title: 'Month',
+                  ticks: [0,1,2,3,4,5,6,7,8,9,10,11,12],
                 },
                 vAxis: {
                   title: 'BTC',
+                  baseline: 0,
                 },
                 fontName: 'Verdana',
                 fontSize: 16,

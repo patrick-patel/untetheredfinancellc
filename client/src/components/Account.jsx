@@ -58,7 +58,7 @@ class Account extends React.Component {
       'data': json,
       'success': function(data) {
         console.log(data);
-        this.setState({ message: data.message, messageType: data.messageType });
+        this.setState({ "email": "", message: data.message, messageType: data.messageType });
         setTimeout(() => this.setState({ message: "", messageType: "" }), 1000);
         $.ajax({
           'url': '/fetchUser',
@@ -98,8 +98,8 @@ class Account extends React.Component {
       'data': json,
       'success': function(data) {
         console.log('success');
-        this.setState({ message: data.message, messageType: data.messageType });
-        setTimeout(() => this.setState({ message: "", messageType: "" }), 1000);
+        this.setState({ "key": "", message: data.message, messageType: data.messageType });
+        setTimeout(() => this.setState({ message: "", messageType: "" }), 3000);
         $.ajax({
           'url': '/fetchUser',
           'type': 'GET',
@@ -109,7 +109,7 @@ class Account extends React.Component {
           },
           'success': function(user) {
             this.setState({ currentEmail: user.email, currentPubKey: user.key });
-            setTimeout(() => this.setState({ message: "", messageType: "" }), 1000);
+            setTimeout(() => this.setState({ message: "", messageType: "" }), 3000);
           },
           'error': function(error) {
             console.log(error);

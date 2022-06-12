@@ -74,7 +74,7 @@ class PasswordReset extends React.Component {
                     </Form.Group>
                     <Form.Group className="mb-3">
                       <Form.Label>Password Reset Token</Form.Label>
-                      <Form.Control type="text"  placeholder="Enter Token" name="token" value={this.state.token} onChange={this.onChange.bind(this)} style={{backgroundColor: "rgba(255,153,0,0.2)"}} required />
+                      <Form.Control type="text"  placeholder="Paste Token" name="token" value={this.state.token} onChange={this.onChange.bind(this)} style={{backgroundColor: "rgba(255,153,0,0.2)"}} required />
                       <Form.Text className="text-muted">Found in the email</Form.Text>
                     </Form.Group>
                     <Form.Group className="mb-3">

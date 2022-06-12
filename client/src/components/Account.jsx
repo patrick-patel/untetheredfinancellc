@@ -10,12 +10,12 @@ class Account extends React.Component {
     super(props);
     this.state = {
       currentEmail: "",
-      currentPubKey: "",
+      currentPubKey: "None",
       message: "",
       messageType: "",
       redirectForgotPassword: false,
       "email": "",
-      "key": "None",
+      "key": "",
     };
   }
 
@@ -63,8 +63,8 @@ class Account extends React.Component {
       'data': json,
       'success': function(data) {
         console.log('success');
-        this.setState({ message: data.message, messageType: data.messageType });
-        setTimeout(() => this.setState({message: "", messageType: ""}), 1000);
+        // this.setState({ message: data.message, messageType: data.messageType });
+        // setTimeout(() => this.setState({message: "", messageType: ""}), 1000);
         $.ajax({
           'url': '/fetchUser',
           'type': 'GET',
@@ -130,8 +130,8 @@ class Account extends React.Component {
   }
 
   render() {
-    const redirectForgotPassword = this.state.redirectForgotPassword;
-    if (redirectForgotPassword) {
+    if (this.state.redirectForgotPassword) {
+      setTimeout(() => this.setState({ redirectForgotPassword: true }), 1000);
       return <Redirect to="/forgot-password" />
     }
     return (

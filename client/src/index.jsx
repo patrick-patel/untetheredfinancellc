@@ -77,20 +77,21 @@ class App extends React.Component {
         this.setState({ message: data.message, messageType: data.messageType });
         if (data.success) {
           localStorage.setItem("token", data.token);
+          this.setState({ isLoggedIn: localStorage.getItem('token') });
           $.ajax({
-            'url': '/userData',
+            'url': '/fetchBTC',
             'type': 'GET',
             'context': this,
             'headers': {
               'x-access-token': localStorage.getItem('token')
             },
             'success': function(data) {
-              console.log(data);
-              this.setState({ isLoggedIn: localStorage.getItem('token') });
+              console.log('server response: ', data);
+              this.setState({
+                "totalBTC": data.totalBTC,
+                "distributions": data.distributions
+              })
               setTimeout(() => this.setState({ redirectDash: true }), 750);
-            },
-            'error': function(error) {
-              console.log(error);
             }
           })
         } else {setTimeout(() => this.setState({ redirectLogin: true }), 750);}

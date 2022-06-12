@@ -54,7 +54,10 @@ const Dashboard = ({ price, totalBTC, distributions, distributionsUSD }) => (
               ]}
               options={{
                 title: "Total Distributions (BTC)",
-                backgroundColor: "#fbdba3",
+                backgroundColor: {
+                  fill: "#fbdba3",
+                  stroke: "#dfbf8e",
+                },
                 hAxis: {
                   title: 'Month',
                   ticks: [0,1,2,3,4,5,6,7,8,9,10,11,12],
@@ -66,6 +69,9 @@ const Dashboard = ({ price, totalBTC, distributions, distributionsUSD }) => (
                 fontName: 'Verdana',
                 fontSize: 16,
                 legend: { position: 'bottom' },
+                series: [
+                  {color: "#050038", visibleInLegend: false}
+                ],
               }}
               rootProps={{ 'data-testid': '1' }}
             />
@@ -94,21 +100,25 @@ const Dashboard = ({ price, totalBTC, distributions, distributionsUSD }) => (
                 [12, distributionsUSD[11]],
               ]}
               options={{
-                chart: {
-                  title: "Total Distributions (USD)",
-                  backgroundColor: "#fbdba3",
+                title: "Total Distributions (USD)",
+                backgroundColor: {
+                  fill: "#fbdba3",
+                  stroke: "#dfbf8e",
                 },
                 hAxis: {
                   title: 'Month',
                   ticks: [0,1,2,3,4,5,6,7,8,9,10,11,12],
                 },
                 vAxis: {
-                  title: 'BTC',
+                  title: 'USD',
                   baseline: 0,
                 },
                 fontName: 'Verdana',
                 fontSize: 16,
                 legend: { position: 'bottom' },
+                series: [
+                  {color: "#050038", visibleInLegend: false}
+                ],
               }}
               rootProps={{ 'data-testid': '1' }}
             />

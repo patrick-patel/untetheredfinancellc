@@ -2,7 +2,7 @@ import React from 'react';
 import { Redirect } from 'react-router';
 import $ from 'jquery';
 
-import { Alert, ButtonGroup, Button, Card, Container, Form, Row } from 'react-bootstrap';
+import { Alert, ButtonGroup, Button, Col, Card, Container, Form, Row } from 'react-bootstrap';
 
 class PasswordReset extends React.Component {
   constructor(props) {

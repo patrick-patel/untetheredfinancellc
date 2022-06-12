@@ -162,36 +162,37 @@ app.post('/forgotPassword', (req, res) => {
   .then(user => {
     if (!user) {
       console.log("user with given email does not exist");
-      return res.send({message: "User Does Not Exist", messageType: "danger"});
-    }
-    fetchToken(user)
-    .then(userToken => {
-      if (!userToken) {
-        var userID = user._id;
-        var token = crypto.randomBytes(32).toString("hex");
-        saveToken(userID, token);
+      res.json({message: "User Does Not Exist", messageType: "danger"});
+    } else {
+      fetchToken(user)
+      .then(userToken => {
+        if (!userToken) {
+          var userID = user._id;
+          var token = crypto.randomBytes(32).toString("hex");
+          saveToken(userID, token);
 
-        console.log('inside server just before sendEmail')
-        const msg = `userID: ${userID}\ntoken: ${token}`;
-        sendEmail(email, "Password Reset", msg)
-        .then(() => {
-          console.log('password reset sent to email');
-          res.send({message: "Email Sent", messageType: "success"});
-        })
-        .catch(err => console.log(err))
-      } else {
-        console.log('token already exists for this user');
-        res.send({message: "Token Already Sent To User", messageType: "danger"});
-      }
-    })
-    .catch(err => {
-      console.log(err);
-      res.send({message: "Error", messageType: "danger"});
-    })
+          console.log('inside server just before sendEmail')
+          const msg = `userID: ${userID}\ntoken: ${token}`;
+          sendEmail(email, "Password Reset", msg)
+          .then(() => {
+            console.log('password reset sent to email');
+            res.send({message: "Email Sent", messageType: "success"});
+          })
+          .catch(err => console.log(err))
+        } else {
+          console.log('token already exists for this user');
+          res.json({message: "Token Already Sent To User", messageType: "danger"});
+        }
+      })
+      .catch(err => {
+        console.log(err);
+        res.json({message: "Error", messageType: "danger"});
+      })
+    }
   })
   .catch(err => {
     console.log(err);
-    res.send({message: "Error", messageType: "danger"});
+    res.json({message: "Error", messageType: "danger"});
   })
 })
 
@@ -205,13 +206,13 @@ app.post('/password-reset', (req, res) => {
     .then(user => {
       if (!user) {
         console.log('(1) invalid link or expired - unable to fetch user');
-        return res.send({message: "Invalid User ID", messageType: "danger"});
+        res.json({message: "Invalid User ID", messageType: "danger"});
       } else {
         fetchToken(userID, token)
         .then(fetchedToken => {
           if (!fetchedToken) {
             console.log('(2) invalid link or expired - unable to fetch token')
-            return res.send({message: "Invalid User ID", messageType: "danger"});
+            res.json({message: "Invalid User ID", messageType: "danger"});
           } else {
             bcrypt.genSalt(10, (err, salt) => {
               bcrypt.hash(password, salt, (err, hashedPassword) => {
@@ -222,12 +223,12 @@ app.post('/password-reset', (req, res) => {
                   console.log('successfully updated password');
                   deleteToken(userID)
                   .then(() => {
-                    res.send({message: "Successfully Updated Password", messageType: "success"});
+                    res.json({message: "Successfully Updated Password", messageType: "success"});
                   })
                 })
                 .catch(err => {
                   console.log(err);
-                  res.send({message: "Error", messageType: "danger"});
+                  res.json({message: "Error", messageType: "danger"});
                 })
               });
             });
@@ -235,13 +236,13 @@ app.post('/password-reset', (req, res) => {
         })
         .catch(err => {
           console.log(err);
-          res.send({message: "Error", messageType: "danger"});
+          res.json({message: "Error", messageType: "danger"});
         })
       }
     })
     .catch(err => {
       console.log(err);
-      res.send({message: "Error", messageType: "danger"});
+      res.json({message: "Error", messageType: "danger"});
     })
   }
 })
@@ -252,24 +253,25 @@ app.post('/updateKey', verifyJWT, (req, res) => {
   const { errors, isValid } = validateKeyInput(req.body);
   // Check validation
   if (!isValid) {
-    return res.send({message: "Invalid Public Key", messageType: "danger"});
+    return res.json({message: "Invalid Public Key", messageType: "danger"});
+  } else {
+    const key = req.body.key;
+
+    fetchUserByID(req.user.id)
+    .then(user => {
+      console.log('user: ', user);
+
+      user.key = key;
+      updateUserByID(user)
+    })
+    .catch(err => {
+      console.log(err);
+    })
+    .then(() => {
+      console.log('successfully updated user!');
+      res.json({message: "Successfully Updated Public Key", messageType: "success"});
+    })
   }
-  const key = req.body.key;
-
-  fetchUserByID(req.user.id)
-  .then(user => {
-    console.log('user: ', user);
-
-    user.key = key;
-    updateUserByID(user)
-  })
-  .catch(err => {
-    console.log(err);
-  })
-  .then(() => {
-    console.log('successfully updated user!');
-    res.send({message: "Successfully Updated Public Key", messageType: "success"});
-  })
 });
 
 app.post('/updateEmail', verifyJWT, (req, res) => {
@@ -278,24 +280,25 @@ app.post('/updateEmail', verifyJWT, (req, res) => {
   const { errors, isValid } = validateEmailInput(req.body);
   // Check validation
   if (!isValid) {
-    return res.send({message: "Invalid Email", messageType: "danger"});
+    res.json({message: "Invalid Email", messageType: "danger"});
+  } else {
+    const email = req.body.email;
+
+    fetchUserByID(req.user.id)
+    .then(user => {
+      console.log('user: ', user);
+
+      user.email = email;
+      updateUserByID(user)
+    })
+    .catch(err => {
+      console.log(err);
+    })
+    .then(() => {
+      console.log('successfully updated user!');
+      res.json({message: "Successfully Updated Email", messageType: "success"});
+    })
   }
-  const email = req.body.email;
-
-  fetchUserByID(req.user.id)
-  .then(user => {
-    console.log('user: ', user);
-
-    user.email = email;
-    updateUserByID(user)
-  })
-  .catch(err => {
-    console.log(err);
-  })
-  .then(() => {
-    console.log('successfully updated user!');
-    res.send({message: "Successfully Updated Email", messageType: "success"});
-  })
 });
 
 let port = process.env.PORT || 1128;

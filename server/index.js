@@ -176,22 +176,22 @@ app.post('/forgotPassword', (req, res) => {
         sendEmail(email, "Password Reset", msg)
         .then(() => {
           console.log('password reset sent to email');
-          return res.send({message: "Email Sent", messageType: "success"});
+          res.send({message: "Email Sent", messageType: "success"});
         })
         .catch(err => console.log(err))
       } else {
         console.log('token already exists for this user');
-        return res.send({message: "Token Already Sent To User", messageType: "danger"});
+        res.send({message: "Token Already Sent To User", messageType: "danger"});
       }
     })
     .catch(err => {
       console.log(err);
-      return res.send({message: "Error", messageType: "danger"});
+      res.send({message: "Error", messageType: "danger"});
     })
   })
   .catch(err => {
     console.log(err);
-    return res.send({message: "Error", messageType: "danger"});
+    res.send({message: "Error", messageType: "danger"});
   })
 })
 
@@ -222,12 +222,12 @@ app.post('/password-reset', (req, res) => {
                   console.log('successfully updated password');
                   deleteToken(userID)
                   .then(() => {
-                    return res.send({message: "Successfully Updated Password", messageType: "success"});
+                    res.send({message: "Successfully Updated Password", messageType: "success"});
                   })
                 })
                 .catch(err => {
                   console.log(err);
-                  return res.send({message: "Error", messageType: "danger"});
+                  res.send({message: "Error", messageType: "danger"});
                 })
               });
             });
@@ -235,13 +235,13 @@ app.post('/password-reset', (req, res) => {
         })
         .catch(err => {
           console.log(err);
-          return res.send({message: "Error", messageType: "danger"});
+          res.send({message: "Error", messageType: "danger"});
         })
       }
     })
     .catch(err => {
       console.log(err);
-      return res.send({message: "Error", messageType: "danger"});
+      res.send({message: "Error", messageType: "danger"});
     })
   }
 })
@@ -268,7 +268,7 @@ app.post('/updateKey', verifyJWT, (req, res) => {
   })
   .then(() => {
     console.log('successfully updated user!');
-    return res.send({message: "Successfully Updated Public Key", messageType: "success"});
+    res.send({message: "Successfully Updated Public Key", messageType: "success"});
   })
 });
 
@@ -294,7 +294,7 @@ app.post('/updateEmail', verifyJWT, (req, res) => {
   })
   .then(() => {
     console.log('successfully updated user!');
-    return res.send({message: "Successfully Updated Email", messageType: "success"});
+    res.send({message: "Successfully Updated Email", messageType: "success"});
   })
 });
 

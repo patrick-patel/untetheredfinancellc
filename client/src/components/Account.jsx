@@ -62,9 +62,9 @@ class Account extends React.Component {
       },
       'data': json,
       'success': function(data) {
-        console.log('success');
-        // this.setState({ message: data.message, messageType: data.messageType });
-        // setTimeout(() => this.setState({message: "", messageType: ""}), 1000);
+        console.log(data);
+        this.setState({ message: data.message, messageType: data.messageType });
+        setTimeout(() => this.setState({message: "", messageType: ""}), 1000);
         $.ajax({
           'url': '/fetchUser',
           'type': 'GET',

@@ -92,8 +92,8 @@ class App extends React.Component {
                 "totalBTC": data.totalBTC,
                 "distributions": data.distributions
               })
-              setTimeout(() => this.setState({ redirectDash: true }), 5000);
-              setTimeout(() => this.setState({ redirectDash: false }), 5250);
+              setTimeout(() => this.setState({ redirectDash: true }), 750);
+              setTimeout(() => this.setState({ redirectDash: false }), 1000);
             }
           })
         } else {
@@ -163,7 +163,7 @@ class App extends React.Component {
             <Resources />
           </Route>
           <Route path="/login">
-            {this.state.isLoggedIn ? <Redirect to="/dashboard" /> : <Login login={this.login.bind(this)} onChange={this.onChange.bind(this)} forgotPassword={this.forgotPassword.bind(this)} email={this.state.email} password={this.state.password} message={this.state.message} messageType={this.state.messageType} redirectLogin={this.state.redirectLogin} redirectDash={this.state.redirectDash} redirectForgotPassword={this.state.redirectForgotPassword}/>}
+            <Login login={this.login.bind(this)} onChange={this.onChange.bind(this)} forgotPassword={this.forgotPassword.bind(this)} email={this.state.email} password={this.state.password} message={this.state.message} messageType={this.state.messageType} redirectLogin={this.state.redirectLogin} redirectDash={this.state.redirectDash} redirectForgotPassword={this.state.redirectForgotPassword}/>
           </Route>
           <Route path="/register">
             {this.state.isLoggedIn ? <Redirect to="/dashboard" /> : <Register />}

@@ -4,12 +4,19 @@ import { Link } from "react-router-dom";
 import { Chart } from "react-google-charts";
 
 
-const Dashboard = ({ price, totalBTC, distributions, distributionsUSD, key }) => (
+const Dashboard = ({ price, totalBTC, distributions, distributionsUSD, key, balance }) => (
   <div style={{background: "rgba(255,153,0,0.2)"}}>
     <Container fluid style={{padding: 90}}>
       <h3 className="display-3" style={{color: "#050038", textDecoration: "none"}}><b>Member Dashboard</b></h3>
       <Row style={{textAlign: "center"}}>
         <Col>
+        <Col>
+          <Card style={{background: "rgba(255,153,0,0.2)"}}>
+            <p className="lead">Wallet Balance</p>
+            <p className="lead">{key}</p>
+            <p className="lead"><b>{balance}</b></p>
+          </Card>
+        </Col>
           <Card style={{background: "rgba(255,153,0,0.2)"}}>
             <p className="lead">Total Distributions (BTC)</p>
             <p className="lead"><b>{totalBTC}</b></p>

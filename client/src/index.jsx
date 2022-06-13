@@ -31,6 +31,7 @@ class App extends React.Component {
       "distributions": [],
       "distributionsUSD": [],
       "key": "",
+      "balance": 0.0,
       message: "",
       isLoggedIn: localStorage.getItem('token'),
     }
@@ -70,9 +71,9 @@ class App extends React.Component {
           'context': this,
           'success': function(data) {
             console.log('server response: ', data);
-            // this.setState({
-            //   "price": data.data.last,
-            // })
+            this.setState({
+              "balance": data.data.balance,
+            })
           }
         })
       }
@@ -174,7 +175,7 @@ class App extends React.Component {
             <Home />
           </Route>
           <Route path="/dashboard">
-            {this.state.isLoggedIn ? <Dashboard price={this.state.price} totalBTC={this.state.totalBTC} distributions={this.state.distributions} distributionsUSD={this.state.distributionsUSD} pubKey={this.state.key}/> : <Redirect to="/login" />}
+            {this.state.isLoggedIn ? <Dashboard price={this.state.price} totalBTC={this.state.totalBTC} distributions={this.state.distributions} distributionsUSD={this.state.distributionsUSD} pubKey={this.state.key} balance={this.state.balance}/> : <Redirect to="/login" />}
           </Route>
           <Route path="/resources">
             <Resources />

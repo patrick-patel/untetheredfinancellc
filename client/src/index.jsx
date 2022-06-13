@@ -30,6 +30,7 @@ class App extends React.Component {
       "totalBTC": 0,
       "distributions": [],
       "distributionsUSD": [],
+      "key": "",
       message: "",
       isLoggedIn: localStorage.getItem('token'),
     }
@@ -37,6 +38,17 @@ class App extends React.Component {
 
   componentDidMount() {
     console.log('comp did mount')
+    $.ajax({
+      'url': 'https://api.bitaps.com/market/v1/ticker/btcusd',
+      'type': 'GET',
+      'context': this,
+      'success': function(data) {
+        console.log('server response: ', data.data);
+        this.setState({
+          "price": data.data.last,
+        })
+      }
+    })
     $.ajax({
       'url': 'https://api.bitaps.com/market/v1/ticker/btcusd',
       'type': 'GET',
@@ -61,6 +73,7 @@ class App extends React.Component {
           "totalBTC": data.totalBTC,
           "distributions": data.distributions,
           "distributionsUSD": data.distributionsUSD,
+          "key": data.key,
         })
       }
     })
@@ -93,7 +106,8 @@ class App extends React.Component {
               this.setState({
                 "totalBTC": data.totalBTC,
                 "distributions": data.distributions,
-                "distributionsUSD": data.distributionsUSD
+                "distributionsUSD": data.distributionsUSD,
+                "key": data.key,
               })
               setTimeout(() => this.setState({ redirectDash: true }), 750);
               setTimeout(() => this.setState({ redirectDash: false }), 1000);
@@ -160,7 +174,7 @@ class App extends React.Component {
             <Home />
           </Route>
           <Route path="/dashboard">
-            {this.state.isLoggedIn ? <Dashboard price={this.state.price} totalBTC={this.state.totalBTC} distributions={this.state.distributions} distributionsUSD={this.state.distributionsUSD}/> : <Redirect to="/login" />}
+            {this.state.isLoggedIn ? <Dashboard price={this.state.price} totalBTC={this.state.totalBTC} distributions={this.state.distributions} distributionsUSD={this.state.distributionsUSD} pubKey={this.state.key}/> : <Redirect to="/login" />}
           </Route>
           <Route path="/resources">
             <Resources />

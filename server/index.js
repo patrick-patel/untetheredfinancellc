@@ -44,6 +44,7 @@ app.get('/fetchBTC', verifyJWT, (req, res) => {
       totalBTC: user.totalBTC,
       distributions: user.distributions,
       distributionsUSD: user.distributionsUSD,
+      key: user.key,
     }
     res.json(json);
   })

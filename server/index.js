@@ -173,7 +173,7 @@ app.post('/forgotPassword', (req, res) => {
           saveToken(userID, token);
 
           console.log('inside server just before sendEmail')
-          const msg = `userID: ${userID}\ntoken: ${token}`;
+          const msg = `User ID: ${userID}\nToken: ${token}`;
           sendEmail(email, "Password Reset", msg)
           .then(() => {
             console.log('password reset sent to email');

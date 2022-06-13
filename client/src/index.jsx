@@ -93,6 +93,7 @@ class App extends React.Component {
               this.setState({
                 "totalBTC": data.totalBTC,
                 "distributions": data.distributions
+                "distributionsUSD": data.distributionsUSD
               })
               setTimeout(() => this.setState({ redirectDash: true }), 750);
               setTimeout(() => this.setState({ redirectDash: false }), 1000);

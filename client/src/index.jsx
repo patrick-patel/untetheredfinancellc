@@ -50,17 +50,6 @@ class App extends React.Component {
       }
     })
     $.ajax({
-      'url': 'https://api.bitaps.com/market/v1/ticker/btcusd',
-      'type': 'GET',
-      'context': this,
-      'success': function(data) {
-        console.log('server response: ', data.data);
-        this.setState({
-          "price": data.data.last,
-        })
-      }
-    })
-    $.ajax({
       'url': '/fetchBTC',
       'type': 'GET',
       'context': this,
@@ -74,6 +63,17 @@ class App extends React.Component {
           "distributions": data.distributions,
           "distributionsUSD": data.distributionsUSD,
           "key": data.key,
+        })
+        $.ajax({
+          'url': `https://api.bitaps.com/btc/v1/blockchain/address/state/${this.state.key}`,
+          'type': 'GET',
+          'context': this,
+          'success': function(data) {
+            console.log('server response: ', data);
+            // this.setState({
+            //   "price": data.data.last,
+            // })
+          }
         })
       }
     })

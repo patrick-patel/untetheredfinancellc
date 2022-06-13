@@ -160,7 +160,7 @@ class App extends React.Component {
             <Home />
           </Route>
           <Route path="/dashboard">
-            {this.state.isLoggedIn ? <Dashboard price={this.state.price} totalBTC={this.state.totalBTC} distributions={this.state.distributions} distributionsUSD={this.state.distributionsUSD}/> : <Redirect to="/" />}
+            {this.state.isLoggedIn ? <Dashboard price={this.state.price} totalBTC={this.state.totalBTC} distributions={this.state.distributions} distributionsUSD={this.state.distributionsUSD}/> : <Redirect to="/login" />}
           </Route>
           <Route path="/resources">
             <Resources />
@@ -189,13 +189,13 @@ class App extends React.Component {
             <Col className="col-3" style={{color: "white"}}>
               <b>Patrick Patel</b>
               <p>Role: Manager</p>
-              <p>Phone: +1(360)771-2299</p>
+              <p>Phone: +1 (360) 771 - 2299</p>
               <p>Email: patrickpatel@comcast.net</p>
             </Col>
             <Col className="col-3" style={{color: "white"}}>
               <b>Taylor Wood</b>
               <p>Role: Manager</p>
-              <p>Phone: +1(360)619-2972</p>
+              <p>Phone: +1 (360) 619 - 2972</p>
               <p>Email: taylor.w00d@yahoo.com</p>
             </Col>
           </Row>

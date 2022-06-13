@@ -51,7 +51,7 @@ class Login extends React.Component {
                       <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Email</Form.Label>
                         <Form.Control type="email" placeholder="Enter Email" name="email" value={this.props.email} onChange={this.onChange.bind(this)} style={{backgroundColor: "rgba(255,153,0,0.2)"}} required />
-                        <Form.Text className="text-muted">We'll never share your email with anyone else.</Form.Text>
+                        <Form.Text className="text-muted">We'll never share your email with anyone else</Form.Text>
                       </Form.Group>
                       <Form.Group className="mb-3" controlId="formBasicPassword">
                         <Form.Label>Password</Form.Label>

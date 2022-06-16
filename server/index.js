@@ -59,8 +59,8 @@ app.get('/fetchMetrics', (req, res) => {
   console.log('inside fetchMetrics route');
   fetchMetrics()
   .then(metrics => {
-    console.log(metrics);
-    res.json(metrics);
+    console.log(metrics[0]);
+    res.json(metrics[0]);
   })
   .catch(err => {
     console.log(err);

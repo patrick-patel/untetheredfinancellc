@@ -58,6 +58,22 @@ class App extends React.Component {
       }
     })
     $.ajax({
+      'url': '/fetchMetrics',
+      'type': 'GET',
+      'context': this,
+      'success': function(metrics) {
+        console.log('server response: ', metrics);
+        this.setState({
+          "totalBTCHoldings": metrics.totalBTCHoldings,
+          "casaWallet": metrics.casaWallet,
+          "coldWallet": metrics.coldWallet,
+          "asicFund": metrics.asicFund,
+          "taxFund": metrics.taxFund,
+          "numberOfAsics": metrics.numberOfAsics,
+        })
+      }
+    })
+    $.ajax({
       'url': '/fetchBTC',
       'type': 'GET',
       'context': this,
@@ -82,22 +98,6 @@ class App extends React.Component {
               "balance": data.data.balance,
             })
           }
-        })
-      }
-    })
-    $.ajax({
-      'url': '/fetchMetrics',
-      'type': 'GET',
-      'context': this,
-      'success': function(metrics) {
-        console.log('server response: ', metrics);
-        this.setState({
-          "totalBTCHoldings": metrics.totalBTCHoldings,
-          "casaWallet": metrics.casaWallet,
-          "coldWallet": metrics.coldWallet,
-          "asicFund": metrics.asicFund,
-          "taxFund": metrics.taxFund,
-          "numberOfAsics": metrics.numberOfAsics,
         })
       }
     })

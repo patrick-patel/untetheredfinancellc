@@ -55,7 +55,7 @@ app.get('/fetchBTC', verifyJWT, (req, res) => {
   })
 })
 
-app.get('/fetchMetrics', verifyJWT, (req, res) => {
+app.get('/fetchMetrics', (req, res) => {
   console.log('inside fetchMetrics route');
   fetchMetrics()
   .then(metrics => {

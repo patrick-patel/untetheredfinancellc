@@ -59,7 +59,8 @@ app.get('/fetchMetrics', verifyJWT, (req, res) => {
   console.log('inside fetchUser route');
   fetchMetrics()
   .then(metrics => {
-    res.json(metrics);
+    console.log(metrics);
+    res.json(metrics[0]);
   })
   .catch(err => {
     console.log(err);

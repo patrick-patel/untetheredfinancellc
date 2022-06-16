@@ -33,12 +33,12 @@ class App extends React.Component {
       "distributionsUSD": [],
       "key": "",
       "balance": 0.0,
-      "totalBTCHoldings": [0],
-      "casaWallet": [0],
-      "coldWallet": [0],
-      "asicFund": [0],
-      "taxFund": [0],
-      "numberOfAsics": [0],
+      "totalBTCHoldings": [1.5],
+      "casaWallet": [0.4],
+      "coldWallet": [0.9],
+      "asicFund": [0.1],
+      "taxFund": [0.1],
+      "numberOfAsics": [35],
       message: "",
       isLoggedIn: localStorage.getItem('token'),
     }
@@ -48,6 +48,18 @@ class App extends React.Component {
     console.log('comp did mount')
     $.ajax({
       'url': 'https://api.bitaps.com/market/v1/ticker/btcusd',
+      'type': 'GET',
+      'context': this,
+      'success': function(data) {
+        console.log('server response: ', data.data);
+        this.setState({
+          "price": data.data.last,
+        })
+      }
+    })
+    $.ajax({
+      'url': 'https://slushpool.com/accounts/profile/json/btc/ -H "SlushPool-Auth-Token: 3R4gNKWeu2lZrhKf"'
+      Generi',
       'type': 'GET',
       'context': this,
       'success': function(data) {

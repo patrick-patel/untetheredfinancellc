@@ -12,7 +12,6 @@ const Dashboard = ({ price, totalBTC, distributions, distributionsUSD, pubKey, b
         <Col>
           <Card style={{background: "rgba(255,153,0,0.2)"}}>
             <p className="lead">Wallet Balance</p>
-            <p className="lead">{pubKey}</p>
             <p className="lead"><b>{balance/100000000}</b></p>
           </Card>
         </Col>
@@ -24,14 +23,14 @@ const Dashboard = ({ price, totalBTC, distributions, distributionsUSD, pubKey, b
         </Col>
         <Col>
           <Card style={{background: "rgba(255,153,0,0.2)"}}>
-            <p className="lead">BTCUSD Market Price (USD)</p>
-            <p className="lead"><b>{price}</b></p>
+            <p className="lead">Total Distributions (USD)</p>
+            <p className="lead"><b>{totalBTC*Number(price)}</b></p>
           </Card>
         </Col>
         <Col>
           <Card style={{background: "rgba(255,153,0,0.2)"}}>
-            <p className="lead">Total Distributions (USD)</p>
-            <p className="lead"><b>{totalBTC*Number(price)}</b></p>
+            <p className="lead">BTCUSD Market Price (USD)</p>
+            <p className="lead"><b>{price}</b></p>
           </Card>
         </Col>
       </Row>

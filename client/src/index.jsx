@@ -7,6 +7,7 @@ import Account from './components/Account.jsx';
 import Resources from './components/Resources.jsx';
 import Home from './components/Home.jsx';
 import Dashboard from './components/Dashboard.jsx';
+import Metrics from './components/Metrics.jsx';
 import ForgotPassword from './components/ForgotPassword.jsx';
 import PasswordReset from './components/PasswordReset.jsx';
 import logo from "./media/logo.png";
@@ -32,6 +33,12 @@ class App extends React.Component {
       "distributionsUSD": [],
       "key": "",
       "balance": 0.0,
+      "totalBTCHoldings": [0],
+      "casaWallet": [0],
+      "coldWallet": [0],
+      "asicFund": [0],
+      "taxFund": [0],
+      "numberOfAsics": [0],
       message: "",
       isLoggedIn: localStorage.getItem('token'),
     }
@@ -75,6 +82,22 @@ class App extends React.Component {
               "balance": data.data.balance,
             })
           }
+        })
+      }
+    })
+    $.ajax({
+      'url': '/fetchMetrics',
+      'type': 'GET',
+      'context': this,
+      'success': function(metrics) {
+        console.log('server response: ', metrics);
+        this.setState({
+          "totalBTCHoldings": metrics.totalBTCHoldings,
+          "casaWallet": metrics.casaWallet,
+          "coldWallet": metrics.coldWallet,
+          "asicFund": metrics.asicFund,
+          "taxFund": metrics.taxFund,
+          "numberOfAsics": metrics.numberOfAsics,
         })
       }
     })
@@ -162,6 +185,7 @@ class App extends React.Component {
                   {this.state.isLoggedIn ? null : <NavDropdown.Item href="#action3"><Link to="/login" className="btn btn-link" style={{color: "#050038", textDecoration: "none", fontSize: "28px", marginRight: 20}}>Login</Link></NavDropdown.Item>}
                   {this.state.isLoggedIn ? <NavDropdown.Item href="#action3"><Link to="/dashboard" className="btn btn-link" style={{color: "#050038", textDecoration: "none", fontSize: "28px", marginRight: 20}}>Dashboard</Link></NavDropdown.Item> : null}
                   {this.state.isLoggedIn ? <NavDropdown.Item href="#action4"><Link to="/account" className="btn btn-link" style={{color: "#050038", textDecoration: "none", fontSize: "28px", marginRight: 20}}>Account</Link></NavDropdown.Item> : null}
+                  {this.state.isLoggedIn ? <NavDropdown.Item href="#action3"><Link to="/metrics" className="btn btn-link" style={{color: "#050038", textDecoration: "none", fontSize: "28px", marginRight: 20}}>Dashboard</Link></NavDropdown.Item> : null}
                   {this.state.isLoggedIn ? <NavDropdown.Divider /> : null}
                   {this.state.isLoggedIn ? <NavDropdown.Item href="#action5"><Link to="/login" className="btn btn-link" style={{cursor: "pointer", color: "#050038", textDecoration: "none", fontSize: "28px", marginRight: 20}} onClick={this.logout.bind(this)}>Logout</Link></NavDropdown.Item> : null}
                 </NavDropdown>
@@ -176,6 +200,9 @@ class App extends React.Component {
           </Route>
           <Route path="/dashboard">
             {this.state.isLoggedIn ? <Dashboard price={this.state.price} totalBTC={this.state.totalBTC} distributions={this.state.distributions} distributionsUSD={this.state.distributionsUSD} pubKey={this.state.key} balance={this.state.balance}/> : <Redirect to="/login" />}
+          </Route>
+          <Route path="/metrics">
+            {this.state.isLoggedIn ? <Metrics price={this.state.price} casaWallet={this.state.casaWallet} coldWallet={this.state.coldWallet} asicFund={this.state.asicFund} taxFund={this.state.taxFund} totalDistributions={this.state.totalDistributions} numberOfAsics={this.state.numberOfAsics}/> : <Redirect to="/login" />}
           </Route>
           <Route path="/resources">
             <Resources />

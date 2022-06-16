@@ -29,6 +29,8 @@ const updateUserByID = require('../database/index.js').updateUserByID;
 const saveToken = require('../database/index.js').saveToken;
 const fetchToken = require('../database/index.js').fetchToken;
 const deleteToken = require('../database/index.js').deleteToken;
+const fetchMetrics = require('../database/index.js').fetchMetrics;
+
 
 // middleware
 app.use(bodyParser.json());
@@ -47,6 +49,17 @@ app.get('/fetchBTC', verifyJWT, (req, res) => {
       key: user.key,
     }
     res.json(json);
+  })
+  .catch(err => {
+    console.log(err);
+  })
+})
+
+app.get('/fetchMetrics', verifyJWT, (req, res) => {
+  console.log('inside fetchUser route');
+  fetchMetrics()
+  .then(metrics => {
+    res.json(metrics);
   })
   .catch(err => {
     console.log(err);

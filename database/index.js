@@ -106,6 +106,35 @@ let deleteToken = (userID) => {
   return Token.deleteMany({"userID": userID}).exec();
 }
 
+// Metric store
+let metricSchema = new mongoose.Schema({
+  totalBTCHoldings: {
+    type: [Number]
+  },
+  casaWallet: {
+    type: [Number]
+  },
+  coldWallet: {
+    type: [Number]
+  },
+  asicFund: {
+    type: [Number]
+  },
+  taxFund: {
+    type: [Number]
+  },
+  numberOfAsics: {
+    type: [Number]
+  },
+});
+
+let Metric = mongoose.model("Metric", metricSchema);
+
+let fetchMetrics = () => {
+  console.log('fetching metrics');
+  return Metric.find().exec();
+}
+
 module.exports.saveUser = saveUser;
 module.exports.fetchAllUsers = fetchAllUsers;
 module.exports.fetchUser = fetchUser;
@@ -114,5 +143,6 @@ module.exports.updateUserByID = updateUserByID;
 module.exports.saveToken = saveToken;
 module.exports.fetchToken = fetchToken;
 module.exports.deleteToken = deleteToken;
+module.exports.fetchMetrics = fetchMetrics;
 module.exports.User = User;
 

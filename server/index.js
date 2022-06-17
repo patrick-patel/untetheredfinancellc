@@ -1,6 +1,7 @@
 const express = require('express');
 let app = express();
 var bodyParser = require('body-parser');
+const axios = require('axios');
 /* --------REMOVE-------*/
 // const config = require('../config.js');
 
@@ -81,6 +82,26 @@ app.get('/fetchUser', verifyJWT, (req, res) => {
     console.log(err);
   })
 })
+
+app.get('/fetchPoolStats', (req, res) => {
+  axios.get('https://slushpool.com/accounts/profile/json/btc/ -H "SlushPool-Auth-Token: 3R4gNKWeu2lZrhKf"')
+  .then(stats => {
+    console.log('slush pool data: ', stats);
+    res.send(stats);
+  })
+  .catch(err => {
+    console.log(err);
+  })
+})
+
+// $.ajax({
+//   'url': 'https://slushpool.com/accounts/profile/json/btc/ -H "SlushPool-Auth-Token: 3R4gNKWeu2lZrhKf"',
+//   'type': 'GET',
+//   'context': this,
+//   'success': function(data) {
+//     console.log('server response: ', data);
+//   }
+// })
 
 app.get('*', (req, res) => {
   res.redirect('/');

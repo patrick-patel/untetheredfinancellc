@@ -59,11 +59,11 @@ class App extends React.Component {
       }
     })
     $.ajax({
-      'url': 'https://slushpool.com/accounts/profile/json/btc/ -H "SlushPool-Auth-Token: 3R4gNKWeu2lZrhKf"',
+      'url': '/fetchPoolStats',
       'type': 'GET',
       'context': this,
-      'success': function(data) {
-        console.log('server response: ', data);
+      'success': function(stats) {
+        console.log('server response: ', stats);
       }
     })
     $.ajax({

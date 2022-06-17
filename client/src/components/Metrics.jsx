@@ -12,36 +12,36 @@ const Metrics = ({ price, casaWallet, coldWallet, asicFund, taxFund, totalBTCHol
         <Col>
           <Card style={{background: "rgba(255,153,0,0.2)"}}>
             <p className="lead">Total BTC Holdings</p>
-            <p className="lead"><b>{totalBTCHoldings[0]}</b></p>
-            <p className="lead"><b>(${totalBTCHoldings[0]*price})</b></p>
+            <p className="lead"><b>{totalBTCHoldings[totalBTCHoldings.length-1]}</b></p>
+            <p className="lead"><b>{totalBTCHoldings[totalBTCHoldings.length-1]*price}</b></p>
           </Card>
         </Col>
         <Col>
           <Card style={{background: "rgba(255,153,0,0.2)"}}>
             <p className="lead">Casa Wallet Balance</p>
-            <p className="lead"><b>{casaWallet[0]}</b></p>
-            <p className="lead"><b>(${casaWallet[0]*price})</b></p>
+            <p className="lead"><b>{casaWallet[casaWallet.length-1]}</b></p>
+            <p className="lead"><b>{casaWallet[casaWallet.length-1]*price}</b></p>
           </Card>
         </Col>
         <Col>
           <Card style={{background: "rgba(255,153,0,0.2)"}}>
             <p className="lead">Cold Storage Wallet Balance</p>
-            <p className="lead"><b>{coldWallet[0]}</b></p>
-            <p className="lead"><b>(${coldWallet[0]*price})</b></p>
+            <p className="lead"><b>{coldWallet[coldWallet.length-1]}</b></p>
+            <p className="lead"><b>{coldWallet[coldWallet.length-1]*price}</b></p>
           </Card>
         </Col>
         <Col>
           <Card style={{background: "rgba(255,153,0,0.2)"}}>
             <p className="lead">ASIC Fund</p>
-            <p className="lead"><b>{asicFund[0]}</b></p>
-            <p className="lead"><b>(${asicFund[0]*price})</b></p>
+            <p className="lead"><b>{asicFund[asicFund.length-1]}</b></p>
+            <p className="lead"><b>{asicFund[asicFund.length-1]*price}</b></p>
           </Card>
         </Col>
         <Col>
           <Card style={{background: "rgba(255,153,0,0.2)"}}>
             <p className="lead">Tax Fund</p>
-            <p className="lead"><b>{taxFund[0]}</b></p>
-            <p className="lead"><b>(${taxFund[0]*price})</b></p>
+            <p className="lead"><b>{taxFund[taxFund.length-1]}</b></p>
+            <p className="lead"><b>{taxFund[taxFund.length-1]*price}</b></p>
           </Card>
         </Col>
         <Col>

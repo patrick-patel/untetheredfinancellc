@@ -86,8 +86,8 @@ app.get('/fetchUser', verifyJWT, (req, res) => {
 app.get('/fetchPoolStats', (req, res) => {
   axios.get('https://slushpool.com/accounts/profile/json/btc/ -H "SlushPool-Auth-Token: 3R4gNKWeu2lZrhKf"')
   .then(stats => {
-    console.log('slush pool data: ', stats);
-    res.send(stats);
+    console.log('slush pool data: ', stats.data);
+    res.send(stats.data);
   })
   .catch(err => {
     console.log(err);

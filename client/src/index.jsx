@@ -49,6 +49,7 @@ class App extends React.Component {
     $.ajax({
       'url': 'https://api.bitaps.com/market/v1/ticker/btcusd',
       'type': 'GET',
+      'crossDomain': true,
       'context': this,
       'success': function(data) {
         console.log('server response: ', data.data);

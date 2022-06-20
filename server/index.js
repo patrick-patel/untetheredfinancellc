@@ -298,11 +298,11 @@ app.post('/updateKey', verifyJWT, (req, res) => {
     return res.json({message: "Invalid Public Key", messageType: "danger"});
   } else {
     const key = req.body.key;
-
+    let email;
     fetchUserByID(req.user.id)
     .then(user => {
       console.log('user: ', user);
-
+      email = user.email;
       user.key = key;
       updateUserByID(user)
     })
@@ -312,7 +312,7 @@ app.post('/updateKey', verifyJWT, (req, res) => {
     .then(() => {
       console.log('successfully updated user!');
       let msg = `Your public key was successfully updated to ${key}\n\nIf you did submit this public key update, please email us at untetheredmining@gmail.com`;
-      sendEmail(user.email, "Public Key Updated Successfully", msg)
+      sendEmail(email, "Public Key Updated Successfully", msg)
       .then(() => {
         res.json({message: "Successfully Updated Public Key", messageType: "success"});
       })

@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, Col, Container, Row } from 'react-bootstrap';
 import { Link } from "react-router-dom";
 import { Chart } from "react-google-charts";
-
+14p19AeJg6NubeQTa8bF2TpgbprcoivyrS
 
 const Dashboard = ({ price, totalBTC, distributions, distributionsUSD, pubKey, balance }) => (
   <div style={{background: "rgba(255,153,0,0.2)"}}>
@@ -10,7 +10,7 @@ const Dashboard = ({ price, totalBTC, distributions, distributionsUSD, pubKey, b
       <h3 className="display-3" style={{color: "#050038", textDecoration: "none"}}><b>Member Dashboard</b></h3>
       <Row style={{textAlign: "center"}}>
         {balance !== 0 ? <Col>
-          <Card style={{background: "rgba(255,153,0,0.2)"}}>
+          <Card href={`https://bitaps.com/${pubKey}`} style={{background: "rgba(255,153,0,0.2)"}}>
             <p className="lead">Wallet Balance</p>
             <p className="lead"><b>{balance/100000000}</b></p>
           </Card>

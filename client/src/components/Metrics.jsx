@@ -18,14 +18,14 @@ const Metrics = ({ price, casaWallet, coldWallet, asicFund, hashrate, numberOfAs
         </Col>
         <Col>
           <Card style={{background: "rgba(255,153,0,0.2)"}}>
-            <p className="lead">Casa Wallet Balance</p>
+            <p className="lead"><a href='https://bitaps.com/'></a>Casa Wallet Balance</p>
             <p className="lead"><b>{casaWallet[casaWallet.length-1]}</b></p>
             <p className="lead"><b>(${Math.round(casaWallet[casaWallet.length-1]*price*100)/100})</b></p>
           </Card>
         </Col>
         <Col>
           <Card style={{background: "rgba(255,153,0,0.2)"}}>
-            <p className="lead">Cold Storage Wallet Balance</p>
+            <p className="lead"><a href='https://bitaps.com/'>Cold Storage Wallet Balance</a></p>
             <p className="lead"><b>{coldWallet[coldWallet.length-1]}</b></p>
             <p className="lead"><b>(${Math.round(coldWallet[coldWallet.length-1]*price*100)/100})</b></p>
           </Card>
@@ -47,7 +47,7 @@ const Metrics = ({ price, casaWallet, coldWallet, asicFund, hashrate, numberOfAs
         <Col>
           <Card style={{background: "rgba(255,153,0,0.2)"}}>
             <p className="lead">Total Scoring Hashrate</p>
-            <p className="lead"><b>{hashrate}</b></p>
+            <p className="lead"><b>{Math.round(hashrate/1000*100)/100} TH/s</b></p>
             <p className="lead"><b># of Asics: {numberOfAsics[numberOfAsics.length-1]}</b></p>
           </Card>
         </Col>

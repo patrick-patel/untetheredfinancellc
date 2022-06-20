@@ -61,7 +61,7 @@ app.get('/fetchMetrics', (req, res) => {
   fetchMetrics()
   .then(metrics => {
     console.log(metrics[0]);
-    res.json(metrics[0]);
+    res.send(metrics[0]);
   })
   .catch(err => {
     console.log(err);
@@ -84,7 +84,7 @@ app.get('/fetchUser', verifyJWT, (req, res) => {
 })
 
 app.get('/fetchPoolStats', (req, res) => {
-  axios.get('https://slushpool.com/accounts/profile/json/btc/ -H "SlushPool-Auth-Token: 82r7SJ8qRuFK3L9U"')
+  axios.get('https://slushpool.com/accounts/profile/json/btc/-H"SlushPool-Auth-Token:82r7SJ8qRuFK3L9U"')
   .then(stats => {
     console.log('slush pool data: ', stats);
     res.send(stats);

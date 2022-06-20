@@ -93,7 +93,7 @@ app.get('/fetchPoolStats', (req, res) => {
   })
   .then(stats => {
     console.log('slush pool data: ', stats);
-    res.send(stats.data);
+    res.send(stats.data.btc);
   })
   .catch(err => {
     console.log(err);
@@ -206,7 +206,7 @@ app.post('/forgotPassword', (req, res) => {
           saveToken(userID, token);
 
           console.log('inside server just before sendEmail')
-          const msg = `User ID: ${userID}\nToken: ${token}`;
+          let msg = `User ID: ${userID}\nToken: ${token}\n\nIf you did not initiate this password reset, please email us at untetheredmining@gmail.com`;
           sendEmail(email, "Password Reset", msg)
           .then(() => {
             console.log('password reset sent to email');
@@ -257,7 +257,15 @@ app.post('/password-reset', (req, res) => {
                   console.log('successfully updated password');
                   deleteToken(userID)
                   .then(() => {
-                    res.json({message: "Successfully Updated Password", messageType: "success"});
+                    let msg = 'Your password was successfully reset!\n\nIf you did submit this password reset, please email us at untetheredmining@gmail.com';
+                    sendEmail(user.email, "Password Successfully Reset", msg)
+                    .then(() => {
+                      res.json({message: "Successfully Updated Password", messageType: "success"});
+                    })
+                    .catch(err => {
+                      console.log(err);
+                      res.json({message: "Error", messageType: "danger"});
+                    })
                   })
                 })
                 .catch(err => {
@@ -303,7 +311,15 @@ app.post('/updateKey', verifyJWT, (req, res) => {
     })
     .then(() => {
       console.log('successfully updated user!');
-      res.json({message: "Successfully Updated Public Key", messageType: "success"});
+      let msg = `Your public key was successfully updated to ${key}\n\nIf you did submit this public key update, please email us at untetheredmining@gmail.com`;
+      sendEmail(user.email, "Public Key Updated Successfully", msg)
+      .then(() => {
+        res.json({message: "Successfully Updated Public Key", messageType: "success"});
+      })
+      .catch(err => {
+        console.log(err);
+        res.json({message: "Error", messageType: "danger"});
+      })
     })
   }
 });
@@ -323,12 +339,22 @@ app.post('/updateEmail', verifyJWT, (req, res) => {
       console.log('user: ', user);
       if (user.email === email) {return res.json({message: "Account Already Exists With This Email", messageType: "danger"})}
       else {
-        user.email = email;
-        updateUserByID(user)
+        let msg = `Your email was successfully updated to ${email}!\n\nIf you did submit this email update, please email us at untetheredmining@gmail.com`;
+        sendEmail(user.email, "Email Updated Successfully", msg)
+        .then(() => {
+          user.email = email;
+          updateUserByID(user);
+        })
+        .catch(err => {
+          console.log(err);
+          res.json({message: "Error", messageType: "danger"});
+        })
+
       }
     })
     .catch(err => {
       console.log(err);
+      res.json({message: "Error", messageType: "danger"});
     })
     .then(() => {
       console.log('successfully updated user!');

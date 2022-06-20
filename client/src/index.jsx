@@ -32,7 +32,7 @@ class App extends React.Component {
       "distributions": [],
       "distributionsUSD": [],
       "key": "",
-      "balance": 0.0,
+      "balance": 0,
       "totalBTCHoldings": [1.5],
       "casaWallet": [0.4],
       "coldWallet": [0.9],

@@ -9,12 +9,12 @@ const Dashboard = ({ price, totalBTC, distributions, distributionsUSD, pubKey, b
     <Container fluid style={{padding: 90}}>
       <h3 className="display-3" style={{color: "#050038", textDecoration: "none"}}><b>Member Dashboard</b></h3>
       <Row style={{textAlign: "center"}}>
-        <Col>
+        {balance !== 0 ? <Col>
           <Card style={{background: "rgba(255,153,0,0.2)"}}>
             <p className="lead">Wallet Balance</p>
             <p className="lead"><b>{balance/100000000}</b></p>
           </Card>
-        </Col>
+        </Col> : null}
         <Col>
           <Card style={{background: "rgba(255,153,0,0.2)"}}>
             <p className="lead">Total Distributions (BTC)</p>
@@ -24,7 +24,7 @@ const Dashboard = ({ price, totalBTC, distributions, distributionsUSD, pubKey, b
         <Col>
           <Card style={{background: "rgba(255,153,0,0.2)"}}>
             <p className="lead">Total Distributions (USD)</p>
-            <p className="lead"><b>{totalBTC*Number(price)}</b></p>
+            <p className="lead"><b>{Math.round(totalBTC*Number(price)*100)/100}</b></p>
           </Card>
         </Col>
         <Col>

@@ -257,7 +257,7 @@ app.post('/password-reset', (req, res) => {
                   console.log('successfully updated password');
                   deleteToken(userID)
                   .then(() => {
-                    let msg = 'Your password was successfully reset!\n\nIf you did submit this password reset, please email us at untetheredmining@gmail.com';
+                    let msg = 'Your password was successfully reset!\n\nIf you did not submit this password reset, please email us at untetheredmining@gmail.com';
                     sendEmail(user.email, "Password Successfully Reset", msg)
                     .then(() => {
                       res.json({message: "Successfully Updated Password", messageType: "success"});
@@ -311,7 +311,7 @@ app.post('/updateKey', verifyJWT, (req, res) => {
     })
     .then(() => {
       console.log('successfully updated user!');
-      let msg = `Your public key was successfully updated to ${key}\n\nIf you did submit this public key update, please email us at untetheredmining@gmail.com`;
+      let msg = `Your public key was successfully updated to ${key}\n\nIf you did not submit this public key update, please email us at untetheredmining@gmail.com`;
       sendEmail(email, "Public Key Updated Successfully", msg)
       .then(() => {
         res.json({message: "Successfully Updated Public Key", messageType: "success"});
@@ -339,7 +339,7 @@ app.post('/updateEmail', verifyJWT, (req, res) => {
       console.log('user: ', user);
       if (user.email === email) {return res.json({message: "Account Already Exists With This Email", messageType: "danger"})}
       else {
-        let msg = `Your email was successfully updated to ${email}!\n\nIf you did submit this email update, please email us at untetheredmining@gmail.com`;
+        let msg = `Your email was successfully updated to ${email}!\n\nIf you did not submit this email update, please email us at untetheredmining@gmail.com`;
         sendEmail(user.email, "Email Updated Successfully", msg)
         .then(() => {
           user.email = email;

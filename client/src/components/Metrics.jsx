@@ -61,7 +61,7 @@ const Metrics = ({ price, casaWallet, coldWallet, asicFund, hashrate, numberOfAs
               chartType="AreaChart"
               loader={<div>Loading Chart</div>}
               data={[
-                ['Month', 'Total BTC Holdings', 'Cold Wallet', 'Casa Wallet', 'ASIC Fund', 'Tax Fund'],
+                ['Month', 'Cold Wallet', 'Casa Wallet', 'ASIC Fund', 'Tax Fund'],
                 [0, 0, 0, 0, 0],
                 [1, coldWallet[0], casaWallet[0], asicFund[0], taxFund[0]],
                 [2, coldWallet[1], casaWallet[1], asicFund[1], taxFund[1]],

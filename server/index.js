@@ -86,22 +86,13 @@ app.get('/fetchUser', verifyJWT, (req, res) => {
 app.get('/fetchPoolStats', (req, res) => {
   axios.get('https://slushpool.com/accounts/profile/json/btc/ -H "SlushPool-Auth-Token: 3R4gNKWeu2lZrhKf"')
   .then(stats => {
-    console.log('slush pool data: ', stats.data);
-    res.send(stats.data);
+    console.log('slush pool data: ', stats);
+    res.send(stats);
   })
   .catch(err => {
     console.log(err);
   })
 })
-
-// $.ajax({
-//   'url': 'https://slushpool.com/accounts/profile/json/btc/ -H "SlushPool-Auth-Token: 3R4gNKWeu2lZrhKf"',
-//   'type': 'GET',
-//   'context': this,
-//   'success': function(data) {
-//     console.log('server response: ', data);
-//   }
-// })
 
 app.get('*', (req, res) => {
   res.redirect('/');

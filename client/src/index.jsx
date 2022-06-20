@@ -211,7 +211,7 @@ class App extends React.Component {
             {this.state.isLoggedIn ? <Dashboard price={this.state.price} totalBTC={this.state.totalBTC} distributions={this.state.distributions} distributionsUSD={this.state.distributionsUSD} pubKey={this.state.key} balance={this.state.balance}/> : <Redirect to="/login" />}
           </Route>
           <Route path="/metrics">
-            {this.state.isLoggedIn ? <Metrics price={this.state.price} casaWallet={this.state.casaWallet} coldWallet={this.state.coldWallet} asicFund={this.state.asicFund} taxFund={this.state.taxFund} numberOfAsics={this.state.numberOfAsics}/> : <Redirect to="/login" />}
+            {this.state.isLoggedIn ? <Metrics price={this.state.price} totalBTCHoldings={this.state.totalBTCHoldings} casaWallet={this.state.casaWallet} coldWallet={this.state.coldWallet} asicFund={this.state.asicFund} taxFund={this.state.taxFund} numberOfAsics={this.state.numberOfAsics}/> : <Redirect to="/login" />}
           </Route>
           <Route path="/resources">
             <Resources />

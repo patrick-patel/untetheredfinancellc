@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { Chart } from "react-google-charts";
 
 
-const Metrics = ({ price, casaWallet, coldWallet, asicFund, numberOfAsics, taxFund, totalBTCHoldings }) => (
+const Metrics = ({ price, casaWallet, coldWallet, asicFund, hashrate numberOfAsics, taxFund, totalBTCHoldings }) => (
   <div style={{background: "rgba(255,153,0,0.2)"}}>
     <Container fluid style={{padding: 90}}>
       <h3 className="display-3" style={{color: "#050038", textDecoration: "none"}}><b>Company Metrics</b></h3>
@@ -13,7 +13,7 @@ const Metrics = ({ price, casaWallet, coldWallet, asicFund, numberOfAsics, taxFu
           <Card style={{background: "rgba(255,153,0,0.2)"}}>
             <p className="lead">Total BTC Holdings</p>
             <p className="lead"><b>{totalBTCHoldings[totalBTCHoldings.length-1]}</b></p>
-            <p className="lead"><b>{totalBTCHoldings[totalBTCHoldings.length-1]*price}</b></p>
+            <p className="lead"><b>{Math.round(totalBTCHoldings[totalBTCHoldings.length-1]*price*100)/100}</b></p>
           </Card>
         </Col>
         <Col>
@@ -47,7 +47,7 @@ const Metrics = ({ price, casaWallet, coldWallet, asicFund, numberOfAsics, taxFu
         <Col>
           <Card style={{background: "rgba(255,153,0,0.2)"}}>
             <p className="lead">Total Scoring Hashrate</p>
-            <p className="lead"><b>Slushpool API</b></p>
+            <p className="lead"><b>{hashrate}</b></p>
           </Card>
         </Col>
       </Row>
@@ -61,7 +61,7 @@ const Metrics = ({ price, casaWallet, coldWallet, asicFund, numberOfAsics, taxFu
               loader={<div>Loading Chart</div>}
               data={[
                 ['Month', 'Total BTC Holdings', 'Cold Wallet', 'Casa Wallet', 'ASIC Fund', 'Tax Fund'],
-                [0, 0],
+                [0, 0, 0, 0, 0, 0],
                 [1, totalBTCHoldings[0], coldWallet[0], casaWallet[0], asicFund[0], taxFund[0]],
                 [2, totalBTCHoldings[1], coldWallet[1], casaWallet[1], asicFund[1], taxFund[1]],
                 [3, totalBTCHoldings[2], coldWallet[2], casaWallet[2], asicFund[2], taxFund[2]],

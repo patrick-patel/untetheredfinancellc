@@ -91,7 +91,7 @@ app.get('/fetchPoolStats', (req, res) => {
   })
   .then(stats => {
     console.log('slush pool data: ', stats);
-    res.send(stats);
+    res.send(stats.data);
   })
   .catch(err => {
     console.log(err);

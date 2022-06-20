@@ -16,6 +16,8 @@ const validateKeyInput = require("./auth/key");
 const verifyJWT = require("./auth/verifyJWT");
 const encrypt = require("./auth/dataEncryption.js").encrypt;
 const secretOrKey = process.env.secretOrKey || config.secretOrKey;
+const slushKey = process.env.slushKey
+
 // const secretOrKey = config.secretOrKey;
 // console.log('secretOrKeys: ', secretOrKey)
 
@@ -86,7 +88,7 @@ app.get('/fetchUser', verifyJWT, (req, res) => {
 app.get('/fetchPoolStats', (req, res) => {
   axios.get('https://slushpool.com/accounts/profile/json/btc/', {
     headers: {
-      "SlushPool-Auth-Token": '82r7SJ8qRuFK3L9U'
+      "SlushPool-Auth-Token": slushKey,
     }
   })
   .then(stats => {

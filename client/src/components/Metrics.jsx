@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { Chart } from "react-google-charts";
 
 
-const Metrics = ({ price, casaWallet, coldWallet, asicFund, taxFund, totalBTCHoldings }) => (
+const Metrics = ({ price, casaWallet, coldWallet, asicFund, numberOfAsics, taxFund, totalBTCHoldings }) => (
   <div style={{background: "rgba(255,153,0,0.2)"}}>
     <Container fluid style={{padding: 90}}>
       <h3 className="display-3" style={{color: "#050038", textDecoration: "none"}}><b>Company Metrics</b></h3>

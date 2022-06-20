@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { Chart } from "react-google-charts";
 
 
-const Metrics = ({ price, casaWallet, coldWallet, asicFund, hashrate numberOfAsics, taxFund, totalBTCHoldings }) => (
+const Metrics = ({ price, casaWallet, coldWallet, asicFund, hashrate, numberOfAsics, taxFund, totalBTCHoldings }) => (
   <div style={{background: "rgba(255,153,0,0.2)"}}>
     <Container fluid style={{padding: 90}}>
       <h3 className="display-3" style={{color: "#050038", textDecoration: "none"}}><b>Company Metrics</b></h3>
@@ -13,41 +13,42 @@ const Metrics = ({ price, casaWallet, coldWallet, asicFund, hashrate numberOfAsi
           <Card style={{background: "rgba(255,153,0,0.2)"}}>
             <p className="lead">Total BTC Holdings</p>
             <p className="lead"><b>{totalBTCHoldings[totalBTCHoldings.length-1]}</b></p>
-            <p className="lead"><b>{Math.round(totalBTCHoldings[totalBTCHoldings.length-1]*price*100)/100}</b></p>
+            <p className="lead"><b>(${Math.round(totalBTCHoldings[totalBTCHoldings.length-1]*price*100)/100})</b></p>
           </Card>
         </Col>
         <Col>
           <Card style={{background: "rgba(255,153,0,0.2)"}}>
             <p className="lead">Casa Wallet Balance</p>
             <p className="lead"><b>{casaWallet[casaWallet.length-1]}</b></p>
-            <p className="lead"><b>{casaWallet[casaWallet.length-1]*price}</b></p>
+            <p className="lead"><b>(${Math.round(casaWallet[casaWallet.length-1]*price*100)/100})</b></p>
           </Card>
         </Col>
         <Col>
           <Card style={{background: "rgba(255,153,0,0.2)"}}>
             <p className="lead">Cold Storage Wallet Balance</p>
             <p className="lead"><b>{coldWallet[coldWallet.length-1]}</b></p>
-            <p className="lead"><b>{coldWallet[coldWallet.length-1]*price}</b></p>
+            <p className="lead"><b>(${Math.round(coldWallet[coldWallet.length-1]*price*100)/100})</b></p>
           </Card>
         </Col>
         <Col>
           <Card style={{background: "rgba(255,153,0,0.2)"}}>
             <p className="lead">ASIC Fund</p>
             <p className="lead"><b>{asicFund[asicFund.length-1]}</b></p>
-            <p className="lead"><b>{asicFund[asicFund.length-1]*price}</b></p>
+            <p className="lead"><b>(${Math.round(asicFund[asicFund.length-1]*price*100)/100})</b></p>
           </Card>
         </Col>
         <Col>
           <Card style={{background: "rgba(255,153,0,0.2)"}}>
             <p className="lead">Tax Fund</p>
             <p className="lead"><b>{taxFund[taxFund.length-1]}</b></p>
-            <p className="lead"><b>{taxFund[taxFund.length-1]*price}</b></p>
+            <p className="lead"><b>(${Math.round(taxFund[taxFund.length-1]*price*100)/100})</b></p>
           </Card>
         </Col>
         <Col>
           <Card style={{background: "rgba(255,153,0,0.2)"}}>
             <p className="lead">Total Scoring Hashrate</p>
             <p className="lead"><b>{hashrate}</b></p>
+            <p className="lead"><b># of Asics: {numberOfAsics[numberOfAsics.length-1]}</b></p>
           </Card>
         </Col>
       </Row>

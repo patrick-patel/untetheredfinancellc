@@ -53,8 +53,8 @@ const Metrics = ({ price, casaWallet, coldWallet, asicFund, hashrate, numberOfAs
         </Col>
       </Row>
       <br></br>
-      <Row style={{textAlign: "center"}}>
-        <Col className="col-6">
+      <Row md={12} style={{textAlign: "center"}}>
+        <Col>
           <Card>
             <Chart
               chartType="AreaChart"
@@ -107,7 +107,7 @@ const Metrics = ({ price, casaWallet, coldWallet, asicFund, hashrate, numberOfAs
             />
           </Card>
         </Col>
-        <Col className="col-6">
+        <Col>
           <Card>
             <Chart
               chartType="LineChart"
@@ -161,6 +161,7 @@ const Metrics = ({ price, casaWallet, coldWallet, asicFund, hashrate, numberOfAs
         </Col>
       </Row>
     </Container>
+    <br></br>
   </div>
 )
 

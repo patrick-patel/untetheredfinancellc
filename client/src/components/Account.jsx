@@ -190,6 +190,7 @@ class Account extends React.Component {
             </Col>
           </Row>
         </Container>
+        <br></br>
       </div>
     )
   }

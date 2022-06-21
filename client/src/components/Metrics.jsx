@@ -12,28 +12,28 @@ const Metrics = ({ price, casaWallet, coldWallet, asicFund, hashrate, numberOfAs
         <Col>
           <Card style={{background: "rgba(255,153,0,0.2)"}}>
             <p className="lead">Total BTC Holdings</p>
-            <p className="lead"><b>{totalBTCHoldings[totalBTCHoldings.length-1]}</b></p>
+            <p className="lead"><b>{totalBTCHoldings[totalBTCHoldings.length-1]} BTC</b></p>
             <p className="lead"><b>(${Math.round(totalBTCHoldings[totalBTCHoldings.length-1]*price*100)/100})</b></p>
           </Card>
         </Col>
         <Col>
           <Card style={{background: "rgba(255,153,0,0.2)"}}>
-            <p className="lead"><a href='https://bitaps.com/'></a>Casa Wallet Balance</p>
-            <p className="lead"><b>{casaWallet[casaWallet.length-1]}</b></p>
+            <p className="lead"><a href='https://bitaps.com/' target="_blank" rel="noopener noreferrer">Casa Wallet Balance</a></p>
+            <p className="lead"><b>{casaWallet[casaWallet.length-1]} BTC</b></p>
             <p className="lead"><b>(${Math.round(casaWallet[casaWallet.length-1]*price*100)/100})</b></p>
           </Card>
         </Col>
         <Col>
           <Card style={{background: "rgba(255,153,0,0.2)"}}>
-            <p className="lead"><a href='https://bitaps.com/'>Cold Storage Wallet Balance</a></p>
-            <p className="lead"><b>{coldWallet[coldWallet.length-1]}</b></p>
+            <p className="lead"><a href='https://bitaps.com/' target="_blank" rel="noopener noreferrer">Cold Storage Wallet Balance</a></p>
+            <p className="lead"><b>{coldWallet[coldWallet.length-1]} BTC</b></p>
             <p className="lead"><b>(${Math.round(coldWallet[coldWallet.length-1]*price*100)/100})</b></p>
           </Card>
         </Col>
         <Col>
           <Card style={{background: "rgba(255,153,0,0.2)"}}>
             <p className="lead">ASIC Fund</p>
-            <p className="lead"><b>{asicFund[asicFund.length-1]}</b></p>
+            <p className="lead"><b>{asicFund[asicFund.length-1]} BTC</b></p>
             <p className="lead"><b>(${Math.round(asicFund[asicFund.length-1]*price*100)/100})</b></p>
           </Card>
         </Col>

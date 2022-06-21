@@ -27,7 +27,7 @@ class Resources extends React.Component {
     }
     return (
       <div style={{background: "rgba(255,153,0,0.2)"}}>
-        <Container fluid style={{padding: 90}}>
+        <Container>
           <Row>
             <Col>
               <div style={{margin: "auto", width: "75%"}}>

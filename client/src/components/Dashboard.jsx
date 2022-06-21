@@ -10,8 +10,8 @@ const Dashboard = ({ price, totalBTC, distributions, distributionsUSD, pubKey, b
       <Row style={{textAlign: "center"}}>
         {balance !== 0 ? <Col>
           <Card style={{background: "rgba(255,153,0,0.2)"}}>
-            <p className="lead"><a href={`https://bitaps.com/${pubKey}`}>Wallet Balance</a></p>
-            <p className="lead"><b>{balance/100000000}</b></p>
+            <p className="lead"><a href={`https://bitaps.com/${pubKey}`} target="_blank" rel="noopener noreferrer">Wallet Balance</a></p>
+            <p className="lead"><b>{balance/100000000} BTC</b></p>
           </Card>
         </Col> : null}
         <Col>
@@ -23,13 +23,13 @@ const Dashboard = ({ price, totalBTC, distributions, distributionsUSD, pubKey, b
         <Col>
           <Card style={{background: "rgba(255,153,0,0.2)"}}>
             <p className="lead">Total Distributions (USD)</p>
-            <p className="lead"><b>{Math.round(totalBTC*Number(price)*100)/100}</b></p>
+            <p className="lead"><b>${Math.round(totalBTC*Number(price)*100)/100}</b></p>
           </Card>
         </Col>
         <Col>
           <Card style={{background: "rgba(255,153,0,0.2)"}}>
-            <p className="lead">BTCUSD Market Price (USD)</p>
-            <p className="lead"><b>{price}</b></p>
+            <p className="lead">BTCUSD Market Price</p>
+            <p className="lead"><b>${price}</b></p>
           </Card>
         </Col>
       </Row>

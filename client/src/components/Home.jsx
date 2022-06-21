@@ -23,7 +23,7 @@ class Home extends React.Component {
   render() {
     return (
       <div style={{background: "rgba(255,153,0,0.2)"}}>
-        <Container fluid style={{padding: 90}}>
+        <Container>
           <br></br>
           <Row>
             <Col>
@@ -34,16 +34,22 @@ class Home extends React.Component {
               <br></br>
               <Link to='/dashboard'><Button variant="dark" size="lg" className="mt-4" style={{background: "#050038", marginLeft: 50, width: "75%"}}>Members</Button></Link>
             </Col>
+            <br></br>
             <Col>
-              <Image style={{width: "800px"}} src={"https://s32659.pcdn.co/wp-content/uploads/2021/05/bic_artwork_Cryptocurrency_Mining_Hardware.jpg.optimal.jpg"} />
+              <Container>
+                <Image src={"https://s32659.pcdn.co/wp-content/uploads/2021/05/bic_artwork_Cryptocurrency_Mining_Hardware.jpg.optimal.jpg"} />
+              </Container>
             </Col>
           </Row>
           <br></br>
           <br></br>
           <Row>
             <Col>
-              <Image style={{width: "800px"}} src={"https://techcrunch.com/wp-content/uploads/2022/05/bitcoin-crown.jpg?w=940&h=465&crop=1"} />
+              <Container>
+                <Image src={"https://techcrunch.com/wp-content/uploads/2022/05/bitcoin-crown.jpg?w=940&h=465&crop=1"} />
+              </Container>
             </Col>
+            <br></br>
             <Col>
               <h2 className="display-2" style={{color: "#050038", textDecoration: "none", margin: "auto", width: "75%"}}><b>Bitcoin, not Crypto</b></h2>
               <h4 className="h4" style={{color: "#050038", textDecoration: "none", margin: "auto", width: "75%"}}>Explore our carefully curated list of Bitcoin resources and</h4>

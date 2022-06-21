@@ -27,17 +27,17 @@ class Home extends React.Component {
           <br></br>
           <Row>
             <Col>
-              <h3 className="display-3" style={{color: "#050038", textDecoration: "none", margin: "auto", width: "75%"}}><b>Transforming the</b></h3>
-              <h3 className="display-3" style={{color: "#050038", textDecoration: "none", margin: "auto", width: "75%"}}><b>Financial System</b></h3>
-              <p className="lead" style={{color: "#050038", textDecoration: "none", margin: "auto", width: "75%", fontSize: "28px"}}><i>and bringing Bitcoin to the masses</i></p>
+              <h3 className="display-3" style={{color: "#050038"}}><b>Transforming the</b></h3>
+              <h3 className="display-3" style={{color: "#050038"}}><b>Financial System</b></h3>
+              <p className="lead" style={{color: "#050038", fontSize: "28px"}}><i>and bringing Bitcoin to the masses</i></p>
               <br></br>
               <br></br>
-              <Link to='/dashboard'><Button variant="dark" size="lg" className="mt-4" style={{background: "#050038", marginLeft: 50, width: "75%"}}>Members</Button></Link>
+              <Link to='/dashboard'><Button variant="dark" size="lg" className="mt-4" style={{background: "#050038", width: "75%"}}>Members</Button></Link>
             </Col>
             <br></br>
             <Col>
               <Container>
-                <Image src={"https://s32659.pcdn.co/wp-content/uploads/2021/05/bic_artwork_Cryptocurrency_Mining_Hardware.jpg.optimal.jpg"} />
+                <Image fluid src={"https://s32659.pcdn.co/wp-content/uploads/2021/05/bic_artwork_Cryptocurrency_Mining_Hardware.jpg.optimal.jpg"} />
               </Container>
             </Col>
           </Row>
@@ -46,16 +46,16 @@ class Home extends React.Component {
           <Row>
             <Col>
               <Container>
-                <Image src={"https://techcrunch.com/wp-content/uploads/2022/05/bitcoin-crown.jpg?w=940&h=465&crop=1"} />
+                <Image fluid src={"https://techcrunch.com/wp-content/uploads/2022/05/bitcoin-crown.jpg?w=940&h=465&crop=1"} />
               </Container>
             </Col>
             <br></br>
             <Col>
-              <h2 className="display-2" style={{color: "#050038", textDecoration: "none", margin: "auto", width: "75%"}}><b>Bitcoin, not Crypto</b></h2>
-              <h4 className="h4" style={{color: "#050038", textDecoration: "none", margin: "auto", width: "75%"}}>Explore our carefully curated list of Bitcoin resources and</h4>
-              <h4 className="h4" style={{color: "#050038", textDecoration: "none", margin: "auto", width: "75%"}}>avoid getting sucked into the blackhole of crypto scams</h4>
+              <h2 className="display-2" style={{color: "#050038"}}><b>Bitcoin, not Crypto</b></h2>
+              <h4 className="h4" style={{color: "#050038"}}>Explore our carefully curated list of Bitcoin resources and</h4>
+              <h4 className="h4" style={{color: "#050038"}}>avoid getting sucked into the blackhole of crypto scams</h4>
               <br></br>
-              <Link to='/resources'><Button variant="dark" size="lg" style={{background: "#050038", marginLeft: 90, marginTop: 80, width: "75%"}}>Resources</Button></Link>
+              <Link to='/resources'><Button variant="dark" size="lg" style={{background: "#050038", width: "75%"}}>Resources</Button></Link>
             </Col>
           </Row>
         </Container>

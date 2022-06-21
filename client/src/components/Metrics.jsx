@@ -6,7 +6,7 @@ import { Chart } from "react-google-charts";
 
 const Metrics = ({ price, casaWallet, coldWallet, asicFund, hashrate, numberOfAsics, taxFund, totalBTCHoldings }) => (
   <div style={{background: "rgba(255,153,0,0.2)"}}>
-    <Container fluid style={{padding: 90}}>
+    <Container>
       <h3 className="display-3" style={{color: "#050038", textDecoration: "none"}}><b>Company Metrics</b></h3>
       <Row style={{textAlign: "center"}}>
         <Col>
@@ -57,7 +57,6 @@ const Metrics = ({ price, casaWallet, coldWallet, asicFund, hashrate, numberOfAs
         <Col className="col-6">
           <Card>
             <Chart
-              height={'500px'}
               chartType="AreaChart"
               loader={<div>Loading Chart</div>}
               data={[
@@ -111,7 +110,6 @@ const Metrics = ({ price, casaWallet, coldWallet, asicFund, hashrate, numberOfAs
         <Col className="col-6">
           <Card>
             <Chart
-              height={'500px'}
               chartType="LineChart"
               loader={<div>Loading Chart</div>}
               data={[

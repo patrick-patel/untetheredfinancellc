@@ -62,7 +62,9 @@ class Resources extends React.Component {
               </div>
             </Col>
             <Col>
-              <Image style={{width: "800px"}} src={"https://techcrunch.com/wp-content/uploads/2022/05/bitcoin-crown.jpg?w=940&h=465&crop=1"} />
+              <Container>
+                <Image src={"https://techcrunch.com/wp-content/uploads/2022/05/bitcoin-crown.jpg?w=940&h=465&crop=1"} />
+              </Container>
 
               <br></br>
 

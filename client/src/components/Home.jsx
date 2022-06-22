@@ -25,12 +25,11 @@ class Home extends React.Component {
       <div style={{background: "rgba(255,153,0,0.2)"}}>
         <Container>
           <br></br>
-          <Row>
+          <Row className="mb-2">
             <Col md={12} lg={6}>
               <h3 className="display-3" style={{color: "#050038"}}><b>Transforming the</b></h3>
               <h3 className="display-3" style={{color: "#050038"}}><b>Financial System</b></h3>
               <p className="lead" style={{color: "#050038", fontSize: "28px"}}><i>and bringing Bitcoin to the masses</i></p>
-              <br></br>
               <br></br>
               <Link to='/dashboard'><Button variant="dark" size="lg" className="mt-4" style={{background: "#050038", width: "75%"}}>Members</Button></Link>
             </Col>
@@ -40,13 +39,12 @@ class Home extends React.Component {
             </Col>
           </Row>
           <br></br>
-          <br></br>
           <Row>
-            <Col md={12} lg={6}>
+            <Col md={{span: 12, order: 'last'}} lg={6}>
               <Image fluid src={"https://techcrunch.com/wp-content/uploads/2022/05/bitcoin-crown.jpg?w=940&h=465&crop=1"} />
             </Col>
             <br></br>
-            <Col md={12} lg={6}>
+            <Col md={{span: 12, order: 'first'}} lg={6}>
               <h2 className="display-2" style={{color: "#050038"}}><b>Bitcoin, not Crypto</b></h2>
               <h4 className="h4" style={{color: "#050038"}}>Explore our carefully curated list of Bitcoin resources</h4>
               <br></br>

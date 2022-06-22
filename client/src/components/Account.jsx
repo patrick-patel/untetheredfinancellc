@@ -136,11 +136,11 @@ class Account extends React.Component {
         <Container>
           <br></br>
           <Row>
-            <Col>
+            <Col md={12} lg={6}>
               <h3 className="display-3" style={{color: "#050038", textDecoration: "none"}}><b>Account Settings</b></h3>
               <p className="lead" style={{color: "#050038", textDecoration: "none", fontSize: "28px"}}><i>Update your email, password or BTC Distribution receiving address</i></p>
             </Col>
-            <Col>
+            <Col md={12} lg={6}>
             {this.state.message.length > 0 ? <Alert key={this.state.messageType} variant={this.state.messageType}>{this.state.message}</Alert> : null}
               <Col>
                 <Card style={{background: "rgba(255,153,0,0.2)"}}>

@@ -5,30 +5,30 @@ import { Chart } from "react-google-charts";
 
 const Dashboard = ({ price, totalBTC, distributions, distributionsUSD, pubKey, balance }) => (
   <div style={{background: "rgba(255,153,0,0.2)"}}>
-    <Container fluid style={{padding: 90}}>
+    <Container>
       <h3 className="display-3" style={{color: "#050038", textDecoration: "none"}}><b>Member Dashboard</b></h3>
       <Row style={{textAlign: "center"}}>
         {balance !== 0 ?
-        <Col md={6}>
-          <Card className="h-100 mb-2" style={{background: "rgba(255,153,0,0.2)"}}>
+        <Col className="mb-2" md={6}>
+          <Card className="h-100" style={{background: "rgba(255,153,0,0.2)"}}>
             <p className="lead"><a href={`https://bitaps.com/${pubKey}`} target="_blank" rel="noopener noreferrer">Wallet Balance</a></p>
             <p className="lead"><b>{balance/100000000} BTC</b></p>
           </Card>
         </Col> : null}
-        <Col md={6}>
-          <Card className="h-100 mb-2" style={{background: "rgba(255,153,0,0.2)"}}>
+        <Col className="mb-2" md={6}>
+          <Card className="h-100" style={{background: "rgba(255,153,0,0.2)"}}>
             <p className="lead">Total Distributions (BTC)</p>
             <p className="lead"><b>{totalBTC}</b></p>
           </Card>
         </Col>
-        <Col md={6}>
-          <Card className="h-100 mb-2" style={{background: "rgba(255,153,0,0.2)"}}>
+        <Col className="mb-2" md={6}>
+          <Card className="h-100" style={{background: "rgba(255,153,0,0.2)"}}>
             <p className="lead">Total Distributions (USD)</p>
             <p className="lead"><b>${Math.round(totalBTC*Number(price)*100)/100}</b></p>
           </Card>
         </Col>
-        <Col md={6}>
-          <Card className="h-100 mb-2" style={{background: "rgba(255,153,0,0.2)"}}>
+        <Col className="mb-2" md={6}>
+          <Card className="h-100" style={{background: "rgba(255,153,0,0.2)"}}>
             <p className="lead">BTCUSD Market Price</p>
             <p className="lead"><b>${price}</b></p>
           </Card>

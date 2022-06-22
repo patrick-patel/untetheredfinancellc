@@ -29,7 +29,7 @@ class Resources extends React.Component {
       <div style={{background: "rgba(255,153,0,0.2)"}}>
         <Container>
           <Row>
-            <Col md={12}>
+            <Col md={12} lg={6}>
               <div>
                 <h3 className="display-3" style={{color: "#050038", textDecoration: "none"}}><b>Bitcoin Resources</b></h3>
                 <p className="lead" style={{color: "#050038", textDecoration: "none", fontSize: "28px"}}><i>From the basics to technical knowledge</i></p>
@@ -61,7 +61,7 @@ class Resources extends React.Component {
 
               </div>
             </Col>
-            <Col md={12}>
+            <Col md={12} lg={6}>
               <Image fluid src={"https://techcrunch.com/wp-content/uploads/2022/05/bitcoin-crown.jpg?w=940&h=465&crop=1"} />
 
               <br></br>

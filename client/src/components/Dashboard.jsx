@@ -7,27 +7,27 @@ const Dashboard = ({ price, totalBTC, distributions, distributionsUSD, pubKey, b
   <div style={{background: "rgba(255,153,0,0.2)"}}>
     <Container fluid style={{padding: 90}}>
       <h3 className="display-3" style={{color: "#050038", textDecoration: "none"}}><b>Member Dashboard</b></h3>
-      <Row style={{textAlign: "center"}}>
+      <Row md={6} style={{textAlign: "center"}}>
         {balance !== 0 ? <Col>
-          <Card style={{background: "rgba(255,153,0,0.2)"}}>
+          <Card className="h-100" style={{background: "rgba(255,153,0,0.2)"}}>
             <p className="lead"><a href={`https://bitaps.com/${pubKey}`} target="_blank" rel="noopener noreferrer">Wallet Balance</a></p>
             <p className="lead"><b>{balance/100000000} BTC</b></p>
           </Card>
         </Col> : null}
         <Col>
-          <Card style={{background: "rgba(255,153,0,0.2)"}}>
+          <Card className="h-100" style={{background: "rgba(255,153,0,0.2)"}}>
             <p className="lead">Total Distributions (BTC)</p>
             <p className="lead"><b>{totalBTC}</b></p>
           </Card>
         </Col>
         <Col>
-          <Card style={{background: "rgba(255,153,0,0.2)"}}>
+          <Card className="h-100" style={{background: "rgba(255,153,0,0.2)"}}>
             <p className="lead">Total Distributions (USD)</p>
             <p className="lead"><b>${Math.round(totalBTC*Number(price)*100)/100}</b></p>
           </Card>
         </Col>
         <Col>
-          <Card style={{background: "rgba(255,153,0,0.2)"}}>
+          <Card className="h-100" style={{background: "rgba(255,153,0,0.2)"}}>
             <p className="lead">BTCUSD Market Price</p>
             <p className="lead"><b>${price}</b></p>
           </Card>
@@ -57,6 +57,7 @@ const Dashboard = ({ price, totalBTC, distributions, distributionsUSD, pubKey, b
                 [12, distributions[11],],
               ]}
               options={{
+                height: "400px",
                 title: "Total Distributions (BTC)",
                 backgroundColor: {
                   fill: "#fbdba3",
@@ -87,6 +88,7 @@ const Dashboard = ({ price, totalBTC, distributions, distributionsUSD, pubKey, b
             />
           </Card>
         </Col>
+        <br></br>
         <Col>
           <Card>
             <Chart
@@ -109,6 +111,7 @@ const Dashboard = ({ price, totalBTC, distributions, distributionsUSD, pubKey, b
                 [12, distributionsUSD[11]],
               ]}
               options={{
+                height: "400px",
                 title: "Total Distributions (USD)",
                 backgroundColor: {
                   fill: "#fbdba3",

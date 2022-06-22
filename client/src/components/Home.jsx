@@ -25,7 +25,7 @@ class Home extends React.Component {
       <div style={{background: "rgba(255,153,0,0.2)"}}>
         <Container>
           <br></br>
-          <Row>
+          <Row md={12}>
             <Col>
               <h3 className="display-3" style={{color: "#050038"}}><b>Transforming the</b></h3>
               <h3 className="display-3" style={{color: "#050038"}}><b>Financial System</b></h3>
@@ -43,7 +43,7 @@ class Home extends React.Component {
           </Row>
           <br></br>
           <br></br>
-          <Row>
+          <Row md={12}>
             <Col>
               <Container>
                 <Image fluid src={"https://techcrunch.com/wp-content/uploads/2022/05/bitcoin-crown.jpg?w=940&h=465&crop=1"} />
@@ -52,13 +52,13 @@ class Home extends React.Component {
             <br></br>
             <Col>
               <h2 className="display-2" style={{color: "#050038"}}><b>Bitcoin, not Crypto</b></h2>
-              <h4 className="h4" style={{color: "#050038"}}>Explore our carefully curated list of Bitcoin resources and</h4>
-              <h4 className="h4" style={{color: "#050038"}}>avoid getting sucked into the blackhole of crypto scams</h4>
+              <h4 className="h4" style={{color: "#050038"}}>Explore our carefully curated list of Bitcoin resources</h4>
               <br></br>
               <Link to='/resources'><Button variant="dark" size="lg" style={{background: "#050038", width: "75%"}}>Resources</Button></Link>
             </Col>
           </Row>
         </Container>
+        <br></br>
       </div>
     )
   }

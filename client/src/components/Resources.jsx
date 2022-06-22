@@ -28,7 +28,7 @@ class Resources extends React.Component {
     return (
       <div style={{background: "rgba(255,153,0,0.2)"}}>
         <Container>
-          <Row>
+          <Row md={12}>
             <Col>
               <div>
                 <h3 className="display-3" style={{color: "#050038", textDecoration: "none"}}><b>Bitcoin Resources</b></h3>

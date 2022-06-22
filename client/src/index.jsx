@@ -200,11 +200,11 @@ class App extends React.Component {
                 <Link to="/resources" className="btn btn-link" style={{color: "#050038", textDecoration: "none", fontSize: "28px", marginRight: 20}}>Resources</Link>
                 <NavDropdown title="Members" id="navbarScrollingDropdown" className="btn btn-link" style={{color: "#050038", textDecoration: "none", fontSize: "28px", marginRight: 20}}>
                   {this.state.isLoggedIn ? null : <NavDropdown.Item href="#action3"><Link to="/login" className="btn btn-link" style={{color: "#050038", textDecoration: "none", fontSize: "28px", marginRight: 20}}>Login</Link></NavDropdown.Item>}
-                  {this.state.isLoggedIn ? <NavDropdown.Item href="#action3"><Link to="/dashboard" className="btn btn-link" style={{color: "#050038", textDecoration: "none", fontSize: "28px", marginRight: 20}}>Dashboard</Link></NavDropdown.Item> : null}
-                  {this.state.isLoggedIn ? <NavDropdown.Item href="#action3"><Link to="/metrics" className="btn btn-link" style={{color: "#050038", textDecoration: "none", fontSize: "28px", marginRight: 20}}>Metrics</Link></NavDropdown.Item> : null}
-                  {this.state.isLoggedIn ? <NavDropdown.Item href="#action4"><Link to="/account" className="btn btn-link" style={{color: "#050038", textDecoration: "none", fontSize: "28px", marginRight: 20}}>Account</Link></NavDropdown.Item> : null}
+                  {this.state.isLoggedIn ? <NavDropdown.Item><Link to="/dashboard" className="btn btn-link" style={{color: "#050038", textDecoration: "none", fontSize: "28px", marginRight: 20}}>Dashboard</Link></NavDropdown.Item> : null}
+                  {this.state.isLoggedIn ? <NavDropdown.Item><Link to="/metrics" className="btn btn-link" style={{color: "#050038", textDecoration: "none", fontSize: "28px", marginRight: 20}}>Metrics</Link></NavDropdown.Item> : null}
+                  {this.state.isLoggedIn ? <NavDropdown.Item><Link to="/account" className="btn btn-link" style={{color: "#050038", textDecoration: "none", fontSize: "28px", marginRight: 20}}>Account</Link></NavDropdown.Item> : null}
                   {this.state.isLoggedIn ? <NavDropdown.Divider /> : null}
-                  {this.state.isLoggedIn ? <NavDropdown.Item href="#action5"><Link to="/login" className="btn btn-link" style={{cursor: "pointer", color: "#050038", textDecoration: "none", fontSize: "28px", marginRight: 20}} onClick={this.logout.bind(this)}>Logout</Link></NavDropdown.Item> : null}
+                  {this.state.isLoggedIn ? <NavDropdown.Item><Link to="/login" className="btn btn-link" style={{cursor: "pointer", color: "#050038", textDecoration: "none", fontSize: "28px", marginRight: 20}} onClick={this.logout.bind(this)}>Logout</Link></NavDropdown.Item> : null}
                 </NavDropdown>
               </Nav>
             </Navbar.Collapse>

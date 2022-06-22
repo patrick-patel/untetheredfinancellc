@@ -25,8 +25,8 @@ class Home extends React.Component {
       <div style={{background: "rgba(255,153,0,0.2)"}}>
         <Container>
           <br></br>
-          <Row md={12}>
-            <Col>
+          <Row>
+            <Col md={12}>
               <h3 className="display-3" style={{color: "#050038"}}><b>Transforming the</b></h3>
               <h3 className="display-3" style={{color: "#050038"}}><b>Financial System</b></h3>
               <p className="lead" style={{color: "#050038", fontSize: "28px"}}><i>and bringing Bitcoin to the masses</i></p>
@@ -36,21 +36,17 @@ class Home extends React.Component {
             </Col>
             <br></br>
             <Col>
-              <Container>
-                <Image fluid src={"https://s32659.pcdn.co/wp-content/uploads/2021/05/bic_artwork_Cryptocurrency_Mining_Hardware.jpg.optimal.jpg"} />
-              </Container>
+              <Image fluid src={"https://s32659.pcdn.co/wp-content/uploads/2021/05/bic_artwork_Cryptocurrency_Mining_Hardware.jpg.optimal.jpg"} />
             </Col>
           </Row>
           <br></br>
           <br></br>
-          <Row md={12}>
-            <Col>
-              <Container>
-                <Image fluid src={"https://techcrunch.com/wp-content/uploads/2022/05/bitcoin-crown.jpg?w=940&h=465&crop=1"} />
-              </Container>
+          <Row>
+            <Col md={12}>
+              <Image fluid src={"https://techcrunch.com/wp-content/uploads/2022/05/bitcoin-crown.jpg?w=940&h=465&crop=1"} />
             </Col>
             <br></br>
-            <Col>
+            <Col md={12}>
               <h2 className="display-2" style={{color: "#050038"}}><b>Bitcoin, not Crypto</b></h2>
               <h4 className="h4" style={{color: "#050038"}}>Explore our carefully curated list of Bitcoin resources</h4>
               <br></br>

@@ -7,6 +7,7 @@ import { Chart } from "react-google-charts";
 const Metrics = ({ price, casaWallet, coldWallet, asicFund, hashrate, numberOfAsics, taxFund, totalBTCHoldings }) => (
   <div style={{background: "rgba(255,153,0,0.2)"}}>
     <Container>
+      <br></br>
       <h3 className="display-3" style={{color: "#050038", textDecoration: "none"}}><b>Company Metrics</b></h3>
       <Row style={{textAlign: "center"}}>
         <Col className="mb-2" xs={12} md={6} lg={4}>

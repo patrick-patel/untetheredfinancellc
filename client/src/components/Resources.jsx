@@ -28,6 +28,7 @@ class Resources extends React.Component {
     return (
       <div style={{background: "rgba(255,153,0,0.2)"}}>
         <Container>
+          <br></br>
           <Row>
             <Col md={12} lg={6}>
               <div>

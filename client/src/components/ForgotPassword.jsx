@@ -50,7 +50,7 @@ class ForgotPassword extends React.Component {
     }
     return (
       <div style={{background: "rgba(255,153,0,0.2)"}}>
-        <Container fluid style={{padding: 90}}>
+        <Container>
           <br></br>
           <Row>
             <Col className="mb-2" md={12} lg={6}>

@@ -29,7 +29,7 @@ class Home extends React.Component {
             <Col className="mb-4" md={12} lg={6}>
               <h2 className="display-2" style={{color: "#050038", textAlign: "center"}}><b>Transforming the</b></h2>
               <h2 className="display-2" style={{color: "#050038", textAlign: "center"}}><b>Financial System</b></h2>
-              <p className="lead" style={{color: "#050038", fontSize: "28px"}}><i>and bringing Bitcoin to the masses</i></p>
+              <p className="lead" style={{color: "#050038", fontSize: "28px", textAlign: "center"}}><i>and bringing Bitcoin to the masses</i></p>
               <br></br>
               <Link to='/dashboard'><Button variant="dark" size="lg" style={{background: "#050038", width: "100%"}}>Members</Button></Link>
             </Col>

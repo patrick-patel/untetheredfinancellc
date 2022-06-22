@@ -105,10 +105,10 @@ class Login extends React.Component {
                 </Form.Group>
                 <Row>
                   <Col className="mb-2" md={12} lg={6}>
-                    <Button className="mb-2" variant="dark" type="submit" style={{cursor: "pointer", background: "#050038"}} onClick={this.login.bind(this)}>Login</Button>
+                    <Button className="mb-2" variant="dark" type="submit" style={{cursor: "pointer", background: "#050038", width: "100%"}} onClick={this.login.bind(this)}>Login</Button>
                   </Col>
                   <Col className="mb-2" md={12} lg={6}>
-                    <Button variant="dark" type="submit" style={{cursor: "pointer", background: "#050038"}} onClick={this.forgotPassword.bind(this)}>Forgot Password</Button>
+                    <Button variant="dark" type="submit" style={{cursor: "pointer", background: "#050038", width: "100%"}} onClick={this.forgotPassword.bind(this)}>Forgot Password</Button>
                   </Col>
                 </Row>
               </Form>

@@ -27,11 +27,11 @@ class Home extends React.Component {
           <br></br>
           <Row>
             <Col className="mb-4" md={12} lg={6}>
-              <h3 className="display-3" style={{color: "#050038"}}><b>Transforming the</b></h3>
-              <h3 className="display-3" style={{color: "#050038"}}><b>Financial System</b></h3>
+              <h2 className="display-2" style={{color: "#050038", textAlign: "center"}}><b>Transforming the</b></h2>
+              <h2 className="display-2" style={{color: "#050038", textAlign: "center"}}><b>Financial System</b></h2>
               <p className="lead" style={{color: "#050038", fontSize: "28px"}}><i>and bringing Bitcoin to the masses</i></p>
               <br></br>
-              <Link to='/dashboard'><Button variant="dark" size="lg" className="mt-4" style={{background: "#050038", width: "75%"}}>Members</Button></Link>
+              <Link to='/dashboard'><Button variant="dark" size="lg" style={{background: "#050038", width: "100%"}}>Members</Button></Link>
             </Col>
             <br></br>
             <Col lg={6}>
@@ -45,10 +45,10 @@ class Home extends React.Component {
             </Col>
             <br></br>
             <Col className="mb-4" xs={{span: 12, order: 'first'}} sm={{span: 12, order: 'lafirstst'}} md={{span: 12, order: 'first'}} lg={{span: 6, order: 'last'}}>
-              <h2 className="display-2" style={{color: "#050038"}}><b>Bitcoin, not Crypto</b></h2>
-              <h4 className="h4" style={{color: "#050038"}}>Explore our carefully curated list of Bitcoin resources</h4>
+              <h2 className="display-2" style={{color: "#050038", textAlign: "center"}}><b>Bitcoin, not Crypto</b></h2>
+              <h4 className="h4" style={{color: "#050038", textAlign: "center"}}>Explore our carefully curated list of Bitcoin resources</h4>
               <br></br>
-              <Link to='/resources'><Button variant="dark" size="lg" style={{background: "#050038", width: "75%"}}>Resources</Button></Link>
+              <Link to='/resources'><Button variant="dark" size="lg" style={{background: "#050038", width: "100%"}}>Resources</Button></Link>
             </Col>
           </Row>
         </Container>

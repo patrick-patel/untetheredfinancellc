@@ -38,12 +38,12 @@ class Login extends React.Component {
           <Container fluid style={{padding: 90}}>
           <br></br>
             <Row>
-              <Col>
+              <Col className="mb-2" md={12} lg={6}>
                 <h3 className="display-3" style={{color: "#050038", textDecoration: "none", margin: "auto", width: "75%"}}><b>Member Login</b></h3>
                 <p className="lead" style={{color: "#050038", textDecoration: "none", margin: "auto", width: "75%", fontSize: "24px"}}><i>View your member dashboard, company metrics</i></p>
                 <p className="lead" style={{color: "#050038", textDecoration: "none", margin: "auto", width: "75%", fontSize: "24px"}}><i>and update your account information</i></p>
               </Col>
-              <Col>
+              <Col className="mb-2" md={12} lg={6}>
                 {this.props.message.length > 0 ? <Alert key={this.props.messageType} variant={this.props.messageType}>{this.props.message}</Alert> : null}
                 <Card style={{background: "rgba(255,153,0,0.2)"}}>
                   <Container style={{padding: 20}}>
@@ -86,12 +86,12 @@ class Login extends React.Component {
         <Container fluid style={{padding: 90}}>
         <br></br>
           <Row>
-            <Col>
+            <Col className="mb-2" md={12} lg={6}>
               <h3 className="display-3" style={{color: "#050038", textDecoration: "none", margin: "auto", width: "75%"}}><b>Member Login</b></h3>
               <p className="lead" style={{color: "#050038", textDecoration: "none", margin: "auto", width: "75%", fontSize: "24px"}}><i>View your investment dashboard, update</i></p>
               <p className="lead" style={{color: "#050038", textDecoration: "none", margin: "auto", width: "75%", fontSize: "24px"}}><i>your account information and more</i></p>
             </Col>
-            <Col>
+            <Col className="mb-2" md={12} lg={6}>
               {this.props.message.length > 0 ? <Alert key={this.props.messageType} variant={this.props.messageType}>{this.props.message}</Alert> : null}
               <Form>
                 <Form.Group className="mb-3" controlId="formBasicEmail">

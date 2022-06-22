@@ -36,7 +36,7 @@ const Dashboard = ({ price, totalBTC, distributions, distributionsUSD, pubKey, b
       </Row>
       <br></br>
       <Row style={{textAlign: "center"}}>
-        <Col className="mb-2" md={12}>
+        <Col className="mb-2" md={12} lg={6}>
           <Card>
             <Chart
               chartType="LineChart"
@@ -90,7 +90,7 @@ const Dashboard = ({ price, totalBTC, distributions, distributionsUSD, pubKey, b
           </Card>
         </Col>
         <br></br>
-        <Col className="mb-2" md={12}>
+        <Col className="mb-2" md={12} lg={6}>
           <Card>
             <Chart
               chartType="LineChart"
@@ -145,6 +145,7 @@ const Dashboard = ({ price, totalBTC, distributions, distributionsUSD, pubKey, b
         </Col>
       </Row>
     </Container>
+    <br></br>
   </div>
 )
 

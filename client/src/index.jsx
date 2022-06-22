@@ -191,14 +191,14 @@ class App extends React.Component {
       <div>
         <Navbar className="navbar" expand="lg">
           <Container fluid>
-            <Navbar.Brand href="/"><img src={logo} style={{width:150, marginLeft: -10, marginTop: -30, marginBottom: -30}} /><i style={{color: "#050038", margin: 0}}><b>Untethered Finance</b></i></Navbar.Brand>
+            <Navbar.Brand href="/"><img src={logo} style={{width:150, marginLeft: -10, marginTop: -30, marginBottom: -30}} /><i style={{color: "#050038", fontSize: "28px", margin: 0}}><b>Untethered Finance</b></i></Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
               <Nav className="ms-auto">
                 <br></br>
                 <Link to="/" className="btn btn-link" style={{color: "#050038", textDecoration: "none", fontSize: "28px", marginRight: 20}}>Home</Link>
                 <Link to="/resources" className="btn btn-link" style={{color: "#050038", textDecoration: "none", fontSize: "28px", marginRight: 20}}>Resources</Link>
-                <NavDropdown title="Members" id="navbarScrollingDropdown" className="btn btn-link" style={{color: "#050038", textDecoration: "none", fontSize: "28px", marginRight: 20}}>
+                <NavDropdown title="Members" id="basic-nav-dropdown" className="btn btn-link" style={{color: "#050038", textDecoration: "none", fontSize: "28px", marginRight: 20}}>
                   {this.state.isLoggedIn ? null : <NavDropdown.Item href="#action3"><Link to="/login" className="btn btn-link" style={{color: "#050038", textDecoration: "none", fontSize: "28px", marginRight: 20}}>Login</Link></NavDropdown.Item>}
                   {this.state.isLoggedIn ? <NavDropdown.Item><Link to="/dashboard" className="btn btn-link" style={{color: "#050038", textDecoration: "none", fontSize: "28px", marginRight: 20}}>Dashboard</Link></NavDropdown.Item> : null}
                   {this.state.isLoggedIn ? <NavDropdown.Item><Link to="/metrics" className="btn btn-link" style={{color: "#050038", textDecoration: "none", fontSize: "28px", marginRight: 20}}>Metrics</Link></NavDropdown.Item> : null}

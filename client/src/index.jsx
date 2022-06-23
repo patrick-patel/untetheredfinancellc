@@ -124,12 +124,12 @@ class App extends React.Component {
 
   login(e) {
     e.preventDefault();
-    var json = {"email": this.state.email, "password": this.state.password};
+    var loginJSON = {"email": this.state.email, "password": this.state.password};
     $.ajax({
       'url': '/login',
       'type': 'POST',
       'context': this,
-      'data': json,
+      'data': loginJSON,
       'success': function(data) {
         console.log(data);
         this.setState({ message: data.message, messageType: data.messageType });
@@ -152,10 +152,11 @@ class App extends React.Component {
                 "distributionsUSD": data.distributionsUSD,
                 "key": data.key,
               })
+              let walletJSON = {"key": data.key};
               $.ajax({
                 'url': '/fetchWallet',
                 'type': 'POST',
-                'data': json,
+                'data': walletJSON,
                 'context': this,
                 'success': function(data) {
                   console.log('server response: ', data.balanceSat);

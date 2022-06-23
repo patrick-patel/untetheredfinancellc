@@ -92,7 +92,7 @@ app.get('/fetchPoolStats', (req, res) => {
     }
   })
   .then(stats => {
-    console.log('slush pool data: ', stats);
+    console.log('slush pool data: ', stats.data.btc);
     res.send(stats.data.btc);
   })
   .catch(err => {
@@ -102,6 +102,7 @@ app.get('/fetchPoolStats', (req, res) => {
 
 app.get('/fetchWallet', verifyJWT, (req, res) => {
   let wallet = req.body.wallet;
+  console.log('wallet: ', wallet);
   axios.get(`https://api.bitaps.com/btc/v1/blockchain/address/state/${wallet}`)
   .then(data => {
     console.log('bitaps wallet data: ', data.data);

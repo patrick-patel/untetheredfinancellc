@@ -2,13 +2,6 @@ import React from 'react';
 import { Redirect } from 'react-router';
 import { Link } from 'react-router-dom';
 import $ from 'jquery';
-import step1 from "../media/step1.png";
-import step11 from "../media/step1-1.png";
-import step2 from "../media/step2.png";
-import step3 from "../media/step3.png";
-import step4 from "../media/step4.png";
-import step5 from "../media/step5.png";
-
 
 import { Button, Container, Image, Row, Col } from 'react-bootstrap';
 

@@ -105,10 +105,11 @@ class App extends React.Component {
           "distributionsUSD": data.distributionsUSD,
           "key": data.key,
         })
+        let json = {"key": data.key};
         $.ajax({
           'url': '/fetchWallet',
           'type': 'POST',
-          'data': {key: data.key},
+          'data': json,
           'context': this,
           'success': function(data) {
             console.log('server response: ', data.balance);

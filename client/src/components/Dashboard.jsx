@@ -12,7 +12,7 @@ const Dashboard = ({ price, totalBTC, distributions, distributionsUSD, pubKey, b
         {
           balance !== 0 ?
           <Col className="mb-2" md={6}>
-            <Card className="h-100" style={{background: "rgba(255,153,0,0.2)"}}>
+            <Card className="h-100" style={{background: "#fbdba3"}}>
               <p className="lead"><a href={`https://bitaps.com/${pubKey}`} target="_blank" rel="noopener noreferrer" style={{color: "#050038"}}>Wallet Balance</a></p>
               <p className="lead"><b>{balance/100000000} BTC</b></p>
             </Card>
@@ -20,19 +20,19 @@ const Dashboard = ({ price, totalBTC, distributions, distributionsUSD, pubKey, b
           : null
         }
         <Col className="mb-2" md={6}>
-          <Card className="h-100" style={{background: "rgba(255,153,0,0.2)"}}>
+          <Card className="h-100" style={{background: "#fbdba3"}}>
             <p className="lead">Total Distributions (BTC)</p>
             <p className="lead"><b>{totalBTC}</b></p>
           </Card>
         </Col>
         <Col className="mb-2" md={6}>
-          <Card className="h-100" style={{background: "rgba(255,153,0,0.2)"}}>
+          <Card className="h-100" style={{background: "#fbdba3"}}>
             <p className="lead">Total Distributions (USD)</p>
             <p className="lead"><b>${Math.round(totalBTC*Number(price)*100)/100}</b></p>
           </Card>
         </Col>
         <Col className="mb-2" md={6}>
-          <Card className="h-100" style={{background: "rgba(255,153,0,0.2)"}}>
+          <Card className="h-100" style={{background: "#fbdba3"}}>
             <p className="lead">BTCUSD Market Price</p>
             <p className="lead"><b>${price}</b></p>
           </Card>
@@ -65,7 +65,7 @@ const Dashboard = ({ price, totalBTC, distributions, distributionsUSD, pubKey, b
                 height: "400px",
                 title: "Total Distributions (BTC)",
                 backgroundColor: {
-                  fill: "#ffdcb2",
+                  fill: "#fbdba3",
                   stroke: "#dfbf8e",
                 },
                 hAxis: {
@@ -119,7 +119,7 @@ const Dashboard = ({ price, totalBTC, distributions, distributionsUSD, pubKey, b
                 height: "400px",
                 title: "Total Distributions (USD)",
                 backgroundColor: {
-                  fill: "#ffdcb2",
+                  fill: "#fbdba3",
                   stroke: "#dfbf8e",
                 },
                 hAxis: {

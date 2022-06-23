@@ -11,42 +11,42 @@ const Metrics = ({ price, casaWallet, coldWallet, asicFund, hashrate, numberOfAs
       <h3 className="display-3" style={{color: "#050038", textDecoration: "none"}}><b>Company Metrics</b></h3>
       <Row style={{textAlign: "center", color: "#050038"}}>
         <Col className="mb-2" xs={12} md={6} lg={4}>
-          <Card className="h-100" style={{background: "rgba(255,153,0,0.2)"}}>
+          <Card className="h-100" style={{background: "#fbdba3"}}>
             <p className="lead">Total BTC Holdings</p>
             <p className="lead"><b>{totalBTCHoldings[totalBTCHoldings.length-1]} BTC</b></p>
             <p className="lead"><b>(${Math.round(totalBTCHoldings[totalBTCHoldings.length-1]*price*100)/100})</b></p>
           </Card>
         </Col>
         <Col className="mb-2" xs={12} md={6} lg={4}>
-          <Card className="h-100" style={{background: "rgba(255,153,0,0.2)"}}>
+          <Card className="h-100" style={{background: "#fbdba3"}}>
             <p className="lead"><a href='https://bitaps.com/' target="_blank" rel="noopener noreferrer" style={{color: "#050038"}}>Casa Wallet Balance</a></p>
             <p className="lead"><b>{casaWallet[casaWallet.length-1]} BTC</b></p>
             <p className="lead"><b>(${Math.round(casaWallet[casaWallet.length-1]*price*100)/100})</b></p>
           </Card>
         </Col>
         <Col className="mb-2" xs={12} md={6} lg={4}>
-          <Card className="h-100" style={{background: "rgba(255,153,0,0.2)"}}>
+          <Card className="h-100" style={{background: "#fbdba3"}}>
             <p className="lead"><a href='https://bitaps.com/' target="_blank" rel="noopener noreferrer" style={{color: "#050038"}}>Cold Storage Wallet Balance</a></p>
             <p className="lead"><b>{coldWallet[coldWallet.length-1]} BTC</b></p>
             <p className="lead"><b>(${Math.round(coldWallet[coldWallet.length-1]*price*100)/100})</b></p>
           </Card>
         </Col>
         <Col className="mb-2" xs={12} md={6} lg={4}>
-          <Card className="h-100" style={{background: "rgba(255,153,0,0.2)"}}>
+          <Card className="h-100" style={{background: "#fbdba3"}}>
             <p className="lead">ASIC Fund</p>
             <p className="lead"><b>{asicFund[asicFund.length-1]} BTC</b></p>
             <p className="lead"><b>(${Math.round(asicFund[asicFund.length-1]*price*100)/100})</b></p>
           </Card>
         </Col>
         <Col className="mb-2" xs={12} md={6} lg={4}>
-          <Card className="h-100" style={{background: "rgba(255,153,0,0.2)"}}>
+          <Card className="h-100" style={{background: "#fbdba3"}}>
             <p className="lead">Tax Fund</p>
             <p className="lead"><b>{taxFund[taxFund.length-1]}</b></p>
             <p className="lead"><b>(${Math.round(taxFund[taxFund.length-1]*price*100)/100})</b></p>
           </Card>
         </Col>
         <Col className="mb-2" xs={12} md={6} lg={4}>
-          <Card className="h-100" style={{background: "rgba(255,153,0,0.2)"}}>
+          <Card className="h-100" style={{background: "#fbdba3"}}>
             <p className="lead">Total Scoring Hashrate</p>
             <p className="lead"><b>{Math.round(hashrate/1000*100)/100} TH/s</b></p>
             <p className="lead"><b># of Asics: {numberOfAsics[numberOfAsics.length-1]}</b></p>
@@ -80,7 +80,7 @@ const Metrics = ({ price, casaWallet, coldWallet, asicFund, hashrate, numberOfAs
                 height: "400px",
                 title: "Holdings Breakdown",
                 backgroundColor: {
-                  fill: "#ffdcb2",
+                  fill: "#fbdba3",
                   stroke: "#dfbf8e",
                 },
                 hAxis: {
@@ -135,7 +135,7 @@ const Metrics = ({ price, casaWallet, coldWallet, asicFund, hashrate, numberOfAs
                 height: "400px",
                 title: "Number Of Asics",
                 backgroundColor: {
-                  fill: "#ffdcb2",
+                  fill: "#fbdba3",
                   stroke: "#dfbf8e",
                 },
                 hAxis: {

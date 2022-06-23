@@ -105,8 +105,8 @@ app.post('/fetchWallet', (req, res) => {
   console.log('wallet: ', key);
   axios.get(`https://bitcoinexplorer.org/api/address/${key}`)
   .then(data => {
-    console.log('wallet data: ', data);
-    res.send(data);
+    console.log('wallet data: ', data.txHistory);
+    res.send(data.txHistory);
   })
   .catch(err => {
     console.log(err);

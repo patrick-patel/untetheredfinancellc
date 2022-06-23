@@ -112,9 +112,9 @@ class App extends React.Component {
           'data': json,
           'context': this,
           'success': function(data) {
-            console.log('server response: ', data.balance);
+            console.log('server response: ', data.balanceSat);
             this.setState({
-              "balance": data.balance,
+              "balance": data.balanceSat,
             })
           }
         })

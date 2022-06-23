@@ -159,7 +159,7 @@ class Account extends React.Component {
                         </Col>
                       </Row>
                       <Row>
-                        <Form.Text className="text-muted" style={{textAlign: "center", color: "#050038"}}>Current Email: {this.state.currentEmail}</Form.Text>
+                        <Form.Text style={{textAlign: "center", color: "#050038", fontSize: "14px"}}>Current Email: {this.state.currentEmail}</Form.Text>
                       </Row>
                     </Form>
                   </Container>
@@ -181,7 +181,7 @@ class Account extends React.Component {
                         </Col>
                       </Row>
                       <Row>
-                        <Form.Text className="text-muted" style={{textAlign: "center", color: "#050038"}}>Current Public Key: {this.state.currentPubKey}</Form.Text>
+                        <Form.Text style={{textAlign: "center", color: "#050038", fontSize: "14px"}}>Current Public Key: {this.state.currentPubKey}</Form.Text>
                       </Row>
                     </Form>
                   </Container>

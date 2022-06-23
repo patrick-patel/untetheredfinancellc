@@ -106,13 +106,13 @@ class App extends React.Component {
           "key": data.key,
         })
         $.ajax({
-          'url': `https://api.bitaps.com/btc/v1/blockchain/address/state/${this.state.key}`,
+          'url': '/fetchWallet',
           'type': 'GET',
           'context': this,
           'success': function(data) {
-            console.log('server response: ', data);
+            console.log('server response: ', data.balance);
             this.setState({
-              "balance": data.data.balance,
+              "balance": data.balance,
             })
           }
         })

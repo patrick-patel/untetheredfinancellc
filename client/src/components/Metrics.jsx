@@ -9,7 +9,7 @@ const Metrics = ({ price, casaWallet, coldWallet, asicFund, hashrate, numberOfAs
     <Container>
       <br></br>
       <h3 className="display-3" style={{color: "#050038", textDecoration: "none"}}><b>Company Metrics</b></h3>
-      <Row style={{textAlign: "center"}}>
+      <Row style={{textAlign: "center", color: "#050038"}}>
         <Col className="mb-2" xs={12} md={6} lg={4}>
           <Card className="h-100" style={{background: "rgba(255,153,0,0.2)"}}>
             <p className="lead">Total BTC Holdings</p>
@@ -100,7 +100,7 @@ const Metrics = ({ price, casaWallet, coldWallet, asicFund, hashrate, numberOfAs
                 isStacked: true,
                 fontName: 'Verdana',
                 fontSize: 16,
-                legend: { position: 'bottom' },
+                // legend: { position: 'bottom' },
                 series: [
                   {color: "#050038"}
                 ],

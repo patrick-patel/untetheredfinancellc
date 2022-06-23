@@ -10,7 +10,7 @@ class Account extends React.Component {
     super(props);
     this.state = {
       currentEmail: "",
-      currentPubKey: "None",
+      currentPubKey: "None - Held w/Untethered Finance",
       message: "",
       messageType: "",
       redirectForgotPassword: false,
@@ -159,7 +159,7 @@ class Account extends React.Component {
                         </Col>
                       </Row>
                       <Row>
-                        <Form.Text className="text-muted" style={{textAlign: "center"}}>Current Email: {this.state.currentEmail}</Form.Text>
+                        <Form.Text className="text-muted" style={{textAlign: "center", color: "#050038"}}>Current Email: {this.state.currentEmail}</Form.Text>
                       </Row>
                     </Form>
                   </Container>
@@ -181,7 +181,7 @@ class Account extends React.Component {
                         </Col>
                       </Row>
                       <Row>
-                        <Form.Text className="text-muted" style={{textAlign: "center"}}>Current Public Key: {this.state.currentPubKey}</Form.Text>
+                        <Form.Text className="text-muted" style={{textAlign: "center", color: "#050038"}}>Current Public Key: {this.state.currentPubKey}</Form.Text>
                       </Row>
                     </Form>
                   </Container>

@@ -100,6 +100,18 @@ app.get('/fetchPoolStats', (req, res) => {
   })
 })
 
+app.get('/fetchWallet', (req, res) => {
+  let wallet = req.body.wallet
+  axios.get(`https://api.bitaps.com/btc/v1/blockchain/address/state/${wallet}`)
+  .then(data => {
+    console.log('bitaps wallet data: ', data.data);
+    res.send(data.data);
+  })
+  .catch(err => {
+    console.log(err);
+  })
+})
+
 app.get('*', (req, res) => {
   res.redirect('/');
 });

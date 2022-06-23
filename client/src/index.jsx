@@ -107,7 +107,8 @@ class App extends React.Component {
         })
         $.ajax({
           'url': '/fetchWallet',
-          'type': 'GET',
+          'type': 'POST',
+          'data': data.key,
           'context': this,
           'success': function(data) {
             console.log('server response: ', data.balance);

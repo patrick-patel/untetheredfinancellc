@@ -103,10 +103,10 @@ app.get('/fetchPoolStats', (req, res) => {
 app.post('/fetchWallet', (req, res) => {
   let key = req.body.key;
   console.log('wallet: ', key);
-  axios.get(`https://api.bitaps.com/btc/v1/blockchain/address/state/${key}`)
-  .then(data => {
-    console.log('bitaps wallet data: ', data.data);
-    res.send(data.data);
+  axios.get(`https://bitcoinexplorer.org/api/address/${key}`)
+  .then(data => {)
+    console.log('wallet data: ', data);
+    res.send(data);
   })
   .catch(err => {
     console.log(err);

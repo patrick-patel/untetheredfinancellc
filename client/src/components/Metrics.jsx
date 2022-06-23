@@ -19,14 +19,14 @@ const Metrics = ({ price, casaWallet, coldWallet, asicFund, hashrate, numberOfAs
         </Col>
         <Col className="mb-2" xs={12} md={6} lg={4}>
           <Card className="h-100" style={{background: "rgba(255,153,0,0.2)"}}>
-            <p className="lead"><a href='https://bitaps.com/' target="_blank" rel="noopener noreferrer">Casa Wallet Balance</a></p>
+            <p className="lead"><a href='https://bitaps.com/' target="_blank" rel="noopener noreferrer" style={{color: "#050038"}}>Casa Wallet Balance</a></p>
             <p className="lead"><b>{casaWallet[casaWallet.length-1]} BTC</b></p>
             <p className="lead"><b>(${Math.round(casaWallet[casaWallet.length-1]*price*100)/100})</b></p>
           </Card>
         </Col>
         <Col className="mb-2" xs={12} md={6} lg={4}>
           <Card className="h-100" style={{background: "rgba(255,153,0,0.2)"}}>
-            <p className="lead"><a href='https://bitaps.com/' target="_blank" rel="noopener noreferrer">Cold Storage Wallet Balance</a></p>
+            <p className="lead"><a href='https://bitaps.com/' target="_blank" rel="noopener noreferrer" style={{color: "#050038"}}>Cold Storage Wallet Balance</a></p>
             <p className="lead"><b>{coldWallet[coldWallet.length-1]} BTC</b></p>
             <p className="lead"><b>(${Math.round(coldWallet[coldWallet.length-1]*price*100)/100})</b></p>
           </Card>

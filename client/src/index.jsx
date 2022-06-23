@@ -152,6 +152,18 @@ class App extends React.Component {
                 "distributionsUSD": data.distributionsUSD,
                 "key": data.key,
               })
+              $.ajax({
+                'url': '/fetchWallet',
+                'type': 'POST',
+                'data': json,
+                'context': this,
+                'success': function(data) {
+                  console.log('server response: ', data.balanceSat);
+                  this.setState({
+                    "balance": data.balanceSat,
+                  })
+                }
+              })
               setTimeout(() => this.setState({ redirectDash: true }), 750);
               setTimeout(() => this.setState({ redirectDash: false }), 1000);
             }

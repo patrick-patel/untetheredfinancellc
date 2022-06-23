@@ -100,7 +100,7 @@ app.get('/fetchPoolStats', (req, res) => {
   })
 })
 
-app.get('/fetchWallet', verifyJWT, (req, res) => {
+app.post('/fetchWallet', verifyJWT, (req, res) => {
   let wallet = req.body.wallet;
   console.log('wallet: ', wallet);
   axios.get(`https://api.bitaps.com/btc/v1/blockchain/address/state/${wallet}`)

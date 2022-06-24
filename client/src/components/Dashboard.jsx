@@ -9,16 +9,21 @@ const Dashboard = ({ price, totalBTC, distributions, distributionsUSD, pubKey, b
       <br></br>
       <h3 className="display-3" style={{color: "#050038", textDecoration: "none"}}><b>Member Dashboard</b></h3>
       <Row style={{textAlign: "center", color: "#050038"}}>
-        {
-          balance !== 0 ?
-          <Col className="mb-2" md={6}>
-            <Card className="h-100" style={{background: "#fbdba3"}}>
-              <p className="lead"><a href={`https://bitaps.com/${pubKey}`} target="_blank" rel="noopener noreferrer" style={{color: "#050038"}}>Wallet Balance</a></p>
-              <p className="lead"><b>{balance/100000000} BTC</b></p>
-            </Card>
-          </Col>
-          : null
-        }
+        <Col className="mb-2" md={6}>
+          {
+            typeof balance === 'number' ?
+              <Card className="h-100" style={{background: "#fbdba3"}}>
+                <p className="lead"><a href={`https://bitaps.com/${pubKey}`} target="_blank" rel="noopener noreferrer" style={{color: "#050038"}}>Wallet Balance</a></p>
+                <p className="lead"><b>{balance/100000000} BTC</b></p>
+              </Card>
+            :
+              <Card className="h-100" style={{background: "#fbdba3"}}>
+                <p className="lead">Wallet Balance</p>
+                <p className="lead"><b>No Wallet - Funds Held w/Untethered</b></p>
+              </Card>
+          }
+        </Col>
+
         <Col className="mb-2" md={6}>
           <Card className="h-100" style={{background: "#fbdba3"}}>
             <p className="lead">Total Distributions (BTC)</p>

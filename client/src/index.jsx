@@ -215,7 +215,6 @@ class App extends React.Component {
                 <Nav.Link><Link to="/resources" className="btn btn-link" style={{color: "#050038", textDecoration: "none", fontSize: "28px"}}>Resources</Link></Nav.Link>
                 <NavDropdown title="Members" id="basic-nav-dropdown" className="btn btn-link" style={{color: "#050038", textDecoration: "none", fontSize: "28px"}}>
                   {this.state.isLoggedIn ? null : <NavDropdown.Item href="#action3"><Link to="/login" className="btn btn-link" style={{color: "#050038", textDecoration: "none", fontSize: "28px"}}>Login</Link></NavDropdown.Item>}
-                  {this.state.isLoggedIn ? null : <NavDropdown.Item href="#action3"><Link to="/register" className="btn btn-link" style={{color: "#050038", textDecoration: "none", fontSize: "28px"}}>register</Link></NavDropdown.Item>}
                   {this.state.isLoggedIn ? <NavDropdown.Item><Link to="/dashboard" className="btn btn-link" style={{color: "#050038", textDecoration: "none", fontSize: "28px"}}>Dashboard</Link></NavDropdown.Item> : null}
                   {this.state.isLoggedIn ? <NavDropdown.Item><Link to="/metrics" className="btn btn-link" style={{color: "#050038", textDecoration: "none", fontSize: "28px"}}>Metrics</Link></NavDropdown.Item> : null}
                   {this.state.isLoggedIn ? <NavDropdown.Item><Link to="/account" className="btn btn-link" style={{color: "#050038", textDecoration: "none", fontSize: "28px"}}>Account</Link></NavDropdown.Item> : null}
@@ -242,9 +241,6 @@ class App extends React.Component {
           </Route>
           <Route path="/login">
             {this.state.isLoggedIn ? <Redirect to="/dashboard" /> : this.state.redirectForgotPassword ? <Redirect to="/forgot-password" /> : <Login login={this.login.bind(this)} onChange={this.onChange.bind(this)} forgotPassword={this.forgotPassword.bind(this)} email={this.state.email} password={this.state.password} message={this.state.message} messageType={this.state.messageType} redirectLogin={this.state.redirectLogin} redirectDash={this.state.redirectDash} redirectForgotPassword={this.state.redirectForgotPassword}/>}
-          </Route>
-          <Route path="/register">
-            {this.state.isLoggedIn ? <Redirect to="/dashboard" /> : <Register />}
           </Route>
           <Route path="/account">
             {this.state.isLoggedIn ? <Account /> : <Redirect to="/login" />}

@@ -19,7 +19,7 @@ const Dashboard = ({ price, totalBTC, distributions, distributionsUSD, pubKey, b
             :
               <Card className="h-100" style={{background: "#fbdba3"}}>
                 <p className="lead">Wallet Balance</p>
-                <p className="lead"><b>No Wallet - Funds Held w/Untethered</b></p>
+                <p className="lead"><b>No Wallet</b></p>
               </Card>
           }
         </Col>

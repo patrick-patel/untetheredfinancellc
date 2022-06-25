@@ -9,7 +9,7 @@ const Dashboard = ({ price, totalBTC, distributions, distributionsUSD, pubKey, b
       <br></br>
       <h3 className="display-3" style={{color: "#050038", textDecoration: "none"}}><b>Member Dashboard</b></h3>
       <Row style={{textAlign: "center", color: "#050038"}}>
-        <Col className="mb-2" md={6}>
+        <Col className="mb-2" xs={12} md={6} lg={3}>
           {
             typeof balance === 'number' ?
               <Card className="h-100" style={{background: "#fbdba3"}}>
@@ -24,19 +24,19 @@ const Dashboard = ({ price, totalBTC, distributions, distributionsUSD, pubKey, b
           }
         </Col>
 
-        <Col className="mb-2" md={6}>
+        <Col className="mb-2" xs={12} md={6} lg={3}>
           <Card className="h-100" style={{background: "#fbdba3"}}>
             <p className="lead">Total Distributions (BTC)</p>
             <p className="lead"><b>{totalBTC}</b></p>
           </Card>
         </Col>
-        <Col className="mb-2" md={6}>
+        <Col className="mb-2" xs={12} md={6} lg={3}>
           <Card className="h-100" style={{background: "#fbdba3"}}>
             <p className="lead">Total Distributions (USD)</p>
             <p className="lead"><b>${Math.round(totalBTC*Number(price)*100)/100}</b></p>
           </Card>
         </Col>
-        <Col className="mb-2" md={6}>
+        <Col className="mb-2" xs={12} md={6} lg={3}>
           <Card className="h-100" style={{background: "#fbdba3"}}>
             <p className="lead">BTCUSD Market Price</p>
             <p className="lead"><b>${price}</b></p>
